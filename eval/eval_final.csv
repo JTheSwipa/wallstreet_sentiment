@@ -1,65 +1,10 @@
-id,datetime,subreddits,comments,label_sentiment,label_is_relevant,label_tickers,_source
-60c5d91d,26/06/24 18:07,news,"Justice Jackson’s dissent:
-
-> **JAMES E. SNYDER, PETITIONER v. UNITED STATES**
-
-> **ON WRIT OF CERTIORARI TO THE UNITED STATES COURT OF APPEALS FOR THE SEVENTH CIRCUIT**
-
->  JUSTICE JACKSON, with whom JUSTICE SOTOMAYOR and JUSTICE KAGAN join, dissenting.
-
-> **Officials who use their public positions for private gain threaten the integrity of our most important institutions.**
-
->  Greed makes governments—at every level—less responsive, less efficient, and less trustworthy from the perspective of the communities they serve.
-
->  Perhaps realizing this, Congress used “expansive, unqualified language” in 18 U.S.C. §666 to criminalize graft involving state, local, and tribal entities, as well as other organizations receiving federal funds. *Salinas v. United States*, 522 U.S. 52, 56 (1997). Section 666 imposes federal criminal penalties on agents of those entities who “corruptly” solicit, accept, or agree to accept payments “intending to be influenced or rewarded.” §666(a)(1)(B).
-
->  **Today’s case involves one such person. James Snyder, a former Indiana mayor, was convicted by a jury of violating §666 after he steered more than $1 million in city contracts to a local truck dealership, which turned around and cut him a $13,000 check.** He asks us to decide whether the language of §666 criminalizes both bribes and gratuities, or just bribes. And he says the answer matters because bribes require an upfront agreement to take official actions for payment, and he never agreed beforehand to be paid the $13,000 from the dealership.
-
->  Snyder’s absurd and atextual reading of the statute is one only today’s Court could love. Ignoring the plain text of §666—which, again, expressly targets officials who “corruptly” solicit, accept, or agree to accept payments “intending to be influenced or rewarded”—the Court concludes that the statute does not criminalize gratuities at all. This is so, apparently, because “[s]tate and local governments often regulate the gifts that state and local officials may accept,” *ante*, at 1, which, according to the majority, means that §666 cannot.
-
->  **The Court’s reasoning elevates nonexistent federalism concerns over the plain text of this statute and is a quintessential example of the tail wagging the dog.** Section 666’s regulation of state, local, and tribal governments reflects Congress’s express choice to reach those and other entities receiving federal funds. And Congress not only had good reasons for doing so, it also had the authority to take such legislative action, as this Court has already recognized. See *Sabri v. United States*, 541 U.S. 600, 605, 608 (2004). We have long held that when Congress has appropriated federal money, it “does not have to sit by and accept the risk of operations thwarted by local and state improbity.” *Id.*, at 605.
-
->  Both the majority and Snyder suggest that interpreting §666 to cover gratuities is problematic because it gives “federal prosecutors unwarranted power to allege crimes that should be handled at the State level.” App. 14-15 (emphasis added); see also *ante*, at 10-11. **But woulds, coulds, and shoulds of this nature must be addressed across the street with Congress, not in the pages of the U.S. Reports.** We have previously and wisely declined “to express [a] view as to [§666’s] soundness as a policy matter.” *Sabri*, 541 U.S., at 608, n. But, today, the Court can stay silent no longer. Its decision overrides the intent of Congress—and the policy preferences of the constituents that body represents—as unequivocally expressed by the plain text of the statute.
-
->  Respectfully, I dissent.",neutral,FALSE,,calibration_majority_vote
-ff951b7d,19/11/24 19:24,news,"This exact same logic will start being used to avoid sentencing for all politicians...then all public officials...them all law enforcement agents ...then all CEOs and C-suite executives...then all bankers ...then all middle management...
-
-Eventually the only people held accountable for crimes will very literally be the working class.",neutral,FALSE,,calibration_majority_vote
-8c359d55,22/01/25 15:34,news,It is really bad that people who should not get clearence have. But the opportunity to send bad intel to our enemies and see who is selling us out will be priceless,neutral,FALSE,,calibration_majority_vote
-471028ab,09/12/24 17:40,news,Here in South Carolina Danny would have been given a medal and a hero's parade for protecting the public.,neutral,FALSE,,calibration_majority_vote
-bcf14c3d,17/09/24 19:43,news,I thought they weren't allowed to do that anymore...?,negative,FALSE,,calibration_majority_vote
+id,datetime,subreddits,comments,label_sentiment,label_is_relevant,label_tickers,_source,notes,_annotator
 2f064e34,20/08/24 19:21,news,"Not only is he able to do that, but when he took over Chipotle in 2018 he uprooted the entire corporation from Denver and moved it out to his home base in Newport.
 
 The company at the time was in the process of moving into a brand new high-rise in downtown Denver.  After the move they were required to pay dead rent on this multi million dollar facility all for his convenience,  moving the company closer to where he and his former Taco Bell executives lived (several of which he later poached from TB).
 
-The majority of the Denver corporate staff were let go as a result. Some were able to relocate to The corporate headquarters and more to a branch office in Columbus",negative,TRUE,CMG,calibration_majority_vote
-5420fe42,03/05/24 00:27,news,Title should read- Florida bans free market capitalism,neutral,FALSE,,calibration_majority_vote
-117d9b7a,09/10/24 18:16,news,"The federal government needs to step in immediately. If these jails are anywhere near storm surge, this is nothing less than state sponsored 1st degree murder.",neutral,FALSE,,calibration_majority_vote
-fbedcfbf,17/07/24 14:30,news,Caught on tape committing an obvious crime. He could've been charged in early 2021.,neutral,FALSE,,calibration_majority_vote
-35bac17c,25/10/24 17:11,news,Time to sell my TSLA stock.,negative,TRUE,TSLA,calibration_majority_vote
-5519563d,10/02/24 02:39,news,"Before everyone loses their shit, here’s the sad situation with Kanye West that people completely disregard but he’s rich and is constantly saying something awful in the public eye.
-
-He’s always had a massive public love and appreciation for his mother, he finally got the money after hard work (and he was a genuinely talented artist every one of us loves at least 2 of his songs).
-
-He paid for plastic surgery for his mum, she had breast reduction surgery and some lipo. The surgeon was allegedly tried already for drunk operating and two surgical malpractices. She died from complications and no amount of money he had could change that. She was only 58 years old.
-
-Yes Kanye is an idiot, yes he’s completely unhinged and the stuff he says is absolutely abhorrent. He’s surrounded by money men who only tell him what he wants to hear and nobody in the world has more faith in Kanye… than Kanye.
-
-Is he an actual Nazi though or has  he had an incredibly serious mental breakdown and is he in a position where he’ll listen to anyone other than himself about it?
-
-Think of the other celebrities like Tila Tequila everyone thought she was a massive crazy nazi who went off the rails, until it came to light she’s suffered massive brain damage years before.
-
-These aren’t well people, yes Ozzy has every right to tell him to fuck off using his music, I love Black Sabbath more than Kanye West musically but people need to be more human about peoples mental state than just calling someone a crazy racist nazi nut job.",negative,FALSE,,calibration_majority_vote
-9782a784,20/04/24 16:59,news,"Glad he did this rather than ar a bunch of people like they normally do.
-I can see being driven to insanity by the propaganda. He made a statement without killing other people.",neutral,FALSE,,calibration_majority_vote
-0ebee118,19/07/24 22:26,news,"Oh god, he also did the same shit in NC, he was one of those tiki torch losers.
-
-Just an all around asshole. Exactly who the marines seem to love.",negative,FALSE,,calibration_majority_vote
-c26377aa,03/01/25 22:16,news,"When I was 22 I got arrested for running through the streets naked, and although it was determined to be a result of a bipolar psychotic break, I still had to go to court, and I still had to go to probation which lasted for six months visiting with a cop how come he doesn’t even get probation?",neutral,FALSE,,calibration_majority_vote
-a3834c92,11/09/24 02:47,news,If anyone did something like this to my cat i can assure you I would receive more than double that sentence for my retaliation.,negative,FALSE,,calibration_majority_vote
-2ca7d8a6,06/09/24 00:47,news,To 99% of the world gifting a gun to a child is such a bizarre and alien concept.,neutral,FALSE,,calibration_majority_vote
-9b08c2e8,25/03/24 13:21,news,"You know exactly what the executives at big corporations like this get paid for right? Marketing, stock price boosting, and being fall guys with a golden parachute before they become CEO of either company.",neutral,FALSE,,calibration_majority_vote
-df1f08fd,11/03/24 22:53,news,"3 months later:  The autopsy report was released and it shows how the victim shot himself in the back of the head, twice, from 5' away",neutral,FALSE,,calibration_majority_vote
+The majority of the Denver corporate staff were let go as a result. Some were able to relocate to The corporate headquarters and more to a branch office in Columbus",negative,TRUE,CMG,calibration_majority_vote,,
+35bac17c,25/10/24 17:11,news,Time to sell my TSLA stock.,negative,TRUE,TSLA,calibration_majority_vote,,
 3484c938,22/10/24 14:23,news,"[https://investor.gm.com/news-releases/news-release-details/gm-board-approves-new-6-billion-share-repurchase-authorization](https://investor.gm.com/news-releases/news-release-details/gm-board-approves-new-6-billion-share-repurchase-authorization)
 
 
@@ -92,26 +37,202 @@ GM has around 50000 employees. In 2023, they paid shareholders (via stock buybac
 In 2022, this was $220K per employee paid to shareholders. In 2024, it is planned to be a similar figure.
 
 
-Raegan and Thatcher made share buybacks legal in the US and UK.",positive,TRUE,GM,calibration_majority_vote
-d8d29fa4,09/01/25 18:52,news,Fines like this are so stupid and pointless. Their market cap is 482 billion.,neutral,FALSE,,calibration_majority_vote
-2f6bbc39,07/10/24 15:58,news,Harris needs to use this immediately to show that Republicans have zero intentions of letting anyone make their own health care choices.,neutral,FALSE,,calibration_majority_vote
-50e71707,16/11/24 02:39,news,"https://www.wsws.org/en/articles/2024/11/15/svof-n15.html
-
-We had our first case of H5N1 in B.C. and it's put a teenager in critical condition",neutral,FALSE,,calibration_majority_vote
-dd70d45a,06/11/24 00:03,news,Tucker Carlsons favorite country,neutral,FALSE,,calibration_majority_vote
+Raegan and Thatcher made share buybacks legal in the US and UK.",positive,TRUE,GM,calibration_majority_vote,,
 4dc70d8e,20/08/24 19:21,news,"Just sent an email to Starbucks through their Contact Us online. It’s a pain in the ass to get to.
-“Hello l’d like to leave feedback concerning your incoming CEO Brian Niccol and the decision to allow him to emit over 2000lbs of carbon per month into our atmosphere in order to commute from Southern California to Seattle on a weekly basis. I find it disingenuous when Starbucks claims to commit itself to sustainability. I hope this bites y’all in the ass as Brian Niccol will ruin the quality of your business as he did to Chipotle.”",negative,TRUE,SBUX,calibration_majority_vote
-26376bdc,15/10/24 14:29,news,"Uh huh, side question before the inevitable bail out cause they're ""too big to fail"", how many times have they done stock buybacks or given large executive payouts?",negative,FALSE,,calibration_majority_vote
-cf529aa2,26/07/24 15:49,news,"The local Chipotle has a lot of 1-star reviews lately.  They all mention the same thing - lack of cleanliness, and extremely small portion sizes.",negative,TRUE,CMG,calibration_majority_vote
-4d5b8d93,31/05/24 20:13,news,DAMN!!! Chipotle invoked the wrath of Keith Lee.....HANG IT UP!!!!! SHEESH!!!!,negative,TRUE,CMG,calibration_majority_vote
-91f35ab5,05/08/24 14:15,news,"From another article: ""The deal announced during a hearing Thursday before Clark County District Judge Tierra Jones calls for the four to be sent to juvenile court and face an undetermined length of imprisonment in a juvenile detention center. 3 days ago""
+“Hello l’d like to leave feedback concerning your incoming CEO Brian Niccol and the decision to allow him to emit over 2000lbs of carbon per month into our atmosphere in order to commute from Southern California to Seattle on a weekly basis. I find it disingenuous when Starbucks claims to commit itself to sustainability. I hope this bites y’all in the ass as Brian Niccol will ruin the quality of your business as he did to Chipotle.”",negative,TRUE,SBUX,calibration_majority_vote,,
+cf529aa2,26/07/24 15:49,news,"The local Chipotle has a lot of 1-star reviews lately.  They all mention the same thing - lack of cleanliness, and extremely small portion sizes.",negative,TRUE,CMG,calibration_majority_vote,,
+4d5b8d93,31/05/24 20:13,news,DAMN!!! Chipotle invoked the wrath of Keith Lee.....HANG IT UP!!!!! SHEESH!!!!,negative,TRUE,CMG,calibration_majority_vote,,
+6d8d2f2b,2024-07-26 15:49:53,news,The only times I order from chipotle is through the app for convenience but once I realized how much smaller they make them I just completely stopped. Chipotle is in the same wheelhouse as five guys for me…never again,negative,TRUE,CMG,,,Sergio_labeled
+2aacc1ff,2024-03-25 13:21:43,news,"Stock buybacks not working out? Maybe Boeing should get out of the stock buyback business and start making
+#FUNCTIONAL AIRCRAFT",negative,TRUE,BA,,,Sergio_labeled
+f16aaf84,2024-07-26 15:49:53,news,We tried Qdoba for the first time. Definitely recommend it over Chipotle. You get free queso and guacamole with their burrito bowls.,positive,TRUE,CMG,,Positive for Qboda,Sergio_labeled
+beca1449,2024-08-27 00:27:41,news,Glad I hate coffee and Chipotle already lol,negative,TRUE,CMG,,Might be a wordplay,Sergio_labeled
+9cc0fd31,2024-07-26 15:49:53,news,"No shit. I stopped going to Chipotle years ago over this. Chipotle stopped being a good deal around 2015-2016 ish. Ever since then, I’ve been disappointed every time. Stopped going completely around the pandemic and haven’t regretted it once. The local burrito joint near me is far tastier, cheaper and gives me more food.
 
-""Defense lawyer Robert Draskovich, representing one of the four defendants, called the deadly fight a tragedy, but said convicting the four students of murder as adults would have been a second tragedy.
+Fast food places are on a slow decline. It’s tough to eat at a fast food place these days for cheaper than a local restaurant, and in some cases you can go to an actual sit down restaurant for less. Why would I choose Chipotle when I can get better and more food for less at a place 2 blocks away?
 
-“This negotiation enables my client to graduate high school, move on with his life and become a productive citizen,” Draskovich told The Associated Press on Thursday.""
+Edit: I totally LOL’d at “we don’t want it to become a negative because of some social media customers.”
 
-""The attorney said he’ll ask at sentencing for his client to be released from custody with credit for time already served. Draskovich acknowledged that his client was among those who kicked Lewis while he was on the ground but said a jury also would have seen video showing at least one of the people in a group with Lewis had a knife.""
+Yeah, blame the people exposing you for people abandoning your restaurant because of your own shitty practices. That quote has put the nail in the coffin for me on Chipotle. Clicked on the article and started to think “you know, maybe I’ll give them a shot next year and see if things have changed.”
 
-https://www.pressdemocrat.com/article/news/4-las-vegas-teens-agree-to-plead-guilty-as-juveniles-in-deadly-beating-of-h/?ref=TSM#:\~:text=The%20deal%20announced%20during%20a,in%20a%20juvenile%20detention%20center.",neutral,FALSE,,calibration_majority_vote
-b9efc30c,17/10/24 22:02,news,"The father looks like he’s regretting all his life decisions, sucks to learn the hard way.",neutral,FALSE,,calibration_majority_vote
-ce88c80b,13/11/24 16:37,news,"So judges are just gonna keep recusing themselves until the defense gets one that Trump appointed, huh",neutral,FALSE,,calibration_majority_vote
+Nope. Not after that comment. Fuck this company. They can go out of business for all I care",very negative,TRUE,CMG,,,Sergio_labeled
+07e7f094,2024-10-15 14:29:47,news,"Boeing has spent nearly $70B on stock buybacks since 2010.  Ban stock buybacks, nationalize the company as a critical security assest.  Re-organize the board and leadership, and then set back into the private sector with strict rules around executive compensation.
+
+At this point Boeing, as a prime defense contractor, is now a material danger to our procurement process and defense needs.  They are to big to fail, we shouldnt let them, but we should also make sure that the company is fixed and set on the right path with this shit to never happen again.",very negative,TRUE,BA,,,Sergio_labeled
+1ccb6acc,2024-08-02 02:26:23,news,"intel is a bloated dumpster fire, I don't blame the shareholders for wanting cost-savings/budget cuts, but honestly, the layoffs should start at the top... it was executives that drove a once great company into the ground",neutral,TRUE,INTC,,,Sergio_labeled
+5887cff2,2024-06-12 00:58:20,news,">*Musk, in a February 1, 2018, email, told company executives* ***that the only path forward for OpenAI was for Tesla, his electric car company, to buy it. The company refused, and Musk left OpenAI later that year.***
+
+>*In December 2018,* ***Musk emailed Altman and other executives that OpenAI would not be relevant “without a dramatic change in execution and resources.”***
+
+*Microsoft has since committed $13 billion in a close partnership with OpenAI.*
+
+>*Musk’s complaint, filed last week in California state court, said that company and its partnership with Microsoft violated OpenAI’s founding charter, representing a breach of contract.*
+
+The move to drop the lawsuit also came one day after Musk fired off a string of posts on his social media platform X criticizing OpenAI and its handling of user data, after Apple announced a partnership that integrates ChatGPT with digital personal assistant Siri for users on an opt-in basis.
+
+“If Apple integrates OpenAI at the OS﻿ (operating system) level, then Apple devices will be banned at my companies.",neutral,TRUE,"TSLA, MSFT, AAPL",,,Sergio_labeled
+7567d080,2024-04-18 17:08:59,news,"Being outed on FOX by Jesse Watters would scare the crap out of me.
+
+https://www.salon.com/2024/04/18/juror-quits-over-fear-of-being-outed-after-fox-news-host-singled-her-out/",negative,TRUE,FOX,,Criticising the presenter,Sergio_labeled
+c1b316ce,2024-07-26 15:49:53,news,"I’ve never understood why people like Chipotle’s. For me, a Chipotle’s is if you took a Moe’s and took away around half of what makes Moe’s awesome.",negative,TRUE,CMG,,,Francesco_labeled
+884d31b1,2024-02-26 18:13:52,news,"I work at one of the MANY Kroger owned companies:
+
+Baker’s
+
+City Market
+
+Dillons
+
+Food 4 Less
+
+Foods Co
+
+Fred Meyer
+
+Fry’s
+
+Gerbes
+
+Jay C Food Store
+
+King Soopers
+
+Kroger
+
+Mariano’s
+
+Metro Market
+
+Pay-Less Super Markets
+
+Pick’n Save
+
+QFC
+
+Ralphs
+
+Ruler
+
+Smith’s Food and Drug
+
+They had copies throughout the breakroom about the deal and trying to convince employees it would be good for lower prices/higher wages/better benefits. Literally no one is buying it. They also force us to take pop quizzes on these phone-like devices everyday where we're force to read and accept what the CEO is saying about the deal like how we all are forced to hit accept on terms and service agreements. Of course no one is actually reading them either. We just scroll through it fast and hit accept.
+
+The attempting brainwashing of the employees about this is very real.
+
+The only grocery stores near me are Albertsons, QFC, Fred Meyer, and Safeway. Walmart is a little futher away. Yeah, I'll really have a lot of choices as both a customer and an employee.",very negative,TRUE,"KR, ACI, WMT",,,Francesco_labeled
+a61cc78e,2024-05-31 20:13:05,news,So long Chipotle....it was nice being a customer while you weren't up your own ass with corporate greed.  I'm out.  ✌️,very negative,TRUE,CMG,,,Francesco_labeled
+df98cd7d,2024-07-26 15:49:53,news,"I don't think I've ever thought of Chipolte's portions as generous, they always skimped compared to Qdoba.",negative,TRUE,CMG,,,Francesco_labeled
+"6,92E+19",2024-09-18 02:15:47,news,"What people need to realise is just how important Trump winning is to Russia. Putin’s goal is to abolish NATO or at least remove the US’s support.
+
+Now that Trump is very clearly on a path to lose the propaganda and other actions are going to ramp up. We’re going to see some wild shit.
+
+For example I personally believe there will be a campaign against Musk in order to force Tesla share prices to collapse with the hopes that it will trigger a run.",negative,TRUE,TSLA,,,Francesco_labeled
+c6c0b2ea,2024-07-26 15:49:53,news,"I worked in food as a teen.
+
+Workers do not err on the side of being strict with portion size unless a mandate comes down from leadership because a manager's bonus is based on keeping tight inventory.
+
+We will give you extra whipped cream, meat, soup, et cetera (especially if you are nice).
+
+
+It used to be I could go to Chipotle and their basic serving of meat was enough for me to spread over three meals.  I would go there and get sides of meat just to take home and prepare other meals myself with.
+
+Now I eat fewer calories and am at a diet deficit with smaller portions and that shit is only enough for 1.5 meals.",negative,TRUE,CMG,,,Francesco_labeled
+25467b6f,2024-07-19 09:03:38,news,"God you know the CrowdStrike support team is in absolute hell today....
+
+You know every call goes something along the lines of
+
+Customer: ""Well, were an ***airline*** it's absolutely critical you get this working for me!!!!!!""
+
+Tech Support: ""I'm aware ma'am, but I've also got banks, the NYSE, ***and hospitals*** that also need help, I'm doing my best!""
+
+Customer: ""well, just get it done!""",negative,TRUE,"CRWD, ICE",,,Francesco_labeled
+0a21ac35,2024-12-05 14:30:07,news,"> No current or former executives of UnitedHealth Group receive regular company-funded personal security service, according to the insurance giant’s two most recent proxy statements. Companies have to report security expenses for directors or corporate officers if the value exceeds $10,000 per year.
+
+> Two of UnitedHealthcare’s peers, Humana and Cigna, both said in their most recent proxy statements that they provide personal security to executives. SEC records, though, did not disclose which executives received this protection or how much was being spent.
+
+UnitedHealthcare is so shitty they even deny their own C-suite security coverage. Lmao",very negative,TRUE,"UNH, HUM, CI",,,Francesco_labeled
+6deb4791,2024-08-20 19:21:31,news,This is the guy who led chipotle through their tiny portions trend… can’t wait for Starbucks to go downhill,negative,TRUE,"CMG, SBUX",,,Francesco_labeled
+633b9455,2024-08-27 00:27:41,news,"> U.S. NLRB prosecutors have determined that a union's claims that Chipotle Mexican Grill illegally refused to give raises to workers at a Michigan restaurant after they became the first and only employees of the fast-casual chain to unionize have merit.
+
+> Chipotle is accused of violating federal labor law by telling employees in Lansing, Michigan, that the company could not give them raises granted other employees because they had unionized, and then illegally withheld the pay hike from them.
+
+> The NLRB in April 2023 reached a separate settlement with Chipotle in which it agreed to pay $240,000 to workers impacted by its decision to close an Augusta, Maine, restaurant because of unionization efforts.
+
+The CEO of Chipotle Brian Niccol is an anti-labor POS, and he's about to become the CEO of Starbucks, probably because they want him to squash any unionization efforts there too. Corporations are scared when workers unionize, because unions stand up for the people.",negative,TRUE,"CMG, SBUX",,,Francesco_labeled
+b3307a23,26/07/24 15:49,news,"I lived off of Chipotle in my University days, the only thing that used to really irritate me about the burritos was that they wouldn't wrap them properly and they'd fall apart as you were eating.",neutral,TRUE,CGM,,,Pierpaolo_labeled
+2a617f13,31/07/24 15:49,news,"I worked at Starbucks for several years in my 20’s. The appeal wore off very quickly even with the perks of the job. It’s glorified fast food and awful coffee. They use child labor at the coffee plantations, they lie through their teeth about their green initiatives and they take advantage of their employees. I haven’t stepped foot in a Starbucks in almost a decade. Support your local shop and if you want better quality fast food coffee try Dutch Bros.",negative,TRUE,"SBUX, BROS",,,Pierpaolo_labeled
+dcd078e5,31/05/24 20:13,news,"Idk if anyone will see this and frankly I’m too lazy to look through the comments to see if it’s been said, but this is a lie and there’s proof.
+
+Their former CEO has publicly stated that the current portion ideology is different.
+
+Basically the former CEO said fuck portion control, purchases will outweigh the cost. Also, because they gave out so much food, they couldn’t properly regulate where it was coming from due to the high cost of that process.
+
+That’s when the e.coli outbreak in Chipotle’s food entered the equation.
+
+They fired that CEO then the new one they brought in started shrinking portions because Chipotle started to regulate where their ingredients were coming from and that was a big cost increase.
+
+Current CEO is a liar and there’s actual evidence that he’s gaslighting everyone. He just doesn’t give a shit cause a lot of people don’t either, which saddens me.
+
+Boycott Chipotle cause they suck now and cost an arm and a leg.
+
+Love,
+- a former chipotle fan boy.",very negative,TRUE,CGM,,,Pierpaolo_labeled
+cde3fb41,31/05/24 20:13,news,McDonalds is the worst but I can't think of a time when Chipotle wasn't controversial.,negative,TRUE,"MCD, CGM",,,Pierpaolo_labeled
+8fd5629e,02/08/24 02:26,news,So Intel’s stock’s are going to rise now? ffs.,positive,TRUE,INTC,,,Pierpaolo_labeled
+3dd6ffc3,12/07/24 12:50,news,"Just FYI ya'll, I got an alert from both of my banks that my SS number was exposed in this data breach. I don't know why AT&T had my SS number to begin with, but it says it was exposed.
+
+I haven't had AT&T cell service in like 20 years, and only had AT$T GO for two years back in 2020, which I didn't have to provide my SS for.",negative,TRUE,T,,,Pierpaolo_labeled
+7da3d6fc,26/07/24 15:49,news,"Had Chipotle last night, bowl w chicken, brown rice, fajita veggies, cheese and lettuce. So little chicken in it, might as well have not been in there. Smfh.",negative,TRUE,CGM,,,Pierpaolo_labeled
+e13a4b82,14/01/25 23:02,news,"Noone is saying the real reason TT is being banned...so here goes.
+Apac is pissed the ""youth "" aren't buying their propaganda and threw a bunch of money at our politicians.  Then Zuck threw some more money in the pot and reps bought meta stock for when we're all forced back to his apps. RN migration is a big FU to all of them. In the process, we've started a dialog with the everyday people in China and whaddya know, we're not so different. There's commilunity on TT. It has become a place to learn, share interests and create community. A lot of people grew their business on TT.
+
+If they really cared about our data, they would have done something when Zuck sold it to Cambridge analytica. Shein is Chinese owned, takes our data, but they don't do shit. It's all about controlling the narrative and force feeding American propaganda.",negative,TRUE,META,,,Pierpaolo_labeled
+3e1681e4,26/07/24 15:49,news,"""some""
+
+Haven't been to a single chipotle recently that didn't skimp on everything, especially protein",negative,TRUE,CMG,,,Pierpaolo_labeled
+2a87e0db,22/10/24 22:47,news,"This won't be just their quarter-pounders. They use the beef across their menu, same with the veggies. irresponsible, they should not be saying it is only one sandwich when the affected ingredients are all across the menu.
+Not eating at Mcdonalds for awhile. Took Chipotle years to fix their same issue.",negative,TRUE,"MCD, CMG",,,Pierpaolo_labeled
+9309c196,22/02/24 11:31,news,"my att phone is on SOS, my verizon (visible) phone is fine",neutral,TRUE,"T, VZ",,,Pierpaolo_labeled
+a61b3953,31/05/24 20:13,news,I came back from out of the country and was craving chipotle earlier this week. My bowl was half the size it used to be. If that’s the “real” portions then it’s not even worth the price anymore.,negative,TRUE,CGM,,,Pierpaolo_labeled
+2ee5cddd,11/03/24 22:53,news,This is why I believe that a lot of companies who put profits before safety should be delisted from stock exchanges.  So crazy that John Oliver did a story on Boeing almost two weeks ago and shit like this just happened.,very negative,TRUE,BA,,,Pierpaolo_labeled
+bab21833,2024-05-31 20:13:05,news,Their official portions probably didn’t shrink. The problem is that employees used to not measure accurately and almost always gave everyone extra. Now they’re probably being monitored more closely and forced to give the official portion sizes which gives the appearance of shrinkage. Chipotle is getting technical here to cover their ass.,negative,TRUE,CMG,,,Jovan_labeled
+1583397c,2024-07-26 15:49:53,news,"Used to be my favorite place for fast food, now the only thing that could get me to go back to chipotle would be if they both raised portions and significantly lowered prices. I just don’t trust I’m going to get a $20 meal from them, if it was $10 I’d think about trying it again",negative,TRUE,CMG,,,Jovan_labeled
+fe7caec8,2024-05-31 20:13:05,news,"My chipotle gives FAT burritos like Mexican restaurant size, it really depends where you go",positive,TRUE,CMG,,,Jovan_labeled
+564fadf4,2024-12-27 20:00:58,news,"What a clickbait. Alltime high AAPL today in germany. Later a  mircrodrop. 0,35% down right now.
+
+I hope I will get some 50 nvidia at the limit, I set up today.",neutral,TRUE,"AAPL,NVDA",,,Jovan_labeled
+b0b9d5c1,2024-12-02 23:19:22,news,"> Following McCormick’s decision in January to void the plan, Musk lashed out at the court, posting on X, “Never incorporate your company in the state of Delaware.”
+
+The richest man is whining he didn't getting $56 BILLION richer. Absolute scum.
+
+> Musk is more than $43 billion richer since Donald Trump’s election victory last month. Tesla shares have soared 42% in the four weeks since the election on optimism that Musk’s coziness with the incoming president will lead to policies favorable to his companies.
+
+Please tell me more about he's on the side of the normal person, MAGA idiots.",negative,TRUE,TSL,,,Jovan_labeled
+21491145,2024-07-26 15:49:53,news,"Stop eating at Chipotle omg. There are way better local taquerias.
+
+It's like going to Panda Express when there is a plethora of good local, family owned Chinese Restaurants.",negative,TRUE,CMG,,,Jovan_labeled
+3ea8d72b,2024-07-26 15:49:53,news,"Last time I went to a Chipotle they had different cups/spoons for the meats and beans that were noticeably way smaller than the ones for the rice and veg.
+
+Never seen that before at the other locations, so we actively avoid that store.",negative,TRUE,CMG,,,Jovan_labeled
+f59ba709,2024-02-08 05:45:38,news,"Cause money people don't understand the fucking reality of McDonald's and fast food. You can't charge sit down prices for your C- burger joint. Quality at McDonald's is poor, prices are astronomical and those inflated prices are creating a false floor. The CEO, assuming they have a plan in place, sees that they cannot attempt to be ""premium"" when their core demo is families. I won't afford $35-$40 for 4 meals from McDonald's. It's not something I will pay. They need to find a way back to $5-$8 and get away from $10-$12.
+
+There are too many specialist food places to contend with. Specialty chicken sandwich shops and burger shops are in that $8 range and offer a wildly better product. Poor quality and inflated prices are going to crater McDonald's if they don't fix at least 1 of those 2 issues. I have no reason or desire to waste my shit calories for the week on McDonald's when Wendy's, steak n shake and Popeyes exists.",negative,TRUE,MCD,,,Jovan_labeled
+b96a0b53,2024-08-20 19:21:31,news,"Well, he nailed making chipotle inedible with terrible service. I am sure it was tough to accomplish this goal as chipotle was great for many years. I would never go to Starbucks so I am not sure what he can do to ruin it further.",negative,TRUE,"CMG, SBUX",,,Jovan_labeled
+0e2940a8,2024-07-26 15:49:53,news,">But boosting portion sizes at those Chipotle locations will make a dent in the chain's financial results, with CFO John Hartung saying that part of its higher cost of sales in the most recent quarter was due to ensuring ""correct and generous portions"" at those restaurants. Still, it's an investment that will continue, he added.
+
+Yeah, well, you were - if you think about it - stealing money from your customers by not giving them what you decided you should.
+
+So it is not costing you money to fix the stealing.
+
+You're just… no longer stealing.",negative,TRUE,CMG,,"Kind of a weird comment, but I think leaning negative with a bit of sarcasm",Alice_labeled
+3997f1d0,2024-07-26 15:49:53,news,"My wife and I ordered online from Chipotle recently, and laughed at the tiny ass burritos we got that cost over $25 for two of them.  We won't ever go back.
+
+All these companies and their bullshit ""inflation"" increases, despite recording setting profits, have priced themselves out of my life entirely.",very negative,TRUE,CMG,,Customer is very angry about Chipotle’s prices.,Alice_labeled
+49f9f2c0,2024-08-20 19:21:31,news,"Funny how the guy comes from Taco Bell via Chipotle to Starbucks, which all three happen to be companies I think sell shit.",very negative,TRUE,"CMG, YUM, SBUX",,The customer thinks all three companies sell garbage products.,Alice_labeled
+cea2882f,2024-08-02 02:26:23,news,Oh no…right after the r/wallstreetbets post: “I just bought 700k worth of Intel Stock”,very negative,TRUE,INTC,,Something bad must have just happened with Intel stock ,Alice_labeled
+7cda74c1,2024-10-22 14:23:01,news,Afford is relative no? GM could afford to pay their worker’s demands but they were worried it’d affect the stock price.,very negative,TRUE,GM,,User is upset that GM is not paying employees enough.,Alice_labeled
+e7733943,2024-05-31 20:13:05,news,"I had only one Chipotle Burrito in my life, about a week ago, and it was a good portion...maybe I was lucky or their stuff was enormous before",positive,TRUE,CMG,,"A bit tricky because user seems to be referring to complaints that other people have had, but this user seems to have had a good experience.",Alice_labeled
+ffbce830,2024-07-26 15:49:53,news,"So stop going to Chipotle. They're stealing from you.
+
+Qdoba is better and with less disease anyway.",very negative,TRUE,CMG,,"Also mentions Qdoba, which isn’t on the stock exchange apparently.",Alice_labeled
+52dfa8e0,2024-07-26 15:49:53,news,It's not just a Chipotle issue. I used to work in different restaurants where food cost was associated to manager bonuses. Managers felt the pressure and would always tell employees to skimp on food to save money and get that bonus.,negative,TRUE,CMG,,,Alice_labeled
