@@ -1,0 +1,53 @@
+LABELING INSTRUCTIONS — Reddit Stock Sentiment Eval Set
+=======================================================
+
+STEP 1 — Calibration (everyone does this first)
+------------------------------------------------
+Open your personal calibration file (calibration_<yourname>.csv).
+Label all 30 comments independently — do not discuss with teammates yet.
+Then meet as a team, compare answers, discuss disagreements.
+This alignment step is the most important part — do not skip it.
+
+STEP 2 — Individual batches
+---------------------------
+After calibration discussion, each person opens their own batch:
+    Jovan: batch_Jovan.csv
+Alice: batch_Alice.csv
+Sergio: batch_Sergio.csv
+Pierpaolo: batch_Pierpaolo.csv
+Francesco: batch_Francesco.csv
+
+COLUMN GUIDE
+------------
+label_tickers   : Comma-separated US ticker symbols you see in the comment.
+                  Examples: AAPL   or   AAPL,TSLA   or leave blank if none.
+                  Use the standard ticker even if the full company name is used.
+                  ONLY include tickers you are confident about — omit if uncertain.
+
+label_sentiment : One of exactly these five values (copy-paste to avoid typos):
+                  ['very positive', 'positive', 'neutral', 'negative', 'very negative']
+                  Rate the sentiment toward the company/ticker, not the market overall.
+                  If multiple tickers: rate the dominant sentiment across all of them.
+
+label_is_relevant: TRUE if the comment mentions a publicly traded company clearly.
+                   FALSE for general news, politics, sports, memes with no company.
+                   When in doubt, lean FALSE.
+
+notes           : Optional. Flag sarcasm, irony, ambiguity ("hard call — sarcastic?").
+                  Very useful for calibration discussion.
+
+TRICKY CASES
+------------
+- Sarcasm / irony  : "Oh great, AAPL down 10%, absolutely crushing it" → negative
+- Mixed tickers    : "Sold AAPL, bought TSLA" → both tickers, sentiment = neutral
+- Indirect mention : "Fed raised rates" → NOT relevant (no company named)
+- Ticker-less      : "Apple is going to crush earnings" → relevant, ticker = AAPL
+- Pure meme/emoji  : "🚀🚀🚀 to the moon" → NOT relevant unless a ticker is clear
+
+AFTER LABELING
+--------------
+Save your CSV and run:
+    python score_eval.py
+
+This will compute inter-annotator agreement on the calibration set,
+flag the comments where you disagreed most, and produce the final eval report.

@@ -1,0 +1,6 @@
+reddit_comments.csv
+eval/model_vs_labels.csv
+eval/score_report_*.txt
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
