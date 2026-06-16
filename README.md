@@ -25,13 +25,74 @@ git clone https://gitlab.hpc.cineca.it/jjezdic0/big_data_lab.git
 cd big_data_lab
 ```
 
-### On Leonardo
+### On Leonardo (first time only)
 ```bash
 git clone https://gitlab.hpc.cineca.it/jjezdic0/big_data_lab.git
 cd big_data_lab
-bash config/1_configure_environment.sh   # sets up virtualenv + downloads LLM
-sbatch config/LLM_start_jupyter.job      # starts Jupyter on a worker node
 ```
+Use your CINECA username and Personal Access Token (not your Leonardo password) when prompted.
+
+---
+
+## Running the Notebook on Leonardo
+
+There are **two separate jobs** you need to run. Think of them as:
+- **Job 1** — the AI brain (loads the Mistral model onto GPUs, serves it as an API)
+- **Job 2** — your workspace (Jupyter, where you run the notebook)
+
+They run on different machines inside Leonardo. The notebook talks to the model over the cluster's internal network.
+
+### Step 1 — Start the AI model
+
+```bash
+sbatch config/LLM_start.job
+squeue --me -i 5    # wait until the job shows R (running), then Ctrl+C
+cat llm_launcher_small-*.out
+```
+
+Look for a line like:
+```
+ssh -L 8000:10.1.2.34:8000 jjezdic0@login02-ext.leonardo.cineca.it -N
+```
+**Copy the IP address** (the `10.x.x.x` part) — you'll need it in Step 4.
+
+### Step 2 — Start Jupyter
+
+```bash
+sbatch config/LLM_start_jupyter.job
+squeue --me -i 5    # wait until the job shows R, then Ctrl+C
+cat jupyter-*.out
+```
+
+You'll see two things: a tunnel command and a URL. Copy both.
+
+### Step 3 — Open SSH tunnels on your laptop
+
+Open **two separate terminal windows** on your laptop and run one command in each:
+
+```bash
+# Terminal 1 — Jupyter tunnel (copy exact command from jupyter-*.out)
+ssh -L <port>:<node_ip>:<port> jjezdic0@login02-ext.leonardo.cineca.it -N
+
+# Terminal 2 — LLM tunnel (copy exact command from llm_launcher_small-*.out)
+ssh -L 8000:<llm_ip>:8000 jjezdic0@login02-ext.leonardo.cineca.it -N
+```
+
+Keep both terminals open while you work.
+
+### Step 4 — Update the IP in the notebook
+
+Open `wallstreet_skeleton.ipynb` in Jupyter. In **Cell 1**, update this line with the IP from Step 1:
+
+```python
+VLLM_ENDPOINT = "http://10.1.2.34:8000/v1"   # ← replace with the current IP
+```
+
+**The IP changes every time you submit `LLM_start.job`** because Leonardo assigns it to a different GPU node each run. Always check the `.out` file for the current IP before running the notebook.
+
+### Step 5 — Run the notebook
+
+Open the URL from Step 2 in your browser and run the cells.
 
 ---
 
