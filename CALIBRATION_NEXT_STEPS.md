@@ -1,5 +1,61 @@
 # Calibration — What Happened, What It Means, What to Do Next
 
+## Current Status (updated 2026-06-16)
+
+| Task | Status |
+|------|--------|
+| Calibration analysis run (agreement metrics) | ✅ Done |
+| Identified Pierpaolo's file bug | ✅ Done |
+| Flagged 3 disagreement comments | ✅ Done |
+| Git repo created and pushed to CINECA GitLab | ✅ Done |
+| Fix Pierpaolo's calibration file | ⬜ Pending |
+| Team calibration discussion (3 disagreements) | ⬜ Pending |
+| Jovan labels calibration_Jovan.csv | ⬜ Pending |
+| Everyone labels their batch file (34 rows each) | ⬜ Pending |
+| Add teammates to GitLab repo | ⬜ Pending |
+| Clone repo on Leonardo and run pipeline | ⬜ Pending |
+| Run final model evaluation (score_eval.py --run-model) | ⬜ Pending |
+
+---
+
+## Version Control Setup
+
+**Your code repo is live at:**  
+`https://gitlab.hpc.cineca.it/jjezdic0/big_data_lab`
+
+This is your personal repo on the CINECA GitLab — the same infrastructure as Leonardo, so it's accessible from both your local machine and the cluster.
+
+**What's in the repo:**
+- `score_eval.py` — agreement metrics + model evaluation script
+- `eval/` — all calibration and batch CSVs
+- `CALIBRATION_NEXT_STEPS.md`, `PRODUCTION_READINESS.md`
+- `student_job_LLM.py`, `wallstreet_skeleton.ipynb`, `config/`
+- `.gitignore` — excludes `reddit_comments.csv`, `model_vs_labels.csv`, score reports
+
+**Standard workflow:**
+
+```bash
+# After making changes on your local machine:
+git add <file>
+git commit -m "describe what you changed"
+git push
+
+# To pull updates on Leonardo:
+git pull
+```
+
+**To clone on Leonardo** (once you log in):
+```bash
+git clone https://gitlab.hpc.cineca.it/jjezdic0/big_data_lab.git
+cd big_data_lab
+```
+You'll need your GitLab Personal Access Token as the password.
+
+**To add teammates** so they can push too:  
+Go to `https://gitlab.hpc.cineca.it/jjezdic0/big_data_lab` → Settings → Members → add their CINECA usernames with "Developer" or "Maintainer" role.
+
+---
+
 ## The Big Picture: Why Any of This Exists
 
 The project has an LLM pipeline (`analyze_comment()`) that reads Reddit comments and
@@ -62,11 +118,15 @@ table like this:
         ...
 ```
 
+**Important:** the numbers above are computed over all 30 comments, which is
+misleading — 24 of them are irrelevant (sentiment is blank). The meaningful numbers
+come from the **6 finance-relevant comments only**. On those, agreement looks like:
+kappa 0.02–0.56, within-1 agreement 75–100%. Still not great, but explainable (see below).
+
 ### Sentiment exact %
 
-The simplest number: out of 30 comments, what fraction did this pair label
-*identically*? Pierpaolo ↔ Alice at 10% means they picked the same label on 3 out
-of 30 comments. No adjustments, just raw agreement.
+The simplest number: out of the relevant comments, what fraction did this pair label
+*identically*? No adjustments, just raw agreement.
 
 The catch: some agreement happens by accident. If both people tend to default to
 "neutral" on ambiguous comments, they'll agree on all the neutral ones even without
@@ -87,19 +147,39 @@ label, how much of the observed agreement is just luck?*
 - κ 0.4–0.6 → moderate
 - κ > 0.6 → good
 
-Your team's kappas are 0.02–0.12. That means: marginally above chance, but not
-meaningfully so. This sounds alarming, but it reflects two things: (1) Reddit
-finance comments are genuinely ambiguous, and (2) the boundary between "neutral"
-and "negative" is blurry without written rules. The LLM will face the same
-ambiguity — so a lower F1 score at the end is an expected and valid finding, not
-a sign the project failed.
+Kappas of 0.02–0.56 mean: marginal-to-moderate agreement. This sounds alarming, but
+reflects a real problem: Reddit finance comments are genuinely ambiguous, and the
+boundary between "neutral" and "negative" is blurry without written rules. The LLM
+will face the same ambiguity — so a lower F1 score at the end is an expected and
+valid finding, not a sign the project failed.
 
 ### Sentiment within 1 %
 
 Like exact %, but counts a pair as agreeing if their labels are adjacent on the
 ordinal scale (very negative → negative → neutral → positive → very positive).
 Disagreeing by 1 step is treated as agreement. More forgiving and often more
-meaningful for ordinal scales.
+meaningful for ordinal scales. At 75–100% within-1, the team is mostly in the
+right ballpark even where exact labels differ.
+
+---
+
+## Known Bug: Pierpaolo's Calibration File
+
+Pierpaolo filled in `label_sentiment` on all 30 comments, including the 24 irrelevant
+ones. Everyone else (correctly) left irrelevant comments blank. This inflates his
+apparent disagreement with others.
+
+**Fix before running the final evaluation:**
+
+```python
+import pandas as pd
+df = pd.read_csv("eval/calibration_Pierpaolo.csv")
+df.loc[df["label_is_relevant"] == False, "label_sentiment"] = ""
+df.to_csv("eval/calibration_Pierpaolo.csv", index=False)
+```
+
+Or edit the CSV manually — for the 24 rows where `label_is_relevant` is FALSE, clear
+the `label_sentiment` cell.
 
 ---
 
@@ -118,46 +198,48 @@ These are stored in `eval/disagreements.csv`.
 
 ---
 
-## Next Steps
+## Next Steps (in order)
 
-### 1. Calibration discussion (15–20 min, can be async on WhatsApp)
+### 1. Fix Pierpaolo's file
+Apply the fix above (clear sentiment for irrelevant rows). Takes 2 minutes.
 
-Share the 3 disagreements above with the team. Agree on the correct label and —
+### 2. Calibration discussion (15–20 min, can be async on WhatsApp)
+
+Share the 3 disagreements with the team. Agree on the correct label and —
 more importantly — **write down the rule that settles it**. Example:
 
 > "If the poster is expressing bearish intent about a stock (selling, warning others
 > to sell, criticizing corporate behavior), label it negative regardless of the
 > company's own framing."
 
-These rules are what prevent the same disagreement from appearing 10 times across
-batch files.
+These rules prevent the same disagreement from appearing 10 times across batch files.
 
 You do **not** need to re-label the calibration set. The majority vote over the
 existing 4 files already produces defensible ground truth. The discussion is for
 aligning before batch labeling, not for perfecting the 30 calibration rows.
 
-### 2. Jovan labels his calibration file
+### 3. Jovan labels his calibration file
 
 File: `eval/calibration_Jovan.csv` — 30 rows, all blank.
 
 Open it, read each comment, fill in:
-- `label_tickers`: comma-separated ticker symbols mentioned (e.g. `TSLA,GM`), or blank
+- `label_tickers`: comma-separated ticker symbols (e.g. `TSLA,GM`), or blank
 - `label_sentiment`: one of `very negative`, `negative`, `neutral`, `positive`, `very positive`
 - `label_is_relevant`: `TRUE` if the comment is about a company's financial situation, `FALSE` otherwise
 
-You can use `eval/instructions.txt` for the full guide.
+Use `eval/instructions.txt` for the full guide.
 
-### 3. Everyone labels their batch file
+### 4. Everyone labels their batch file
 
 File: `eval/batch_<name>.csv` — 34 unique rows, all blank.
 Same columns as above. These 34 comments are yours alone — no one else labels them.
 
-### 4. Collect all batch files and run the evaluation
+### 5. Collect all batch files and run the evaluation
 
 Once all 5 batch files are filled in:
 
 ```bash
-cd /home/jovan/hpc_bbs_26/team_project/llm
+cd /path/to/big_data_lab   # wherever you cloned the repo
 python score_eval.py --run-model | tee eval/score_report_$(date +%Y%m%d).txt
 ```
 
@@ -167,7 +249,7 @@ This will:
 - Run `analyze_comment()` on all ~200 comments
 - Print precision, recall, F1 per sentiment class
 
-### 5. Decision gate
+### 6. Decision gate
 
 | Result | Action |
 |--------|--------|

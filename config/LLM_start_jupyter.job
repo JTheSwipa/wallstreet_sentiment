@@ -1,0 +1,55 @@
+#!/bin/bash
+
+#SBATCH --job-name=jupyter_environ
+#SBATCH --time=08:00:00
+#SBATCH --account=tra26_bbs
+#SBATCH --partition=boost_usr_prod
+#SBATCH --qos=normal
+#SBATCH --nodes=1
+#SBATCH --tasks-per-node=1
+#SBATCH --cpus-per-task=8
+#SBATCH --gres=gpu:1
+#SBATCH --error jupyter-%j.err
+#SBATCH --output jupyter-%j.out
+
+# Load the python module and enable the venv
+source /leonardo_scratch/fast/tra26_bbs/intro_to_llms_venv/bin/activate
+
+# Get the worker list associated to this slurm job
+worker_list=($(scontrol show hostnames "$SLURM_JOB_NODELIST"))
+
+# Set the first worker as the head node and get his ip
+worker_node=${worker_list[0]}
+worker_node_ip=$(srun --nodes=1 --ntasks=1 -w "$worker_node" hostname --ip-address)
+
+# Print ssh tunnel instruction
+jupyter_port=$((1024 + $RANDOM % 64511))
+jupyter_token=${USER}_${jupyter_port}
+mlflow_port=$((1024 + $RANDOM % 64511))
+echo ===================================================
+echo [INFO]: To access the Jupyter server and mlflow, remember to open a ssh tunnel with:
+echo ssh -L $jupyter_port:$worker_node_ip:$jupyter_port -L $mlflow_port:$worker_node_ip:$mlflow_port ${USER}@login02-ext.leonardo.cineca.it -o StrictHostKeyChecking=no -N
+echo then you can connect to the jupyter server at http://127.0.0.1:$jupyter_port/lab?token=$jupyter_token
+echo ===================================================
+
+export HF_HUB_OFFLINE="1"
+export RAY_ENABLE_RECORD_ACTOR_TASK_LOGGING="1"
+export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION="python"
+export MLFLOW_TRACKING_URI=http://127.0.0.1:$mlflow_port
+
+# Start the jupyter service
+echo [INFO]: Starting jupyter notebook server on $worker_node
+
+# Note that the jupyter notebook command is available only because we have enabled the venv
+command="jupyter lab --ip=0.0.0.0 --port=${jupyter_port} --NotebookApp.token=${jupyter_token}"
+echo [INFO]: $command
+$command &
+
+# Start the mlflow service
+command="mlflow server --host 0.0.0.0 --port $mlflow_port"
+echo [INFO]: $command
+$command &
+
+echo [INFO]: Your env is up and running.
+
+sleep infinity
