@@ -101,27 +101,53 @@ Open the URL from Step 2 in your browser and run the cells.
 | File | What it does |
 |------|-------------|
 | `score_eval.py` | Agreement metrics + model evaluation — the main script |
-| `eval/calibration_<name>.csv` | Your calibration labels (30 shared comments) |
-| `eval/batch_<name>.csv` | Your batch labels (34 unique comments per person) |
-| `eval/disagreements.csv` | Comments where the team disagreed most |
+| `wallstreet_skeleton.py` | Minimal LLM wrapper used by `score_eval.py` (plain JSON, no function calling) |
 | `wallstreet_skeleton.ipynb` | The main LLM pipeline notebook |
-| `CALIBRATION_NEXT_STEPS.md` | **Read this** — full explanation of what to do and in what order |
-| `PRODUCTION_READINESS.md` | What to fix after the eval passes F1 ≥ 0.70 |
+| `eval/calibration_<name>.csv` | Calibration labels (30 shared comments per person) |
+| `eval/batch_<name>_labeled.csv` | Completed batch labels (34 unique comments per person) |
+| `eval/eval_final.csv` | Merged ground truth — 58 usable rows after majority vote + batch merge |
+| `eval/model_vs_labels.csv` | Model predictions vs human labels (from last eval run) |
+| `eval/disagreements.csv` | Calibration comments where the team disagreed most |
+| `CALIBRATION_NEXT_STEPS.md` | Full explanation of the eval pipeline and labeling guide |
+| `PRODUCTION_READINESS.md` | Infrastructure steps after eval passes ≥ 70% |
 
 ---
 
-## Current Priority
+## Eval Results (2026-06-18)
 
-Everyone needs to label their batch file (`eval/batch_<yourname>.csv`, 34 rows).
-See `CALIBRATION_NEXT_STEPS.md` for the full labeling guide and next steps.
+Model: `mistralai/Mistral-Small-3.2-24B-Instruct-2506` — evaluated on 58 labeled comments.
+
+| Metric | Score |
+|--------|-------|
+| Sentiment accuracy | 40% |
+| Sentiment F1 (weighted) | 0.42 |
+| `is_relevant` accuracy | **72.4%** ✓ |
+
+`is_relevant` passes the 70% gate. Sentiment needs improvement — the model collapses most `very negative` comments into `negative` (recall 0.08). Next step: tune `SYSTEM_PROMPT` in `wallstreet_skeleton.py` with clearer rules for distinguishing sentiment levels.
+
+---
+
+## Running the Eval Script
+
+From Leonardo (after starting the LLM job):
+
+```bash
+module load python/3.11.7
+source .venv/bin/activate   # create with: python3 -m venv .venv && pip install langchain-openai pandas scikit-learn pydantic
+export VLLM_ENDPOINT="http://<node_ip>:8000/v1"
+export VLLM_API_KEY="password"
+python3 -u score_eval.py --run-model | tee eval/score_report_$(date +%Y%m%d).txt
+```
+
+Get `<node_ip>` from: `cat llm_launcher_small-*.out | grep "ssh -L"`
 
 ---
 
 ## Pushing Updates
 
 ```bash
-git add eval/batch_<yourname>.csv
-git commit -m "add batch labels for <yourname>"
+git add eval/model_vs_labels.csv
+git commit -m "add model eval results"
 git push
 ```
 
