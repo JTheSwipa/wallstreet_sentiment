@@ -5,3 +5,5 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 Leonardo_LLM_connections.txt
+.~lock.*#
+anaconda_projects/
