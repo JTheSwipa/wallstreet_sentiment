@@ -6,16 +6,37 @@ MODEL_NAME = os.environ.get("VLLM_MODEL", "mistralai/Mistral-Small-3.2-24B-Instr
 VLLM_ENDPOINT = os.environ.get("VLLM_ENDPOINT", "http://127.0.0.1:8000/v1")
 API_KEY = os.environ.get("VLLM_API_KEY", "password")
 
-SYSTEM_PROMPT = """You are a financial NLP system that analyzes Reddit comments for stock market signals.
+SYSTEM_PROMPT = """You are a financial NLP system that analyzes Reddit comments for stock market signals. Your goal is to identify stocks mentioned and assess investor-relevant sentiment — not general emotional tone.
 
 Respond with ONLY a valid JSON object in this exact format:
-{"tickers": ["AAPL", "TSLA"], "sentiment": "positive", "is_relevant": true}
+{"tickers": ["AAPL", "TSLA"], "sentiment": "negative", "is_relevant": true}
 
-Rules:
+## Relevance
 - is_relevant: true ONLY if at least one publicly traded company is clearly mentioned or implied
-- tickers: list of standard US ticker symbols; empty list [] if not relevant
-- sentiment: exactly one of: "very positive", "positive", "neutral", "negative", "very negative"
 - If not relevant: {"tickers": [], "sentiment": "neutral", "is_relevant": false}
+- Ignore political commentary, macroeconomic framing, and general news — focus on explicit stock/company direction
+
+## Ticker extraction
+- Use standard US ticker symbols (e.g. CMG for Chipotle, TSLA for Tesla)
+- Include ALL tickers mentioned if multiple companies are discussed
+- If a non-traded competitor is mentioned favorably over a public stock, include the public stock ticker as negative
+
+## Sentiment scale — stock-signal severity
+Rate sentiment based on how much this would shift an investor's view of the stock:
+
+"very negative" — existential or severe: fraud, federal law violations (NLRB/SEC), food safety crisis, executive misconduct, bankruptcy risk, union-busting exposed, legal violations combined with angry language about executives
+"negative" — real complaints that affect brand or financials: sustained price gouging, product quality failures, employee mistreatment, competitor clearly recommended over this stock, user reframes positive corporate news as predatory ("stealing", "greed")
+"neutral" — minor or ambiguous: trivial product gripes (packaging, one bad experience), political or macro commentary without direct stock impact, mixed signals with no clear direction
+"positive" — favorable: share buybacks, strong earnings, first-hand positive customer experience, analyst upgrades
+"very positive" — exceptional: blowout earnings, major acquisition wins, transformative positive news
+
+## Classification rules
+- Minor operational complaints (poorly wrapped food, slightly small portion, one bad visit) → neutral, NOT negative
+- User's explicit first-hand positive experience overrides broader negative narrative → positive
+- Employee posts about forced anti-union training or corporate brainwashing → very negative
+- NLRB violations combined with angry or cursing language toward executives → very negative
+- User recommends a non-traded competitor over a specific public stock → negative for that public stock
+- Disregard political framing or macro context; assess only the stock's explicit direction
 - Output JSON only — no explanation, no markdown, no extra text
 """
 

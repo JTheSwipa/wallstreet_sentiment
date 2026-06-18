@@ -157,7 +157,16 @@ Note: Alice and Sergio's low agreement is **not annotator error** — their batc
 - Model collapses `very negative` → `negative` or `neutral` (recall 0.08 for `very negative`)
 - Model over-predicts `neutral` (21 times vs 5 in human labels)
 
-**Next step:** tune `SYSTEM_PROMPT` in `wallstreet_skeleton.py` with severity anchors and few-shot examples for `very negative` vs `negative`. Use `eval/review_edge_cases.csv` (from `review_multi_company.ipynb`) as additional examples. After tuning, re-run `score_eval.py --run-model` and save results as `v2_*` artifacts using `eval_review.ipynb`.
+**v2 SYSTEM_PROMPT tuned** (2026-06-19) using Alice's edge case rules (`eval/edge_cases_Alice.csv`). Key changes: explicit severity scale, rules for `very negative` triggers (NLRB violations, union-busting), minor complaints → `neutral` not `negative`, competitor recommendation → `negative` for public stock.
+
+**Sentiment severity definition** — this is a stock-signal pipeline, not a brand sentiment tracker. Severity maps to investor impact:
+- `very negative`: existential threats — fraud, federal violations, food safety crisis, bankruptcy risk
+- `negative`: real brand/financial damage — price gouging, product failures, competitor wins
+- `neutral`: minor gripes with no investor impact — packaging complaints, one bad visit, macro framing
+- `positive`: favorable signals — buybacks, earnings beats, positive customer experience
+- `very positive`: transformative news — blowout earnings, major acquisitions
+
+After v2 re-evaluation, re-run `eval_review.ipynb` with `VERSION = 'v2'` to generate comparison artifacts.
 
 Versioned PNG artifacts for presentation comparison are in `eval/v1_*.png` and `eval/v1_classification_report.csv`.
 
