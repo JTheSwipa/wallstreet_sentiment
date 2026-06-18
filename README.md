@@ -80,6 +80,18 @@ ssh -L 8000:<llm_ip>:8000 jjezdic0@login02-ext.leonardo.cineca.it -N
 
 Keep both terminals open while you work.
 
+### Note — where are the job .out files?
+
+SLURM writes `.out` files to whichever directory you ran `sbatch` from. If you submitted from `~/project/big_data_lab/`, the files are there — not in the scratch area. Always `cat` them from that directory.
+
+### Note — reddit_comments.csv on Leonardo
+
+The file lives in the scratch area. Create a symlink in your working directory so notebooks find it automatically:
+
+```bash
+ln -s /leonardo_scratch/fast/tra26_bbs/jjezdic0/hpc_bbs_26/team_project/llm/reddit_comments.csv ~/project/big_data_lab/reddit_comments.csv
+```
+
 ### Step 4 — Update the IP in the notebook
 
 Open `wallstreet_skeleton.ipynb` in Jupyter. In **Cell 1**, update this line with the IP from Step 1:
@@ -108,12 +120,18 @@ Open the URL from Step 2 in your browser and run the cells.
 | `eval/eval_final.csv` | Merged ground truth — 58 usable rows after majority vote + batch merge |
 | `eval/model_vs_labels.csv` | Model predictions vs human labels (from last eval run) |
 | `eval/disagreements.csv` | Calibration comments where the team disagreed most |
+| `eval_review.ipynb` | Human vs model comparison notebook — confusion matrix, per-annotator accuracy, mismatch table. Run locally. |
+| `review_multi_company.ipynb` | Screens `reddit_comments.csv` with the LLM to collect edge-case comments for manual review. Run on Leonardo via Jupyter. |
+| `eval/v1_confusion_matrix.png` | Baseline confusion matrix (v1, 39.7% accuracy) |
+| `eval/v1_sentiment_distribution.png` | Human vs model sentiment distribution comparison (v1) |
+| `eval/v1_per_annotator_accuracy.png` | Per-annotator agreement with model (v1) |
+| `eval/v1_classification_report.csv` | Precision/recall/F1 per sentiment class (v1) |
 | `CALIBRATION_NEXT_STEPS.md` | Full explanation of the eval pipeline and labeling guide |
 | `PRODUCTION_READINESS.md` | Infrastructure steps after eval passes ≥ 70% |
 
 ---
 
-## Eval Results (2026-06-18)
+## Eval Results — v1 Baseline (2026-06-18)
 
 Model: `mistralai/Mistral-Small-3.2-24B-Instruct-2506` — evaluated on 58 labeled comments.
 
@@ -123,7 +141,25 @@ Model: `mistralai/Mistral-Small-3.2-24B-Instruct-2506` — evaluated on 58 label
 | Sentiment F1 (weighted) | 0.42 |
 | `is_relevant` accuracy | **72.4%** ✓ |
 
-`is_relevant` passes the 70% gate. Sentiment needs improvement — the model collapses most `very negative` comments into `negative` (recall 0.08). Next step: tune `SYSTEM_PROMPT` in `wallstreet_skeleton.py` with clearer rules for distinguishing sentiment levels.
+**Per-annotator agreement with model:**
+
+| Annotator | Accuracy | Comments labeled |
+|-----------|----------|-----------------|
+| Pierpaolo | 60% | 15 |
+| Francesco | 50% | 8 |
+| Jovan | 42% | 12 |
+| Sergio | 22% | 9 |
+| Alice | 0% | 8 |
+
+Note: Alice and Sergio's low agreement is **not annotator error** — their batches happened to contain mostly `very negative` comments, which the model almost never predicts (only 2/58 times vs 13/58 in human labels). This is the core model bug, not a labeling issue.
+
+**Core problems identified:**
+- Model collapses `very negative` → `negative` or `neutral` (recall 0.08 for `very negative`)
+- Model over-predicts `neutral` (21 times vs 5 in human labels)
+
+**Next step:** tune `SYSTEM_PROMPT` in `wallstreet_skeleton.py` with severity anchors and few-shot examples for `very negative` vs `negative`. Use `eval/review_edge_cases.csv` (from `review_multi_company.ipynb`) as additional examples. After tuning, re-run `score_eval.py --run-model` and save results as `v2_*` artifacts using `eval_review.ipynb`.
+
+Versioned PNG artifacts for presentation comparison are in `eval/v1_*.png` and `eval/v1_classification_report.csv`.
 
 ---
 
