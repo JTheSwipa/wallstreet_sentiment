@@ -1,6 +1,5 @@
+import json
 import os
-from enum import Enum
-from pydantic import BaseModel
 from langchain_openai import ChatOpenAI
 
 MODEL_NAME = os.environ.get("VLLM_MODEL", "mistralai/Mistral-Small-3.2-24B-Instruct-2506")
@@ -9,34 +8,16 @@ API_KEY = os.environ.get("VLLM_API_KEY", "password")
 
 SYSTEM_PROMPT = """You are a financial NLP system that analyzes Reddit comments for stock market signals.
 
-For every comment you receive, you must:
-1. Decide whether the comment is about one or more companies that are publicly traded on a major stock exchange (NYSE, NASDAQ, LSE, etc.).
-2. If yes, extract the standard US ticker symbol(s) (e.g. AAPL for Apple, TSLA for Tesla, MSFT for Microsoft, META for Meta, NVDA for Nvidia).
-3. Classify the overall sentiment of the comment toward those companies on a 5-point scale.
+Respond with ONLY a valid JSON object in this exact format:
+{"tickers": ["AAPL", "TSLA"], "sentiment": "positive", "is_relevant": true}
 
 Rules:
-- is_relevant = True ONLY if at least one publicly traded company is clearly mentioned or implied.
-- If the comment is general news, politics, sports, or personal, return is_relevant=False and tickers=[].
-- Use the most widely used US ticker even if the comment uses the full company name.
-- If multiple companies are mentioned, include all relevant tickers.
-- When uncertain about a ticker, omit it rather than guess.
-- Sentiment reflects the attitude toward the stock/company, not the comment's emotional tone in general.
+- is_relevant: true ONLY if at least one publicly traded company is clearly mentioned or implied
+- tickers: list of standard US ticker symbols; empty list [] if not relevant
+- sentiment: exactly one of: "very positive", "positive", "neutral", "negative", "very negative"
+- If not relevant: {"tickers": [], "sentiment": "neutral", "is_relevant": false}
+- Output JSON only — no explanation, no markdown, no extra text
 """
-
-
-class Sentiment(str, Enum):
-    VERY_POSITIVE = "very positive"
-    POSITIVE = "positive"
-    NEUTRAL = "neutral"
-    NEGATIVE = "negative"
-    VERY_NEGATIVE = "very negative"
-
-
-class CommentAnalysis(BaseModel):
-    tickers: list[str]
-    sentiment: Sentiment
-    is_relevant: bool
-
 
 _llm = ChatOpenAI(
     base_url=VLLM_ENDPOINT,
@@ -46,19 +27,25 @@ _llm = ChatOpenAI(
     max_retries=3,
     timeout=90,
 )
-_structured_llm = _llm.with_structured_output(CommentAnalysis)
 
 
 def analyze_comment(comment: str) -> dict:
     try:
-        result = _structured_llm.invoke([
+        response = _llm.invoke([
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": str(comment)[:2000]},
         ])
+        text = response.content.strip()
+        start = text.find("{")
+        end = text.rfind("}") + 1
+        if start == -1 or end == 0:
+            raise ValueError(f"No JSON in response: {text[:200]}")
+        data = json.loads(text[start:end])
+        sentiment = data.get("sentiment", "neutral").lower().strip()
         return {
-            "tickers": [t.upper().strip() for t in result.tickers if t.strip()],
-            "sentiment": result.sentiment.value,
-            "is_relevant": result.is_relevant,
+            "tickers": [t.upper().strip() for t in data.get("tickers", []) if t.strip()],
+            "sentiment": sentiment,
+            "is_relevant": bool(data.get("is_relevant", False)),
             "error": None,
         }
     except Exception as e:
