@@ -219,14 +219,16 @@ def run_model_eval(eval_df: pd.DataFrame) -> None:
     try:
         from wallstreet_skeleton import analyze_comment  # or wherever it lives
     except ImportError:
-        # Try to import from the student job script
         sys.path.insert(0, str(Path(__file__).parent))
         try:
-            from student_notebook_LLM import analyze_comment
+            from notebook_solution import analyze_comment
         except ImportError:
-            print("\n[Model eval] Could not import analyze_comment — skipping.")
-            print("  Add analyze_comment to a module importable from this directory.")
-            return
+            try:
+                from student_notebook_LLM import analyze_comment
+            except ImportError:
+                print("\n[Model eval] Could not import analyze_comment — skipping.")
+                print("  Add analyze_comment to a module importable from this directory.")
+                return
 
     from sklearn.metrics import classification_report
 
