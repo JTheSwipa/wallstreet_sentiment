@@ -233,11 +233,15 @@ Output: {"tickers": ["CMG"], "sentiment": "negative", "is_relevant": true}
 
 | Metric | v2 | v3 | Δ |
 |---|---|---|---|
-| Overall accuracy | 60.3% | TBD | — |
-| `very negative` recall | 7.7% (1/13) | TBD | — |
-| `negative` recall | 86.1% | TBD | — |
-| `neutral` recall | 40.0% | TBD | — |
-| `positive` recall | 25.0% | TBD | — |
-| is_relevant accuracy | 96.6% | TBD | — |
+| Overall accuracy | 60.3% | **69.0%** | +8.7pp |
+| `very negative` recall | 7.7% (1/13) | **69.2% (9/13)** | +61.5pp |
+| `very negative` precision | — | 53.3% | — |
+| `very negative` F1 | 0.125 | **0.60** | +0.475 |
+| `negative` recall | 86.1% | 75.0% | -11.1pp |
+| `neutral` recall | 40.0% | 40.0% | — |
+| `positive` recall | 25.0% | 50.0% | +25pp |
+| is_relevant accuracy | 96.6% | **98.3%** | +1.7pp |
 
-*Fill in after running `score_eval.py --run-model` with v3.*
+**Tradeoff:** `negative` recall dropped 11pp — some true negatives are now predicted as `very negative`. Expected cost of expanding the `very negative` definition. Acceptable given the 61pp gain on the target class.
+
+**Still missing (4 of 13):** cases 2 (brand dismissal), 3 (WSB contrarian signal), 4 (GM labor subtlety), 11 (stacked Tesla signals) — as predicted.
