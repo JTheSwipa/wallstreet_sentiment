@@ -217,18 +217,15 @@ def merge_calibration(cal_results: dict[str, pd.DataFrame]) -> pd.DataFrame:
 def run_model_eval(eval_df: pd.DataFrame) -> None:
     """Run analyze_comment() on eval set and print precision/recall/F1."""
     try:
-        from wallstreet_skeleton import analyze_comment  # or wherever it lives
+        from wallstreet_skeleton import analyze_comment
     except ImportError:
-        sys.path.insert(0, str(Path(__file__).parent))
+        sys.path.insert(0, str(Path(__file__).parent / "examples"))
         try:
             from notebook_solution import analyze_comment
         except ImportError:
-            try:
-                from student_notebook_LLM import analyze_comment
-            except ImportError:
-                print("\n[Model eval] Could not import analyze_comment — skipping.")
-                print("  Add analyze_comment to a module importable from this directory.")
-                return
+            print("\n[Model eval] Could not import analyze_comment — skipping.")
+            print("  Ensure wallstreet_skeleton.py is in this directory.")
+            return
 
     from sklearn.metrics import classification_report
 
