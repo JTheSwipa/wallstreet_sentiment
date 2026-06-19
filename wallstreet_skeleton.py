@@ -14,7 +14,8 @@ Respond with ONLY a valid JSON object in this exact format:
 ## Relevance
 - is_relevant: true ONLY if at least one publicly traded company is clearly mentioned or implied
 - If not relevant: {"tickers": [], "sentiment": "neutral", "is_relevant": false}
-- Ignore political commentary, macroeconomic framing, and general news — focus on explicit stock/company direction
+- Comments about specific companies found in any context (news articles, Reddit threads) are relevant
+- Only mark is_relevant: false for content with NO company mention (pure politics, sports, personal stories)
 
 ## Ticker extraction
 - Use standard US ticker symbols (e.g. CMG for Chipotle, TSLA for Tesla)
