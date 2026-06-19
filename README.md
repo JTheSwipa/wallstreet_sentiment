@@ -58,8 +58,8 @@ llm/
 │   ├── disagreements.csv        # Calibration rows with highest disagreement
 │   ├── edge_cases_Alice.csv     # Manual edge cases + classification rules
 │   ├── model_vs_labels.csv      # Last model run predictions (gitignored)
-│   ├── v1_*.png / v2_*.png      # Versioned evaluation charts
-│   └── v1_*.csv / v2_*.csv      # Versioned classification reports
+│   ├── v1_*.png / v2_*.png / v3_*.png   # Versioned evaluation charts
+│   └── v1_*.csv / v2_*.csv / v3_*.csv  # Versioned classification reports
 │
 ├── docs/
 │   ├── CALIBRATION_NEXT_STEPS.md  # Labeling guide and calibration process
@@ -76,22 +76,13 @@ llm/
 
 Model: `mistralai/Mistral-Small-3.2-24B-Instruct-2506` on 58 labeled comments.
 
-| Version | Accuracy | Negative F1 | Very Neg. Recall | is_relevant |
-|---------|----------|-------------|------------------|-------------|
-| v1 (baseline) | 40% | 0.60 | 0.08 | 72% |
-| v2 (prompt tuned) | **60%** | **0.75** | 0.08 | **97%** |
+| Version | Accuracy | Neg. F1 | Very Neg. Recall | Very Neg. F1 | is_relevant |
+|---------|----------|---------|------------------|--------------|-------------|
+| v1 (baseline) | 40% | 0.60 | 8% (1/13) | 0.13 | 72% |
+| v2 (prompt tuned) | 60% | 0.75 | 8% (1/13) | 0.13 | 97% |
+| v3 (few-shot + expanded rules) | **69%** | 0.77 | **69% (9/13)** | **0.60** | **98%** |
 
-**Per-annotator agreement with model (v2):**
-
-| Annotator | Accuracy |
-|-----------|----------|
-| Pierpaolo | 60% |
-| Francesco | 50% |
-| Jovan | 42% |
-| Sergio | 22% |
-| Alice | 0% |
-
-Alice and Sergio's low scores are **not annotator error** — their batches concentrated on `very negative` comments, which the model still rarely predicts (recall 0.08). This is the main remaining model bug.
+See `docs/PROMPT_HISTORY.md` for full prompt text and rationale for each version.
 
 **Sentiment severity scale** — severity maps to investor impact, not general emotional tone:
 
@@ -151,12 +142,10 @@ ssh -L <port>:<node_ip>:<port> jjezdic0@login02-ext.leonardo.cineca.it -N
 **Step 4 — Run the model eval**
 ```bash
 source .venv/bin/activate
-export VLLM_ENDPOINT="http://<llm_ip>:8000/v1"
-export VLLM_API_KEY="password"
-python3 -u score_eval.py --run-model | tee eval/score_report_$(date +%Y%m%d).txt
+python score_eval.py --run-model 2>&1 | tee eval/score_report_$(date +%Y%m%d).txt
 ```
 
-> The IP changes every time you resubmit `LLM_start.job` — always check the `.out` file.
+> `score_eval.py` and `wallstreet_skeleton.py` auto-detect the LLM node IP from the most recent `llm_launcher_small-*.out` file — no manual IP needed.
 
 ---
 
@@ -178,10 +167,9 @@ jupyter notebook eval_review.ipynb
 
 ## Next Steps
 
-1. **Fix `very negative` recall** — add 2–3 few-shot examples to `SYSTEM_PROMPT` in `wallstreet_skeleton.py` (NLRB violation, food safety, executive misconduct). This is the only remaining major bug.
-2. **Team calibration** — 25 calibration disagreements, all Kappa < 0.2. Align on `very negative` threshold before re-labeling.
-3. **Re-run eval** → generate v3 artifacts in `eval_review.ipynb` with `VERSION = 'v3'`.
-4. **Production** → follow `docs/PRODUCTION_READINESS.md` once accuracy ≥ 70%.
+1. **Team calibration** — 25 calibration disagreements, all Kappa < 0.2. Align on `very negative` threshold before re-labeling.
+2. **v4 prompt** — fix remaining 4 `very negative` misses (brand dismissal, WSB contrarian signal, GM labor subtlety, stacked signals). Target: ≥ 80% accuracy.
+3. **Production** → follow `docs/PRODUCTION_READINESS.md` once accuracy ≥ 70% (v3 is at 69% — one good v4 iteration may get there).
 
 ---
 
