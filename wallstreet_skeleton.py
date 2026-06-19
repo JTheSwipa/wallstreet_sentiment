@@ -1,10 +1,42 @@
+import glob
 import json
 import os
+import re
 from langchain_openai import ChatOpenAI
 
 MODEL_NAME = os.environ.get("VLLM_MODEL", "mistralai/Mistral-Small-3.2-24B-Instruct-2506")
-VLLM_ENDPOINT = os.environ.get("VLLM_ENDPOINT", "http://127.0.0.1:8000/v1")
 API_KEY = os.environ.get("VLLM_API_KEY", "password")
+
+
+def _get_llm_endpoint(port: int = 8000) -> str:
+    """Auto-detect vLLM node IP from the most recent LLM SLURM job output file.
+    Falls back to VLLM_ENDPOINT env var, then localhost."""
+    if "VLLM_ENDPOINT" in os.environ:
+        return os.environ["VLLM_ENDPOINT"]
+    search_dirs = [os.getcwd(), os.path.expanduser("~/project/big_data_lab")]
+    for d in search_dirs:
+        out_files = sorted(
+            glob.glob(os.path.join(d, "llm_launcher_small-*.out")),
+            key=os.path.getmtime, reverse=True,
+        )
+        for f in out_files:
+            try:
+                with open(f) as fp:
+                    for line in fp:
+                        m = re.search(r"Starting head node \S+ at (\d+\.\d+\.\d+\.\d+)", line)
+                        if m:
+                            ip = m.group(1)
+                            endpoint = f"http://{ip}:{port}/v1"
+                            print(f"[auto] LLM endpoint: {endpoint}  (from {os.path.basename(f)})")
+                            return endpoint
+            except Exception:
+                continue
+    fallback = f"http://127.0.0.1:{port}/v1"
+    print(f"[auto] No LLM job output found — using fallback: {fallback}")
+    return fallback
+
+
+VLLM_ENDPOINT = _get_llm_endpoint()
 
 SYSTEM_PROMPT = """You are a financial NLP system that analyzes Reddit comments for stock market signals. Your goal is to identify stocks mentioned and assess investor-relevant sentiment — not general emotional tone.
 
