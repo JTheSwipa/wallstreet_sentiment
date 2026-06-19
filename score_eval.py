@@ -214,7 +214,7 @@ def merge_calibration(cal_results: dict[str, pd.DataFrame]) -> pd.DataFrame:
 
 # ── Model evaluation ──────────────────────────────────────────────────────────
 
-def run_model_eval(eval_df: pd.DataFrame) -> None:
+def run_model_eval(eval_df: pd.DataFrame, n_workers: int = 8) -> None:
     """Run analyze_comment() on eval set and print precision/recall/F1."""
     try:
         from wallstreet_skeleton import analyze_comment
@@ -228,16 +228,27 @@ def run_model_eval(eval_df: pd.DataFrame) -> None:
             return
 
     from sklearn.metrics import classification_report
+    from concurrent.futures import ThreadPoolExecutor, as_completed
 
-    print("\nRunning model on eval set (this may take a few minutes)...")
-    labeled = eval_df[eval_df["label_sentiment"].isin(VALID_SENTIMENTS)].copy()
+    print(f"\nRunning model on eval set ({n_workers} workers)...")
+    labeled = eval_df[eval_df["label_sentiment"].isin(VALID_SENTIMENTS)].copy().reset_index(drop=True)
+    comments = labeled["comments"].tolist()
 
-    model_outputs = []
-    for i, row in labeled.iterrows():
-        result = analyze_comment(str(row["comments"]))
-        model_outputs.append(result.get("sentiment", "neutral"))
-        if (i + 1) % 20 == 0:
-            print(f"  {i + 1}/{len(labeled)} done")
+    # ── Parallel sentiment pass ────────────────────────────────────────────
+    model_outputs = [None] * len(comments)
+    model_results = [None] * len(comments)
+    completed = 0
+
+    with ThreadPoolExecutor(max_workers=n_workers) as executor:
+        futures = {executor.submit(analyze_comment, str(c)): i for i, c in enumerate(comments)}
+        for future in as_completed(futures):
+            i = futures[future]
+            result = future.result()
+            model_outputs[i] = result.get("sentiment", "neutral")
+            model_results[i] = result
+            completed += 1
+            if completed % 10 == 0:
+                print(f"  {completed}/{len(comments)} done")
 
     labeled["model_sentiment"] = model_outputs
 
@@ -249,13 +260,18 @@ def run_model_eval(eval_df: pd.DataFrame) -> None:
         zero_division=0,
     ))
 
-    # is_relevant accuracy
-    rel_labeled = eval_df[eval_df["label_is_relevant"].isin(["TRUE", "FALSE"])].copy()
+    # ── Parallel is_relevant pass ──────────────────────────────────────────
+    rel_labeled = eval_df[eval_df["label_is_relevant"].isin(["TRUE", "FALSE"])].copy().reset_index(drop=True)
     if len(rel_labeled) > 0:
-        rel_model = [
-            str(analyze_comment(str(r["comments"])).get("is_relevant", False)).upper()
-            for _, r in rel_labeled.iterrows()
-        ]
+        rel_comments = rel_labeled["comments"].tolist()
+        rel_model = [None] * len(rel_comments)
+
+        with ThreadPoolExecutor(max_workers=n_workers) as executor:
+            futures = {executor.submit(analyze_comment, str(c)): i for i, c in enumerate(rel_comments)}
+            for future in as_completed(futures):
+                i = futures[future]
+                rel_model[i] = str(future.result().get("is_relevant", False)).upper()
+
         acc = (rel_labeled["label_is_relevant"].values == rel_model).mean()
         print(f"is_relevant accuracy: {acc:.1%}  ({len(rel_labeled)} comments)")
 
@@ -270,6 +286,8 @@ def main():
     parser.add_argument("--eval-dir", default="eval")
     parser.add_argument("--run-model", action="store_true",
                         help="Call analyze_comment() on the final eval set")
+    parser.add_argument("--workers", type=int, default=8,
+                        help="Parallel workers for model eval (default 8)")
     parser.add_argument("--disagreement-only", action="store_true",
                         help="Only print flagged calibration disagreements")
     parser.add_argument("--agreement-threshold", type=float, default=0.6,
@@ -337,7 +355,7 @@ def main():
 
     # ── Optional model eval ────────────────────────────────────────────────
     if args.run_model:
-        run_model_eval(valid)
+        run_model_eval(valid, n_workers=args.workers)
     else:
         print(f"\nTo run model evaluation:  python score_eval.py --run-model")
 
