@@ -40,27 +40,27 @@ In 2022, this was $220K per employee paid to shareholders. In 2024, it is planne
 Raegan and Thatcher made share buybacks legal in the US and UK.",negative,TRUE,GM,calibration_majority_vote,,,positive
 4dc70d8e,2024-08-20 19:21:31,news,"Just sent an email to Starbucks through their Contact Us online. It’s a pain in the ass to get to.
 “Hello l’d like to leave feedback concerning your incoming CEO Brian Niccol and the decision to allow him to emit over 2000lbs of carbon per month into our atmosphere in order to commute from Southern California to Seattle on a weekly basis. I find it disingenuous when Starbucks claims to commit itself to sustainability. I hope this bites y’all in the ass as Brian Niccol will ruin the quality of your business as he did to Chipotle.”",negative,TRUE,SBUX,calibration_majority_vote,,,negative
-cf529aa2,2024-07-26 15:49:53,news,"The local Chipotle has a lot of 1-star reviews lately.  They all mention the same thing - lack of cleanliness, and extremely small portion sizes.",negative,TRUE,CMG,calibration_majority_vote,,,neutral
-4d5b8d93,2024-05-31 20:13:05,news,DAMN!!! Chipotle invoked the wrath of Keith Lee.....HANG IT UP!!!!! SHEESH!!!!,negative,TRUE,CMG,calibration_majority_vote,,,very negative
+cf529aa2,2024-07-26 15:49:53,news,"The local Chipotle has a lot of 1-star reviews lately.  They all mention the same thing - lack of cleanliness, and extremely small portion sizes.",negative,TRUE,CMG,calibration_majority_vote,,,negative
+4d5b8d93,2024-05-31 20:13:05,news,DAMN!!! Chipotle invoked the wrath of Keith Lee.....HANG IT UP!!!!! SHEESH!!!!,negative,TRUE,CMG,calibration_majority_vote,,,negative
 0e2940a8,2024-07-26 15:49:53,news,">But boosting portion sizes at those Chipotle locations will make a dent in the chain's financial results, with CFO John Hartung saying that part of its higher cost of sales in the most recent quarter was due to ensuring ""correct and generous portions"" at those restaurants. Still, it's an investment that will continue, he added.
 
 Yeah, well, you were - if you think about it - stealing money from your customers by not giving them what you decided you should.
 
 So it is not costing you money to fix the stealing.
 
-You're just… no longer stealing.",negative,TRUE,CMG,,"Kind of a weird comment, but I think leaning negative with a bit of sarcasm",Alice_labeled,neutral
+You're just… no longer stealing.",negative,TRUE,CMG,,"Kind of a weird comment, but I think leaning negative with a bit of sarcasm",Alice_labeled,negative
 3997f1d0,2024-07-26 15:49:53,news,"My wife and I ordered online from Chipotle recently, and laughed at the tiny ass burritos we got that cost over $25 for two of them.  We won't ever go back.
 
 All these companies and their bullshit ""inflation"" increases, despite recording setting profits, have priced themselves out of my life entirely.",very negative,TRUE,CMG,,Customer is very angry about Chipotle’s prices.,Alice_labeled,negative
 49f9f2c0,2024-08-20 19:21:31,news,"Funny how the guy comes from Taco Bell via Chipotle to Starbucks, which all three happen to be companies I think sell shit.",very negative,TRUE,"CMG, YUM, SBUX",,The customer thinks all three companies sell garbage products.,Alice_labeled,negative
-cea2882f,2024-08-02 02:26:23,news,Oh no…right after the r/wallstreetbets post: “I just bought 700k worth of Intel Stock”,very negative,TRUE,INTC,,Something bad must have just happened with Intel stock ,Alice_labeled,positive
+cea2882f,2024-08-02 02:26:23,news,Oh no…right after the r/wallstreetbets post: “I just bought 700k worth of Intel Stock”,very negative,TRUE,INTC,,Something bad must have just happened with Intel stock ,Alice_labeled,neutral
 7cda74c1,2024-10-22 14:23:01,news,Afford is relative no? GM could afford to pay their worker’s demands but they were worried it’d affect the stock price.,very negative,TRUE,GM,,User is upset that GM is not paying employees enough.,Alice_labeled,negative
 e7733943,2024-05-31 20:13:05,news,"I had only one Chipotle Burrito in my life, about a week ago, and it was a good portion...maybe I was lucky or their stuff was enormous before",positive,TRUE,CMG,,"A bit tricky because user seems to be referring to complaints that other people have had, but this user seems to have had a good experience.",Alice_labeled,neutral
 ffbce830,2024-07-26 15:49:53,news,"So stop going to Chipotle. They're stealing from you.
 
-Qdoba is better and with less disease anyway.",very negative,TRUE,CMG,,"Also mentions Qdoba, which isn’t on the stock exchange apparently.",Alice_labeled,neutral
-52dfa8e0,2024-07-26 15:49:53,news,It's not just a Chipotle issue. I used to work in different restaurants where food cost was associated to manager bonuses. Managers felt the pressure and would always tell employees to skimp on food to save money and get that bonus.,negative,TRUE,CMG,,,Alice_labeled,neutral
-b3307a23,26/07/24 15:49,news,"I lived off of Chipotle in my University days, the only thing that used to really irritate me about the burritos was that they wouldn't wrap them properly and they'd fall apart as you were eating.",neutral,TRUE,CGM,,,Pierpaolo_labeled,negative
+Qdoba is better and with less disease anyway.",very negative,TRUE,CMG,,"Also mentions Qdoba, which isn’t on the stock exchange apparently.",Alice_labeled,negative
+52dfa8e0,2024-07-26 15:49:53,news,It's not just a Chipotle issue. I used to work in different restaurants where food cost was associated to manager bonuses. Managers felt the pressure and would always tell employees to skimp on food to save money and get that bonus.,negative,TRUE,CMG,,,Alice_labeled,negative
+b3307a23,26/07/24 15:49,news,"I lived off of Chipotle in my University days, the only thing that used to really irritate me about the burritos was that they wouldn't wrap them properly and they'd fall apart as you were eating.",neutral,TRUE,CGM,,,Pierpaolo_labeled,neutral
 2a617f13,31/07/24 15:49,news,"I worked at Starbucks for several years in my 20’s. The appeal wore off very quickly even with the perks of the job. It’s glorified fast food and awful coffee. They use child labor at the coffee plantations, they lie through their teeth about their green initiatives and they take advantage of their employees. I haven’t stepped foot in a Starbucks in almost a decade. Support your local shop and if you want better quality fast food coffee try Dutch Bros.",negative,TRUE,"SBUX, BROS",,,Pierpaolo_labeled,negative
 dcd078e5,31/05/24 20:13,news,"Idk if anyone will see this and frankly I’m too lazy to look through the comments to see if it’s been said, but this is a lie and there’s proof.
 
@@ -79,7 +79,7 @@ Boycott Chipotle cause they suck now and cost an arm and a leg.
 Love,
 - a former chipotle fan boy.",very negative,TRUE,CGM,,,Pierpaolo_labeled,negative
 cde3fb41,31/05/24 20:13,news,McDonalds is the worst but I can't think of a time when Chipotle wasn't controversial.,negative,TRUE,"MCD, CGM",,,Pierpaolo_labeled,negative
-8fd5629e,02/08/24 02:26,news,So Intel’s stock’s are going to rise now? ffs.,positive,TRUE,INTC,,,Pierpaolo_labeled,positive
+8fd5629e,02/08/24 02:26,news,So Intel’s stock’s are going to rise now? ffs.,positive,TRUE,INTC,,,Pierpaolo_labeled,negative
 3dd6ffc3,12/07/24 12:50,news,"Just FYI ya'll, I got an alert from both of my banks that my SS number was exposed in this data breach. I don't know why AT&T had my SS number to begin with, but it says it was exposed.
 
 I haven't had AT&T cell service in like 20 years, and only had AT$T GO for two years back in 2020, which I didn't have to provide my SS for.",negative,TRUE,T,,,Pierpaolo_labeled,negative
@@ -88,14 +88,14 @@ I haven't had AT&T cell service in like 20 years, and only had AT$T GO for two y
 > Two of UnitedHealthcare’s peers, Humana and Cigna, both said in their most recent proxy statements that they provide personal security to executives. SEC records, though, did not disclose which executives received this protection or how much was being spent.
 
 UnitedHealthcare is so shitty they even deny their own C-suite security coverage. Lmao",negative,TRUE,"UNH, HUM, CI",,,Pierpaolo_labeled,negative
-7da3d6fc,26/07/24 15:49,news,"Had Chipotle last night, bowl w chicken, brown rice, fajita veggies, cheese and lettuce. So little chicken in it, might as well have not been in there. Smfh.",negative,TRUE,CGM,,,Pierpaolo_labeled,neutral
+7da3d6fc,26/07/24 15:49,news,"Had Chipotle last night, bowl w chicken, brown rice, fajita veggies, cheese and lettuce. So little chicken in it, might as well have not been in there. Smfh.",negative,TRUE,CGM,,,Pierpaolo_labeled,negative
 e13a4b82,14/01/25 23:02,news,"Noone is saying the real reason TT is being banned...so here goes.
 Apac is pissed the ""youth "" aren't buying their propaganda and threw a bunch of money at our politicians.  Then Zuck threw some more money in the pot and reps bought meta stock for when we're all forced back to his apps. RN migration is a big FU to all of them. In the process, we've started a dialog with the everyday people in China and whaddya know, we're not so different. There's commilunity on TT. It has become a place to learn, share interests and create community. A lot of people grew their business on TT.
 
 If they really cared about our data, they would have done something when Zuck sold it to Cambridge analytica. Shein is Chinese owned, takes our data, but they don't do shit. It's all about controlling the narrative and force feeding American propaganda.",negative,TRUE,META,,,Pierpaolo_labeled,negative
 3e1681e4,26/07/24 15:49,news,"""some""
 
-Haven't been to a single chipotle recently that didn't skimp on everything, especially protein",negative,TRUE,CMG,,,Pierpaolo_labeled,neutral
+Haven't been to a single chipotle recently that didn't skimp on everything, especially protein",negative,TRUE,CMG,,,Pierpaolo_labeled,negative
 884d31b1,26/02/24 18:13,news,"I work at one of the MANY Kroger owned companies:
 
 Baker’s
@@ -140,15 +140,15 @@ They had copies throughout the breakroom about the deal and trying to convince e
 
 The attempting brainwashing of the employees about this is very real.
 
-The only grocery stores near me are Albertsons, QFC, Fred Meyer, and Safeway. Walmart is a little futher away. Yeah, I'll really have a lot of choices as both a customer and an employee.",negative,TRUE,"KR, ACI",,,Pierpaolo_labeled,negative
+The only grocery stores near me are Albertsons, QFC, Fred Meyer, and Safeway. Walmart is a little futher away. Yeah, I'll really have a lot of choices as both a customer and an employee.",negative,TRUE,"KR, ACI",,,Pierpaolo_labeled,very negative
 2a87e0db,22/10/24 22:47,news,"This won't be just their quarter-pounders. They use the beef across their menu, same with the veggies. irresponsible, they should not be saying it is only one sandwich when the affected ingredients are all across the menu.
 Not eating at Mcdonalds for awhile. Took Chipotle years to fix their same issue.",negative,TRUE,"MCD, CMG",,,Pierpaolo_labeled,negative
-9309c196,22/02/24 11:31,news,"my att phone is on SOS, my verizon (visible) phone is fine",neutral,TRUE,"T, VZ",,,Pierpaolo_labeled,neutral
-a61b3953,31/05/24 20:13,news,I came back from out of the country and was craving chipotle earlier this week. My bowl was half the size it used to be. If that’s the “real” portions then it’s not even worth the price anymore.,negative,TRUE,CGM,,,Pierpaolo_labeled,neutral
+9309c196,22/02/24 11:31,news,"my att phone is on SOS, my verizon (visible) phone is fine",neutral,TRUE,"T, VZ",,,Pierpaolo_labeled,negative
+a61b3953,31/05/24 20:13,news,I came back from out of the country and was craving chipotle earlier this week. My bowl was half the size it used to be. If that’s the “real” portions then it’s not even worth the price anymore.,negative,TRUE,CGM,,,Pierpaolo_labeled,negative
 2ee5cddd,11/03/24 22:53,news,This is why I believe that a lot of companies who put profits before safety should be delisted from stock exchanges.  So crazy that John Oliver did a story on Boeing almost two weeks ago and shit like this just happened.,very negative,TRUE,BA,,,Pierpaolo_labeled,negative
-c1b316ce,2024-07-26 15:49:53,news,"I’ve never understood why people like Chipotle’s. For me, a Chipotle’s is if you took a Moe’s and took away around half of what makes Moe’s awesome.",negative,TRUE,CMG,,,Francesco_labeled,neutral
+c1b316ce,2024-07-26 15:49:53,news,"I’ve never understood why people like Chipotle’s. For me, a Chipotle’s is if you took a Moe’s and took away around half of what makes Moe’s awesome.",negative,TRUE,CMG,,,Francesco_labeled,negative
 a61cc78e,2024-05-31 20:13:05,news,So long Chipotle....it was nice being a customer while you weren't up your own ass with corporate greed.  I'm out.  ✌️,very negative,TRUE,CMG,,,Francesco_labeled,negative
-df98cd7d,2024-07-26 15:49:53,news,"I don't think I've ever thought of Chipolte's portions as generous, they always skimped compared to Qdoba.",negative,TRUE,CMG,,,Francesco_labeled,neutral
+df98cd7d,2024-07-26 15:49:53,news,"I don't think I've ever thought of Chipolte's portions as generous, they always skimped compared to Qdoba.",negative,TRUE,CMG,,,Francesco_labeled,negative
 "6,92E+19",2024-09-18 02:15:47,news,"What people need to realise is just how important Trump winning is to Russia. Putin’s goal is to abolish NATO or at least remove the US’s support.
 
 Now that Trump is very clearly on a path to lose the propaganda and other actions are going to ramp up. We’re going to see some wild shit.
@@ -180,12 +180,12 @@ Customer: ""well, just get it done!""",negative,TRUE,"CRWD, ICE",,,Francesco_lab
 
 > The NLRB in April 2023 reached a separate settlement with Chipotle in which it agreed to pay $240,000 to workers impacted by its decision to close an Augusta, Maine, restaurant because of unionization efforts.
 
-The CEO of Chipotle Brian Niccol is an anti-labor POS, and he's about to become the CEO of Starbucks, probably because they want him to squash any unionization efforts there too. Corporations are scared when workers unionize, because unions stand up for the people.",negative,TRUE,"CMG, SBUX",,,Francesco_labeled,negative
-6d8d2f2b,2024-07-26 15:49:53,news,The only times I order from chipotle is through the app for convenience but once I realized how much smaller they make them I just completely stopped. Chipotle is in the same wheelhouse as five guys for me…never again,negative,TRUE,CMG,,,Sergio_labeled,neutral
+The CEO of Chipotle Brian Niccol is an anti-labor POS, and he's about to become the CEO of Starbucks, probably because they want him to squash any unionization efforts there too. Corporations are scared when workers unionize, because unions stand up for the people.",negative,TRUE,"CMG, SBUX",,,Francesco_labeled,very negative
+6d8d2f2b,2024-07-26 15:49:53,news,The only times I order from chipotle is through the app for convenience but once I realized how much smaller they make them I just completely stopped. Chipotle is in the same wheelhouse as five guys for me…never again,negative,TRUE,CMG,,,Sergio_labeled,negative
 2aacc1ff,2024-03-25 13:21:43,news,"Stock buybacks not working out? Maybe Boeing should get out of the stock buyback business and start making
 #FUNCTIONAL AIRCRAFT",negative,TRUE,BA,,,Sergio_labeled,negative
-f16aaf84,2024-07-26 15:49:53,news,We tried Qdoba for the first time. Definitely recommend it over Chipotle. You get free queso and guacamole with their burrito bowls.,positive,TRUE,CMG,,Positive for Qboda,Sergio_labeled,neutral
-beca1449,2024-08-27 00:27:41,news,Glad I hate coffee and Chipotle already lol,negative,TRUE,CMG,,Might be a wordplay,Sergio_labeled,neutral
+f16aaf84,2024-07-26 15:49:53,news,We tried Qdoba for the first time. Definitely recommend it over Chipotle. You get free queso and guacamole with their burrito bowls.,positive,TRUE,CMG,,Positive for Qboda,Sergio_labeled,negative
+beca1449,2024-08-27 00:27:41,news,Glad I hate coffee and Chipotle already lol,negative,TRUE,CMG,,Might be a wordplay,Sergio_labeled,negative
 9cc0fd31,2024-07-26 15:49:53,news,"No shit. I stopped going to Chipotle years ago over this. Chipotle stopped being a good deal around 2015-2016 ish. Ever since then, I’ve been disappointed every time. Stopped going completely around the pandemic and haven’t regretted it once. The local burrito joint near me is far tastier, cheaper and gives me more food.
 
 Fast food places are on a slow decline. It’s tough to eat at a fast food place these days for cheaper than a local restaurant, and in some cases you can go to an actual sit down restaurant for less. Why would I choose Chipotle when I can get better and more food for less at a place 2 blocks away?
@@ -194,7 +194,7 @@ Edit: I totally LOL’d at “we don’t want it to become a negative because of
 
 Yeah, blame the people exposing you for people abandoning your restaurant because of your own shitty practices. That quote has put the nail in the coffin for me on Chipotle. Clicked on the article and started to think “you know, maybe I’ll give them a shot next year and see if things have changed.”
 
-Nope. Not after that comment. Fuck this company. They can go out of business for all I care",very negative,TRUE,CMG,,,Sergio_labeled,very negative
+Nope. Not after that comment. Fuck this company. They can go out of business for all I care",very negative,TRUE,CMG,,,Sergio_labeled,negative
 07e7f094,2024-10-15 14:29:47,news,"Boeing has spent nearly $70B on stock buybacks since 2010.  Ban stock buybacks, nationalize the company as a critical security assest.  Re-organize the board and leadership, and then set back into the private sector with strict rules around executive compensation.
 
 At this point Boeing, as a prime defense contractor, is now a material danger to our procurement process and defense needs.  They are to big to fail, we shouldnt let them, but we should also make sure that the company is fixed and set on the right path with this shit to never happen again.",very negative,TRUE,BA,,,Sergio_labeled,negative
@@ -215,7 +215,7 @@ The move to drop the lawsuit also came one day after Musk fired off a string of
 https://www.salon.com/2024/04/18/juror-quits-over-fear-of-being-outed-after-fox-news-host-singled-her-out/",negative,TRUE,FOX,,Criticising the presenter,Sergio_labeled,neutral
 bab21833,2024-05-31 20:13:05,news,Their official portions probably didn’t shrink. The problem is that employees used to not measure accurately and almost always gave everyone extra. Now they’re probably being monitored more closely and forced to give the official portion sizes which gives the appearance of shrinkage. Chipotle is getting technical here to cover their ass.,negative,TRUE,CMG,,,Jovan_labeled,negative
 1583397c,2024-07-26 15:49:53,news,"Used to be my favorite place for fast food, now the only thing that could get me to go back to chipotle would be if they both raised portions and significantly lowered prices. I just don’t trust I’m going to get a $20 meal from them, if it was $10 I’d think about trying it again",negative,TRUE,CMG,,,Jovan_labeled,negative
-fe7caec8,2024-05-31 20:13:05,news,"My chipotle gives FAT burritos like Mexican restaurant size, it really depends where you go",positive,TRUE,CMG,,,Jovan_labeled,neutral
+fe7caec8,2024-05-31 20:13:05,news,"My chipotle gives FAT burritos like Mexican restaurant size, it really depends where you go",positive,TRUE,CMG,,,Jovan_labeled,positive
 144bd6ac,2024-04-08 14:26:17,news,"He is getting desperate and has all reasons to do so:
 
 Tesla share price is dropping with no end in sight, the loan of 10 billion for the Twitter acquisition (with a crazy interest rate) has to be paid back , SpaceX is being SpaceX and excites probably only the die-hard Elon Fans and nobody else...
@@ -223,7 +223,7 @@ Tesla share price is dropping with no end in sight, the loan of 10 billion for t
 Not much left to cheer him up.",very negative,TRUE,TSL,,,Jovan_labeled,negative
 564fadf4,2024-12-27 20:00:58,news,"What a clickbait. Alltime high AAPL today in germany. Later a  mircrodrop. 0,35% down right now.
 
-I hope I will get some 50 nvidia at the limit, I set up today.",neutral,TRUE,"AAPL,NVDA",,,Jovan_labeled,positive
+I hope I will get some 50 nvidia at the limit, I set up today.",neutral,TRUE,"AAPL,NVDA",,,Jovan_labeled,neutral
 b0b9d5c1,2024-12-02 23:19:22,news,"> Following McCormick’s decision in January to void the plan, Musk lashed out at the court, posting on X, “Never incorporate your company in the state of Delaware.”
 
 The richest man is whining he didn't getting $56 BILLION richer. Absolute scum.
@@ -233,11 +233,11 @@ The richest man is whining he didn't getting $56 BILLION richer. Absolute scum.
 Please tell me more about he's on the side of the normal person, MAGA idiots.",negative,TRUE,TSL,,,Jovan_labeled,negative
 21491145,2024-07-26 15:49:53,news,"Stop eating at Chipotle omg. There are way better local taquerias.
 
-It's like going to Panda Express when there is a plethora of good local, family owned Chinese Restaurants.",negative,TRUE,CMG,,,Jovan_labeled,neutral
-0f67bb5b,2024-05-31 20:13:05,news,"Dude...they stole my chipotle bowl. I got the order in person,  then kept it on table to pick up online order,  i waited like more than usual there,  2 people came and tried to find my order but couldn't,  I give up and go back to my table... MAGIC!! only drink is there.... took it threw it pissed in the can and walked out",very negative,TRUE,CMG,,,Jovan_labeled,neutral
+It's like going to Panda Express when there is a plethora of good local, family owned Chinese Restaurants.",negative,TRUE,CMG,,,Jovan_labeled,negative
+0f67bb5b,2024-05-31 20:13:05,news,"Dude...they stole my chipotle bowl. I got the order in person,  then kept it on table to pick up online order,  i waited like more than usual there,  2 people came and tried to find my order but couldn't,  I give up and go back to my table... MAGIC!! only drink is there.... took it threw it pissed in the can and walked out",very negative,TRUE,CMG,,,Jovan_labeled,negative
 3ea8d72b,2024-07-26 15:49:53,news,"Last time I went to a Chipotle they had different cups/spoons for the meats and beans that were noticeably way smaller than the ones for the rice and veg.
 
-Never seen that before at the other locations, so we actively avoid that store.",negative,TRUE,CMG,,,Jovan_labeled,neutral
+Never seen that before at the other locations, so we actively avoid that store.",negative,TRUE,CMG,,,Jovan_labeled,negative
 f59ba709,2024-02-08 05:45:38,news,"Cause money people don't understand the fucking reality of McDonald's and fast food. You can't charge sit down prices for your C- burger joint. Quality at McDonald's is poor, prices are astronomical and those inflated prices are creating a false floor. The CEO, assuming they have a plan in place, sees that they cannot attempt to be ""premium"" when their core demo is families. I won't afford $35-$40 for 4 meals from McDonald's. It's not something I will pay. They need to find a way back to $5-$8 and get away from $10-$12.
 
 There are too many specialist food places to contend with. Specialty chicken sandwich shops and burger shops are in that $8 range and offer a wildly better product. Poor quality and inflated prices are going to crater McDonald's if they don't fix at least 1 of those 2 issues. I have no reason or desire to waste my shit calories for the week on McDonald's when Wendy's, steak n shake and Popeyes exists.",negative,TRUE,MCD,,,Jovan_labeled,negative
@@ -245,5 +245,5 @@ There are too many specialist food places to contend with. Specialty chicken san
 
 Fuck them.  Either they charge Americans the same as in Europe, or we should give their patents the middle finger and let anyone who wants to manufacture that shit.  Yes, it's a bureaucratic, expensive, barrier to entry nightmare getting access to the American drug market.  The FDA sucks.  But the payoff for those efforts IS THE ACCESS ITSELF.  They recouped those expenses in a matter of weeks.
 
-Sanders is right.  Either they play fair w/ consumers, or we should free market floodgate their ass.  Let India manufacture it.  What they're doing is ridiculous, and lawmakers suck for allowing these pharm companies to run rampant.",very negative,TRUE,NOVO-B,,,Jovan_labeled,neutral
+Sanders is right.  Either they play fair w/ consumers, or we should free market floodgate their ass.  Let India manufacture it.  What they're doing is ridiculous, and lawmakers suck for allowing these pharm companies to run rampant.",very negative,TRUE,NOVO-B,,,Jovan_labeled,very negative
 b96a0b53,2024-08-20 19:21:31,news,"Well, he nailed making chipotle inedible with terrible service. I am sure it was tough to accomplish this goal as chipotle was great for many years. I would never go to Starbucks so I am not sure what he can do to ruin it further.",negative,TRUE,"CMG, SBUX",,,Jovan_labeled,negative
