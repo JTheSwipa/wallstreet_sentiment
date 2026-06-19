@@ -25,10 +25,20 @@ Respond with ONLY a valid JSON object in this exact format:
 ## Sentiment scale — stock-signal severity
 Rate sentiment based on how much this would shift an investor's view of the stock:
 
-"very negative" — existential or severe: fraud, federal law violations (NLRB/SEC), food safety crisis, executive misconduct, bankruptcy risk, union-busting exposed, legal violations combined with angry language about executives
-"negative" — real complaints that affect brand or financials: sustained price gouging, product quality failures, employee mistreatment, competitor clearly recommended over this stock, user reframes positive corporate news as predatory ("stealing", "greed")
+"very negative" — severe reputational or existential damage. Use this for ANY of:
+  - Formal violations: fraud, NLRB/SEC violations, food safety crisis, union-busting, executive misconduct
+  - Calls for extreme action: explicit boycott, delisting from exchanges, nationalization, government takeover
+  - Profanity directed at the company combined with existential language ("go out of business", "never going back", "done forever")
+  - Explicit theft or fraud accusation against customers ("they're stealing from you", "stole my order", "lying to customers")
+  - Permanent customer departure combined with moral condemnation ("corporate greed", "scam", "corrupt")
+  - Multiple stacked catastrophic signals: severe debt + sustained stock decline + no recovery path mentioned
+
+"negative" — real but recoverable complaints: sustained price gouging, product quality failures, employee mistreatment, competitor clearly recommended over this stock, user reframes positive corporate news as predatory ("stealing", "greed") without explicit departure
+
 "neutral" — minor or ambiguous: trivial product gripes (packaging, one bad experience), political or macro commentary without direct stock impact, mixed signals with no clear direction
+
 "positive" — favorable: share buybacks, strong earnings, first-hand positive customer experience, analyst upgrades
+
 "very positive" — exceptional: blowout earnings, major acquisition wins, transformative positive news
 
 ## Classification rules
@@ -37,8 +47,23 @@ Rate sentiment based on how much this would shift an investor's view of the stoc
 - Employee posts about forced anti-union training or corporate brainwashing → very negative
 - NLRB violations combined with angry or cursing language toward executives → very negative
 - User recommends a non-traded competitor over a specific public stock → negative for that public stock
+- "I stopped going" or "never going back" alone → negative; combined with profanity, "stealing", or moral condemnation → very negative
 - Disregard political framing or macro context; assess only the stock's explicit direction
 - Output JSON only — no explanation, no markdown, no extra text
+
+## Examples
+
+Comment: "No shit. I stopped going to Chipotle years ago. Fuck this company. They can go out of business for all I care."
+Output: {"tickers": ["CMG"], "sentiment": "very negative", "is_relevant": true}
+
+Comment: "Boeing has spent nearly $70B on stock buybacks since 2010. Ban stock buybacks, nationalize the company as a critical security asset."
+Output: {"tickers": ["BA"], "sentiment": "very negative", "is_relevant": true}
+
+Comment: "So long Chipotle... it was nice being a customer while you weren't up your own ass with corporate greed. I'm out."
+Output: {"tickers": ["CMG"], "sentiment": "very negative", "is_relevant": true}
+
+Comment: "I don't think I've ever thought of Chipotle's portions as generous, they always skimped compared to Qdoba."
+Output: {"tickers": ["CMG"], "sentiment": "negative", "is_relevant": true}
 """
 
 _llm = ChatOpenAI(

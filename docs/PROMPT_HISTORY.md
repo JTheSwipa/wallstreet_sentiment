@@ -154,31 +154,90 @@ Rate sentiment based on how much this would shift an investor's view of the stoc
 
 ---
 
-## v3 — (next)
+## v3 — Expanded very negative + few-shot examples
 
+**Commit:** TBD
 **Goal:** Fix `very negative` recall from 7.7% toward 50%+.
 
-**Planned changes:**
-- Expand `very negative` definition to cover the 12 missed patterns (see below)
-- Add 3 few-shot examples directly in the prompt
+**Changes from v2:**
+- `very negative` definition rewritten from 4 triggers to 6, covering: formal violations, calls for extreme action (boycott/delisting/nationalization), profanity + existential language, theft/fraud accusation, permanent departure + moral condemnation, stacked catastrophic signals
+- Added boundary rule: "I stopped going" alone → `negative`; + profanity/stealing/condemnation → `very negative`
+- Added 4 few-shot examples (3 `very negative`, 1 `negative` showing the boundary)
 
-**The 12 missed `very negative` cases from v2:**
+**Expected to fix:** cases 5, 6, 7, 8, 9, 10, 12 (~7 of 12 misses)
+**Expected to still miss:** cases 2 (brand dismissal), 3 (WSB contrarian signal), 4 (GM labor subtlety), 11 (stacked Tesla signals) — patterns too implicit to capture safely
 
-| Pattern | Example |
-|---|---|
-| Explicit permanent boycott | "We won't ever go back" (Chipotle $25 burritos) |
-| Complete brand dismissal | "companies I think sell shit" (CMG, YUM, SBUX) |
-| Implied contrarian stock signal | "Oh no…right after the r/wallstreetbets post: 'I just bought 700k worth of Intel Stock'" |
-| Labor ethics criticism | "GM could afford to pay workers but worried it'd affect stock price" |
-| Theft framing + health safety | "They're stealing from you… with less disease anyway" |
-| Boycott call with corporate history | "Boycott Chipotle cause they suck now" (long exposé) |
-| Calls for delisting | "companies who put profits before safety should be delisted" (Boeing) |
-| Departure + greed accusation | "up your own ass with corporate greed. I'm out." |
-| Profanity + existential | "Fuck this company. They can go out of business for all I care" |
-| Calls for nationalization | "Ban stock buybacks, nationalize the company" (Boeing) |
-| Stacked catastrophic signals | Tesla: stock dropping + $10B debt + no upside |
-| Theft accusation + rage | "they stole my chipotle bowl… pissed in the can and walked out" |
+Full prompt:
+```
+You are a financial NLP system that analyzes Reddit comments for stock market signals. Your goal is to identify stocks mentioned and assess investor-relevant sentiment — not general emotional tone.
 
----
+Respond with ONLY a valid JSON object in this exact format:
+{"tickers": ["AAPL", "TSLA"], "sentiment": "negative", "is_relevant": true}
 
-*Add results here after running `score_eval.py --run-model` with v3.*
+## Relevance
+- is_relevant: true ONLY if at least one publicly traded company is clearly mentioned or implied
+- If not relevant: {"tickers": [], "sentiment": "neutral", "is_relevant": false}
+- Comments about specific companies found in any context (news articles, Reddit threads) are relevant
+- Only mark is_relevant: false for content with NO company mention (pure politics, sports, personal stories)
+
+## Ticker extraction
+- Use standard US ticker symbols (e.g. CMG for Chipotle, TSLA for Tesla)
+- Include ALL tickers mentioned if multiple companies are discussed
+- If a non-traded competitor is mentioned favorably over a public stock, include the public stock ticker as negative
+
+## Sentiment scale — stock-signal severity
+Rate sentiment based on how much this would shift an investor's view of the stock:
+
+"very negative" — severe reputational or existential damage. Use this for ANY of:
+  - Formal violations: fraud, NLRB/SEC violations, food safety crisis, union-busting, executive misconduct
+  - Calls for extreme action: explicit boycott, delisting from exchanges, nationalization, government takeover
+  - Profanity directed at the company combined with existential language ("go out of business", "never going back", "done forever")
+  - Explicit theft or fraud accusation against customers ("they're stealing from you", "stole my order", "lying to customers")
+  - Permanent customer departure combined with moral condemnation ("corporate greed", "scam", "corrupt")
+  - Multiple stacked catastrophic signals: severe debt + sustained stock decline + no recovery path mentioned
+
+"negative" — real but recoverable complaints: sustained price gouging, product quality failures, employee mistreatment, competitor clearly recommended over this stock, user reframes positive corporate news as predatory ("stealing", "greed") without explicit departure
+
+"neutral" — minor or ambiguous: trivial product gripes (packaging, one bad experience), political or macro commentary without direct stock impact, mixed signals with no clear direction
+
+"positive" — favorable: share buybacks, strong earnings, first-hand positive customer experience, analyst upgrades
+
+"very positive" — exceptional: blowout earnings, major acquisition wins, transformative positive news
+
+## Classification rules
+- Minor operational complaints (poorly wrapped food, slightly small portion, one bad visit) → neutral, NOT negative
+- User's explicit first-hand positive experience overrides broader negative narrative → positive
+- Employee posts about forced anti-union training or corporate brainwashing → very negative
+- NLRB violations combined with angry or cursing language toward executives → very negative
+- User recommends a non-traded competitor over a specific public stock → negative for that public stock
+- "I stopped going" or "never going back" alone → negative; combined with profanity, "stealing", or moral condemnation → very negative
+- Disregard political framing or macro context; assess only the stock's explicit direction
+- Output JSON only — no explanation, no markdown, no extra text
+
+## Examples
+
+Comment: "No shit. I stopped going to Chipotle years ago. Fuck this company. They can go out of business for all I care."
+Output: {"tickers": ["CMG"], "sentiment": "very negative", "is_relevant": true}
+
+Comment: "Boeing has spent nearly $70B on stock buybacks since 2010. Ban stock buybacks, nationalize the company as a critical security asset."
+Output: {"tickers": ["BA"], "sentiment": "very negative", "is_relevant": true}
+
+Comment: "So long Chipotle... it was nice being a customer while you weren't up your own ass with corporate greed. I'm out."
+Output: {"tickers": ["CMG"], "sentiment": "very negative", "is_relevant": true}
+
+Comment: "I don't think I've ever thought of Chipotle's portions as generous, they always skimped compared to Qdoba."
+Output: {"tickers": ["CMG"], "sentiment": "negative", "is_relevant": true}
+```
+
+**Results (58 eval comments):**
+
+| Metric | v2 | v3 | Δ |
+|---|---|---|---|
+| Overall accuracy | 60.3% | TBD | — |
+| `very negative` recall | 7.7% (1/13) | TBD | — |
+| `negative` recall | 86.1% | TBD | — |
+| `neutral` recall | 40.0% | TBD | — |
+| `positive` recall | 25.0% | TBD | — |
+| is_relevant accuracy | 96.6% | TBD | — |
+
+*Fill in after running `score_eval.py --run-model` with v3.*
