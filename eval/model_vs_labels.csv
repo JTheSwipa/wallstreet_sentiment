@@ -3,7 +3,7 @@ id,datetime,subreddits,comments,label_sentiment,label_is_relevant,label_tickers,
 
 The company at the time was in the process of moving into a brand new high-rise in downtown Denver.  After the move they were required to pay dead rent on this multi million dollar facility all for his convenience,  moving the company closer to where he and his former Taco Bell executives lived (several of which he later poached from TB).
 
-The majority of the Denver corporate staff were let go as a result. Some were able to relocate to The corporate headquarters and more to a branch office in Columbus",negative,TRUE,CMG,calibration_majority_vote,,,negative
+The majority of the Denver corporate staff were let go as a result. Some were able to relocate to The corporate headquarters and more to a branch office in Columbus",negative,TRUE,CMG,calibration_majority_vote,,,very negative
 35bac17c,2024-10-25 17:11:14,news,Time to sell my TSLA stock.,negative,TRUE,TSLA,calibration_majority_vote,,,negative
 3484c938,2024-10-22 14:23:01,news,"[https://investor.gm.com/news-releases/news-release-details/gm-board-approves-new-6-billion-share-repurchase-authorization](https://investor.gm.com/news-releases/news-release-details/gm-board-approves-new-6-billion-share-repurchase-authorization)
 
@@ -39,7 +39,7 @@ In 2022, this was $220K per employee paid to shareholders. In 2024, it is planne
 
 Raegan and Thatcher made share buybacks legal in the US and UK.",negative,TRUE,GM,calibration_majority_vote,,,positive
 4dc70d8e,2024-08-20 19:21:31,news,"Just sent an email to Starbucks through their Contact Us online. It’s a pain in the ass to get to.
-“Hello l’d like to leave feedback concerning your incoming CEO Brian Niccol and the decision to allow him to emit over 2000lbs of carbon per month into our atmosphere in order to commute from Southern California to Seattle on a weekly basis. I find it disingenuous when Starbucks claims to commit itself to sustainability. I hope this bites y’all in the ass as Brian Niccol will ruin the quality of your business as he did to Chipotle.”",negative,TRUE,SBUX,calibration_majority_vote,,,negative
+“Hello l’d like to leave feedback concerning your incoming CEO Brian Niccol and the decision to allow him to emit over 2000lbs of carbon per month into our atmosphere in order to commute from Southern California to Seattle on a weekly basis. I find it disingenuous when Starbucks claims to commit itself to sustainability. I hope this bites y’all in the ass as Brian Niccol will ruin the quality of your business as he did to Chipotle.”",negative,TRUE,SBUX,calibration_majority_vote,,,very negative
 cf529aa2,2024-07-26 15:49:53,news,"The local Chipotle has a lot of 1-star reviews lately.  They all mention the same thing - lack of cleanliness, and extremely small portion sizes.",negative,TRUE,CMG,calibration_majority_vote,,,negative
 4d5b8d93,2024-05-31 20:13:05,news,DAMN!!! Chipotle invoked the wrath of Keith Lee.....HANG IT UP!!!!! SHEESH!!!!,negative,TRUE,CMG,calibration_majority_vote,,,very negative
 0e2940a8,2024-07-26 15:49:53,news,">But boosting portion sizes at those Chipotle locations will make a dent in the chain's financial results, with CFO John Hartung saying that part of its higher cost of sales in the most recent quarter was due to ensuring ""correct and generous portions"" at those restaurants. Still, it's an investment that will continue, he added.
@@ -48,12 +48,12 @@ Yeah, well, you were - if you think about it - stealing money from your customer
 
 So it is not costing you money to fix the stealing.
 
-You're just… no longer stealing.",negative,TRUE,CMG,,"Kind of a weird comment, but I think leaning negative with a bit of sarcasm",Alice_labeled,negative
+You're just… no longer stealing.",negative,TRUE,CMG,,"Kind of a weird comment, but I think leaning negative with a bit of sarcasm",Alice_labeled,very negative
 3997f1d0,2024-07-26 15:49:53,news,"My wife and I ordered online from Chipotle recently, and laughed at the tiny ass burritos we got that cost over $25 for two of them.  We won't ever go back.
 
 All these companies and their bullshit ""inflation"" increases, despite recording setting profits, have priced themselves out of my life entirely.",very negative,TRUE,CMG,,Customer is very angry about Chipotle’s prices.,Alice_labeled,very negative
-49f9f2c0,2024-08-20 19:21:31,news,"Funny how the guy comes from Taco Bell via Chipotle to Starbucks, which all three happen to be companies I think sell shit.",very negative,TRUE,"CMG, YUM, SBUX",,The customer thinks all three companies sell garbage products.,Alice_labeled,negative
-cea2882f,2024-08-02 02:26:23,news,Oh no…right after the r/wallstreetbets post: “I just bought 700k worth of Intel Stock”,very negative,TRUE,INTC,,Something bad must have just happened with Intel stock ,Alice_labeled,neutral
+49f9f2c0,2024-08-20 19:21:31,news,"Funny how the guy comes from Taco Bell via Chipotle to Starbucks, which all three happen to be companies I think sell shit.",very negative,TRUE,"CMG, YUM, SBUX",,The customer thinks all three companies sell garbage products.,Alice_labeled,very negative
+cea2882f,2024-08-02 02:26:23,news,Oh no…right after the r/wallstreetbets post: “I just bought 700k worth of Intel Stock”,very negative,TRUE,INTC,,Something bad must have just happened with Intel stock ,Alice_labeled,negative
 7cda74c1,2024-10-22 14:23:01,news,Afford is relative no? GM could afford to pay their worker’s demands but they were worried it’d affect the stock price.,very negative,TRUE,GM,,User is upset that GM is not paying employees enough.,Alice_labeled,negative
 e7733943,2024-05-31 20:13:05,news,"I had only one Chipotle Burrito in my life, about a week ago, and it was a good portion...maybe I was lucky or their stuff was enormous before",positive,TRUE,CMG,,"A bit tricky because user seems to be referring to complaints that other people have had, but this user seems to have had a good experience.",Alice_labeled,positive
 ffbce830,2024-07-26 15:49:53,news,"So stop going to Chipotle. They're stealing from you.
@@ -220,7 +220,7 @@ fe7caec8,2024-05-31 20:13:05,news,"My chipotle gives FAT burritos like Mexican r
 
 Tesla share price is dropping with no end in sight, the loan of 10 billion for the Twitter acquisition (with a crazy interest rate) has to be paid back , SpaceX is being SpaceX and excites probably only the die-hard Elon Fans and nobody else...
 
-Not much left to cheer him up.",very negative,TRUE,TSL,,,Jovan_labeled,negative
+Not much left to cheer him up.",very negative,TRUE,TSL,,,Jovan_labeled,very negative
 564fadf4,2024-12-27 20:00:58,news,"What a clickbait. Alltime high AAPL today in germany. Later a  mircrodrop. 0,35% down right now.
 
 I hope I will get some 50 nvidia at the limit, I set up today.",neutral,TRUE,"AAPL,NVDA",,,Jovan_labeled,neutral
@@ -230,7 +230,7 @@ The richest man is whining he didn't getting $56 BILLION richer. Absolute scum.
 
 > Musk is more than $43 billion richer since Donald Trump’s election victory last month. Tesla shares have soared 42% in the four weeks since the election on optimism that Musk’s coziness with the incoming president will lead to policies favorable to his companies.
 
-Please tell me more about he's on the side of the normal person, MAGA idiots.",negative,TRUE,TSL,,,Jovan_labeled,negative
+Please tell me more about he's on the side of the normal person, MAGA idiots.",negative,TRUE,TSL,,,Jovan_labeled,very negative
 21491145,2024-07-26 15:49:53,news,"Stop eating at Chipotle omg. There are way better local taquerias.
 
 It's like going to Panda Express when there is a plethora of good local, family owned Chinese Restaurants.",negative,TRUE,CMG,,,Jovan_labeled,negative
