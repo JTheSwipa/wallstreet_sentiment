@@ -287,4 +287,33 @@ Output: {"tickers": ["CMG"], "sentiment": "negative", "is_relevant": true}
 - very negative correct: 9 → 11 (+2 fixed)
 - negative → very negative (false positives): 7 → 12 (+5 spillover)
 
-**Assessment:** The new rules fixed 2 more `very negative` cases but caused 5 more `negative` → `very negative` misclassifications. Very negative F1 is essentially flat (0.60 → 0.595). The compound signal escalation rule is the likely source of spillover — stacked negatives being bumped to very negative when they don't quite qualify. Overall accuracy dropped 5.2pp. Whether v4 is preferable to v3 depends on whether higher very negative recall is worth the negative precision cost for the downstream use case.
+**Assessment:** The new rules fixed 2 more `very negative` cases but caused 5 more `negative` → `very negative` misclassifications. Very negative F1 is essentially flat (0.60 → 0.595). The compound signal escalation rule is the likely source of spillover — stacked negatives being bumped to very negative when they don't quite qualify. Overall accuracy dropped 5.2pp. **Superseded by v4c** — see below.
+
+---
+
+## v4b — Compound rule tightened to 3+ financial signals (intermediate, superseded)
+
+**Change from v4:** Restricted compound rule from "3+ concurrent severe negatives" to "3+ financial catastrophe signals only (stock decline, debt, bankruptcy risk, segment failure, market loss) — excluding consumer/ethical complaints."
+
+**Result:** Over-corrected. Threshold of 3 dropped the Tesla case (only 2 clear financial signals) back to negative. Very negative recall fell 77% (10/13). **Superseded by v4c.**
+
+---
+
+## v4c — Compound rule 2+ financial signals (current best)
+
+**Change from v4b:** Lowered financial catastrophe threshold from 3 to 2 concurrent signals.
+
+**Results (58 eval comments):**
+
+| Metric | v3 | v4 | v4c | Δ (v3→v4c) |
+|---|---|---|---|---|
+| Overall accuracy | 69.0% | 63.8% | **66.0%** | -3.0pp |
+| `very negative` recall | 69.2% (9/13) | 84.6% (11/13) | **84.6% (11/13)** | +15.4pp |
+| `very negative` precision | 53.3% | 45.8% | **48.0%** | -5.3pp |
+| `very negative` F1 | 0.600 | 0.595 | **0.610** | +0.010 |
+| `negative` recall | 75.0% (27/36) | 61.1% (22/36) | **63.9% (23/36)** | -11.1pp |
+| is_relevant accuracy | 98.3% | 98.3% | 98.3% | — |
+
+**v4c vs v4:** Strictly better on every metric — same very negative recall, higher precision (+2.2pp), better negative recall (+3pp), better accuracy (+2.2pp). The 2-signal threshold correctly recovers the Tesla case (stock decline + debt = 2 financial signals) while the financial-only restriction blocks McDonald's/Starbucks consumer-complaint stacking.
+
+**Remaining tradeoff vs v3:** v4c has significantly higher very negative recall (85% vs 69%) at the cost of negative recall (64% vs 75%) and overall accuracy (66% vs 69%). For a trading signal pipeline, the higher very negative recall is preferable — missing a major negative signal is riskier than over-flagging negatives. **v4c is the recommended current version.**

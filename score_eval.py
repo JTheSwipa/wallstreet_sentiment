@@ -71,13 +71,19 @@ def load_individual_batches(eval_dir: str) -> list[pd.DataFrame]:
 # ── Agreement metrics ─────────────────────────────────────────────────────────
 
 def pct_agreement(a: pd.Series, b: pd.Series) -> float:
-    aligned = a.align(b, join="inner")
-    return (aligned[0] == aligned[1]).mean()
+    a, b = a.align(b, join="inner")
+    mask = a.notna() & b.notna()
+    a, b = a[mask], b[mask]
+    if len(a) == 0:
+        return float("nan")
+    return (a == b).mean()
 
 
 def cohens_kappa(a: pd.Series, b: pd.Series) -> float:
-    """Simple Cohen's Kappa for two annotators (categorical)."""
+    """Simple Cohen's Kappa for two annotators (categorical), ignoring rows where either label is missing."""
     a, b = a.align(b, join="inner")
+    mask = a.notna() & b.notna()
+    a, b = a[mask], b[mask]
     n = len(a)
     if n == 0:
         return float("nan")
@@ -88,11 +94,15 @@ def cohens_kappa(a: pd.Series, b: pd.Series) -> float:
 
 
 def ordinal_within1(a: pd.Series, b: pd.Series) -> float:
-    """% of pairs where sentiment scores differ by at most 1."""
+    """% of pairs where sentiment scores differ by at most 1, ignoring missing labels."""
     a_score = a.map(SENTIMENT_ORDER)
     b_score = b.map(SENTIMENT_ORDER)
-    aligned = a_score.align(b_score, join="inner")
-    return (abs(aligned[0] - aligned[1]) <= 1).mean()
+    a_score, b_score = a_score.align(b_score, join="inner")
+    mask = a_score.notna() & b_score.notna()
+    a_score, b_score = a_score[mask], b_score[mask]
+    if len(a_score) == 0:
+        return float("nan")
+    return (abs(a_score - b_score) <= 1).mean()
 
 
 def agreement_report(cal_results: dict[str, pd.DataFrame]) -> pd.DataFrame:
@@ -159,7 +169,15 @@ def flag_disagreements(cal_results: dict[str, pd.DataFrame],
     any_df = next(iter(cal_results.values())).set_index("id")
     comment_col = "comments" if "comments" in any_df.columns else any_df.columns[0]
 
-    flagged_ids = sent_agreement[sent_agreement < threshold].index.union(
+    # Only flag sentiment disagreements on rows where at least one annotator
+    # marked the post as relevant — blank sentiment on all-irrelevant rows is
+    # consensus, not conflict.
+    any_relevant = rel_df.apply(
+        lambda row: (row.dropna().str.upper() == "TRUE").any(), axis=1
+    )
+    flagged_ids = sent_agreement[
+        (sent_agreement < threshold) & any_relevant
+    ].index.union(
         rel_agreement[rel_agreement < threshold].index
     )
 
