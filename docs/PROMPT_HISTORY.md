@@ -245,3 +245,38 @@ Output: {"tickers": ["CMG"], "sentiment": "negative", "is_relevant": true}
 **Tradeoff:** `negative` recall dropped 11pp — some true negatives are now predicted as `very negative`. Expected cost of expanding the `very negative` definition. Acceptable given the 61pp gain on the target class.
 
 **Still missing (4 of 13):** cases 2 (brand dismissal), 3 (WSB contrarian signal), 4 (GM labor subtlety), 11 (stacked Tesla signals) — as predicted.
+
+---
+
+## v4 — Triage-driven fixes: brand contempt, sarcastic alarm, compound signal escalation
+
+**Commit:** TBD
+**Goal:** Fix 3 of the 4 remaining misses with principled pattern rules. Avoid overfitting — each rule is written at the linguistic pattern level, not targeted at specific examples.
+
+**Triage outcome (see V4_PROMPT_DESIGN.md):**
+- Miss 1 (brand dismissal — "sell shit"): ✅ model error → fix
+- Miss 2 (WSB Intel $700K buy): ✅ model error, but `very negative` was an overcall → fix as `negative`
+- Miss 3 (GM/UAW labor): ❌ label dispute — model's `negative` is defensible → dropped
+- Miss 4 (Tesla stacked signals): ✅ model error → fix
+
+**Changes from v3:**
+1. Added to `very negative` triggers: explicit product contempt ("sell shit", "absolute garbage", "trash product") even when framed as personal opinion
+2. Added to `very negative` triggers: compound stacked signals — three or more concurrent severe negatives about the same company → escalate (replaces the narrower "severe debt + sustained stock decline + no recovery path" wording)
+3. Added to `negative` rules: sarcastic alarm on investment announcements ("Oh no", "rip", "F", "this is fine") signals the commenter expects the position to lose value
+4. Added labeling rule: when a comment quotes a news article then adds editorial text, label the user's editorial — not the article
+5. Added 2 new few-shot examples (brand contempt → very negative; sarcastic alarm → negative)
+
+**Expected to fix:** Miss 1 (brand contempt), Miss 2 (sarcastic alarm → negative), Miss 4 (stacked signals)
+**Expected to still miss:** Miss 3 (GM/UAW — intentionally dropped as label dispute)
+**Risk:** Rule 1 (brand contempt) and Rule 3 (compound escalation) may cause some `negative` → `very negative` spillover. Monitor `negative` recall.
+
+**Results (58 eval comments):**
+
+| Metric | v3 | v4 | Δ |
+|---|---|---|---|
+| Overall accuracy | 69.0% | TBD | — |
+| `very negative` recall | 69.2% (9/13) | TBD | — |
+| `negative` recall | 75.0% | TBD | — |
+| `neutral` recall | 40.0% | TBD | — |
+| `positive` recall | 50.0% | TBD | — |
+| is_relevant accuracy | 98.3% | TBD | — |

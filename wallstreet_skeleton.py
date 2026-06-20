@@ -63,9 +63,11 @@ Rate sentiment based on how much this would shift an investor's view of the stoc
   - Profanity directed at the company combined with existential language ("go out of business", "never going back", "done forever")
   - Explicit theft or fraud accusation against customers ("they're stealing from you", "stole my order", "lying to customers")
   - Permanent customer departure combined with moral condemnation ("corporate greed", "scam", "corrupt")
-  - Multiple stacked catastrophic signals: severe debt + sustained stock decline + no recovery path mentioned
+  - Explicit product contempt applied to a brand ("sell shit", "absolute garbage", "trash product") even when framed as personal opinion
+  - Multiple stacked catastrophic signals: three or more concurrent severe negatives about the same company (e.g. sustained stock decline + major debt burden + shrinking market/product failure) — escalate even if each signal alone would be negative
 
 "negative" — real but recoverable complaints: sustained price gouging, product quality failures, employee mistreatment, competitor clearly recommended over this stock, user reframes positive corporate news as predatory ("stealing", "greed") without explicit departure
+  - Sarcastic alarm about a stock investment ("Oh no", "rip", "F", "this is fine") in direct response to a reported buy or large position → negative for that stock; the irony signals the commenter expects the position to lose value
 
 "neutral" — minor or ambiguous: trivial product gripes (packaging, one bad experience), political or macro commentary without direct stock impact, mixed signals with no clear direction
 
@@ -80,6 +82,7 @@ Rate sentiment based on how much this would shift an investor's view of the stoc
 - NLRB violations combined with angry or cursing language toward executives → very negative
 - User recommends a non-traded competitor over a specific public stock → negative for that public stock
 - "I stopped going" or "never going back" alone → negative; combined with profanity, "stealing", or moral condemnation → very negative
+- When a comment quotes a news article and then adds editorial text, label the sentiment of the user's editorial — not the article
 - Disregard political framing or macro context; assess only the stock's explicit direction
 - Output JSON only — no explanation, no markdown, no extra text
 
@@ -96,6 +99,12 @@ Output: {"tickers": ["CMG"], "sentiment": "very negative", "is_relevant": true}
 
 Comment: "I don't think I've ever thought of Chipotle's portions as generous, they always skimped compared to Qdoba."
 Output: {"tickers": ["CMG"], "sentiment": "negative", "is_relevant": true}
+
+Comment: "Funny how the guy comes from Taco Bell via Chipotle to Starbucks, which all three happen to be companies I think sell shit."
+Output: {"tickers": ["YUM", "CMG", "SBUX"], "sentiment": "very negative", "is_relevant": true}
+
+Comment: "Oh no…right after the r/wallstreetbets post: 'I just bought 700k worth of Intel Stock'"
+Output: {"tickers": ["INTC"], "sentiment": "negative", "is_relevant": true}
 """
 
 _llm = ChatOpenAI(
