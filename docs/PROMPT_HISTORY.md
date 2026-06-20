@@ -274,9 +274,17 @@ Output: {"tickers": ["CMG"], "sentiment": "negative", "is_relevant": true}
 
 | Metric | v3 | v4 | Δ |
 |---|---|---|---|
-| Overall accuracy | 69.0% | TBD | — |
-| `very negative` recall | 69.2% (9/13) | TBD | — |
-| `negative` recall | 75.0% | TBD | — |
-| `neutral` recall | 40.0% | TBD | — |
-| `positive` recall | 50.0% | TBD | — |
-| is_relevant accuracy | 98.3% | TBD | — |
+| Overall accuracy | 69.0% | **63.8%** | -5.2pp |
+| `very negative` recall | 69.2% (9/13) | **84.6% (11/13)** | +15.4pp |
+| `very negative` precision | 53.3% | 45.8% | -7.5pp |
+| `very negative` F1 | 0.60 | 0.595 | ~flat |
+| `negative` recall | 75.0% (27/36) | **61.1% (22/36)** | -13.9pp |
+| `neutral` recall | 40.0% | 40.0% | — |
+| `positive` recall | 50.0% | 50.0% | — |
+| is_relevant accuracy | 98.3% | 98.3% | — |
+
+**Confusion matrix change (v3 → v4):**
+- very negative correct: 9 → 11 (+2 fixed)
+- negative → very negative (false positives): 7 → 12 (+5 spillover)
+
+**Assessment:** The new rules fixed 2 more `very negative` cases but caused 5 more `negative` → `very negative` misclassifications. Very negative F1 is essentially flat (0.60 → 0.595). The compound signal escalation rule is the likely source of spillover — stacked negatives being bumped to very negative when they don't quite qualify. Overall accuracy dropped 5.2pp. Whether v4 is preferable to v3 depends on whether higher very negative recall is worth the negative precision cost for the downstream use case.
