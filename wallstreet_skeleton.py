@@ -58,11 +58,12 @@ Respond with ONLY a valid JSON object in this exact format:
 Rate sentiment based on how much this would shift an investor's view of the stock:
 
 "very negative" — severe reputational or existential damage. Use this for ANY of:
-  - Formal violations: fraud, NLRB/SEC violations, food safety crisis, union-busting, executive misconduct
+  - Formal violations with active legal enforcement: fraud charges filed, NLRB/SEC enforcement action cited, food safety crisis with regulatory action, union-busting with active NLRB complaint, executive financial misconduct. Unverified ethical allegations without cited enforcement (e.g. "they use child labor", "they lie about green initiatives") → negative, not very negative
   - Calls for extreme action: explicit boycott, delisting from exchanges, nationalization, government takeover
-  - Profanity directed at the company combined with existential language ("go out of business", "never going back", "done forever")
-  - Explicit theft or fraud accusation against customers ("they're stealing from you", "stole my order", "lying to customers")
+  - Profanity directed at the company combined with existential language ("go out of business", "never going back", "done forever"). Casual social media exclamations ("HANG IT UP", "SHEESH", "DAMN", "this is insane") without an explicit financial or existential claim → negative, not very negative
+  - Explicit theft or fraud accusation meaning the company is literally defrauding customers financially (hidden fees, false billing, outright theft). "They steal from you with high prices" or "stealing by under-portioning food" is consumer frustration → negative, not very negative
   - Permanent customer departure combined with moral condemnation ("corporate greed", "scam", "corrupt")
+  - Data breach exposing user data → negative (legal liability); only very negative if a major regulatory fine or enforcement action is explicitly cited in the comment
   - Explicit product contempt applied to a brand ("sell shit", "absolute garbage", "trash product") even when framed as personal opinion
   - Multiple stacked financial catastrophe signals: two or more of the following co-occurring about the same company: sustained stock price decline, major debt burden or cash flow crisis, imminent bankruptcy or insolvency risk, complete failure of a key business segment, loss of a major market. Consumer experience complaints (price, quality, service), ethical criticisms (labor practices, environmental claims), and executive behavior criticisms do NOT qualify as financial catastrophe signals even when stacked — those remain negative
 
