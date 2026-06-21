@@ -1,5 +1,5 @@
 id,datetime,subreddits,comments,label_tickers,label_sentiment,label_is_relevant,notes
-c1b316ce,2024-07-26 15:49:53,news,"I’ve never understood why people like Chipotle’s. For me, a Chipotle’s is if you took a Moe’s and took away around half of what makes Moe’s awesome.",CMG,negative,TRUE,
+c1b316ce,2024-07-26 15:49:53,news,"I’ve never understood why people like Chipotle’s. For me, a Chipotle’s is if you took a Moe’s and took away around half of what makes Moe’s awesome.",CMG,negative,True,
 884d31b1,2024-02-26 18:13:52,news,"I work at one of the MANY Kroger owned companies:
 
 Baker’s
@@ -44,32 +44,32 @@ They had copies throughout the breakroom about the deal and trying to convince e
 
 The attempting brainwashing of the employees about this is very real.
 
-The only grocery stores near me are Albertsons, QFC, Fred Meyer, and Safeway. Walmart is a little futher away. Yeah, I'll really have a lot of choices as both a customer and an employee.","KR, ACI, WMT",very negative,TRUE,
+The only grocery stores near me are Albertsons, QFC, Fred Meyer, and Safeway. Walmart is a little futher away. Yeah, I'll really have a lot of choices as both a customer and an employee.","KR, ACI, WMT",very negative,True,
 61a6c7f3,2024-05-07 23:18:37,news,"Jack Smith can request a new judge. If Aileen Cannon denies the request, the case is dead for good.
 
-We gotta vote, folks. We can't rely on the courts or Congress to save us, we have to do it ourselves.",,,FALSE,
+We gotta vote, folks. We can't rely on the courts or Congress to save us, we have to do it ourselves.",,,False,
 c59f6734,2024-10-22 22:47:13,news,"Down ~~10%~~ ~~9%~~ ~~8%~~ 7% in after hours trading. (after 10 minutes between those edits).
 
 It'll be back above it's previous share price by the end of the trading day tomorrow.
 
 It was last at this share price in September of this year... Last month.
 
-Once the market opens tomorrow for us plebs people aren't going to see it down a few percent and go 'well I'm staying clear of that'... They're going to go 'Great, it's on offer'.",,,FALSE,
-a61cc78e,2024-05-31 20:13:05,news,So long Chipotle....it was nice being a customer while you weren't up your own ass with corporate greed.  I'm out.  ✌️,CMG,very negative,TRUE,
-f4ceccd1,2025-01-24 16:28:50,news,"Um... Can't you fit way more than 80 people in C-17 and certainly a C-130. So not only are they awful, they're horribly inefficient and wasting money. I am shocked, shocked I tell you.",,,FALSE,
-df98cd7d,2024-07-26 15:49:53,news,"I don't think I've ever thought of Chipolte's portions as generous, they always skimped compared to Qdoba.",CMG,negative,TRUE,
+Once the market opens tomorrow for us plebs people aren't going to see it down a few percent and go 'well I'm staying clear of that'... They're going to go 'Great, it's on offer'.",,,False,
+a61cc78e,2024-05-31 20:13:05,news,So long Chipotle....it was nice being a customer while you weren't up your own ass with corporate greed.  I'm out.  ✌️,CMG,very negative,True,
+f4ceccd1,2025-01-24 16:28:50,news,"Um... Can't you fit way more than 80 people in C-17 and certainly a C-130. So not only are they awful, they're horribly inefficient and wasting money. I am shocked, shocked I tell you.",,,False,
+df98cd7d,2024-07-26 15:49:53,news,"I don't think I've ever thought of Chipolte's portions as generous, they always skimped compared to Qdoba.",CMG,negative,True,
 442c3087,2024-07-31 23:12:46,news,"A friend of my cousin had something similar happen to them. This is what I was told about the ordeal.
 
 They had 2 kids and mom usually drops them off at daycare but the older one had a doctors appointment so the dad would be dropping off the 3 year old at the daycare that morning. He owned a business and had several seemingly important calls on the way into his office (long commute) that morning. As many of us are prone to do, he went on autopilot. It was late May and 30 degrees C he found his son at 5:30pm when he left work. They're divorced now and both are shells of their former self. He was charged with negligence and pleaded guilty but the courts dropped the case after all the testimony/evidence, ruling it an accident. He was widely known as a loving/caring and attentive father. Last I heard he was working on technology aimed to prevent similar accidents.
 
-I think it's important as a parent to have the humility to admit that this sort of horrible mistake is not as simple as ""I would never"" as if these parents didn't love their kids. Stress, sleep deprivation and a change in routine is something we all have to recognize as vulnerabilities so we can be more cognisant of when we might have some sort of lapse when those conditions present themselves.",,,FALSE,
+I think it's important as a parent to have the humility to admit that this sort of horrible mistake is not as simple as ""I would never"" as if these parents didn't love their kids. Stress, sleep deprivation and a change in routine is something we all have to recognize as vulnerabilities so we can be more cognisant of when we might have some sort of lapse when those conditions present themselves.",,,False,
 a3b772ca,2024-09-03 22:12:07,news,"Republicans are fucking *GHOULS*, man! DeSantis should honestly be impeached for this and face criminal charges. Fucking with state and national parks should be illegal.
 
-Fuck DeSantis, dude. The whistleblower should be rehired immediately, and given a more powerful position. They clearly have a good moral compass.",,,FALSE,
+Fuck DeSantis, dude. The whistleblower should be rehired immediately, and given a more powerful position. They clearly have a good moral compass.",,,False,
 dae107a6,2024-09-12 09:17:45,news,"I read the title a few times. Wondered if Pureed was slang for something. But nope. Literally chopped up and pureed. Jesus fucking Christ.
 
-Sometimes I forget just how depraved some fuckers can be and then there’s this. That poor woman was denied the indignity of a regular murder.",,,FALSE,
-6a3d5b7b,2024-04-24 19:25:43,news,It's about fucking time. Ppl tired of airlines' borderline abusive bullshittery.,,,FALSE,
+Sometimes I forget just how depraved some fuckers can be and then there’s this. That poor woman was denied the indignity of a regular murder.",,,False,
+6a3d5b7b,2024-04-24 19:25:43,news,It's about fucking time. Ppl tired of airlines' borderline abusive bullshittery.,,,False,
 108fa003,2024-08-12 01:39:22,news,"This is one of the few examples where giving medals to multiple athletes would be justified.
 
 IOC Judges messed up royally. The medal went from A to B then to C, back to A and maybe to B to A again?
@@ -78,24 +78,24 @@ It literally went to three contestants and back to some of them again.
 
 It's psychologically fucked up. Hell, I don't mind if they officially reviewed it and gave it to the right person, but admit you fucked up and just give them all bronze medals due to the fuck up and mental torture you put them all through.
 
-It costs them nothing",,,FALSE,
+It costs them nothing",,,False,
 af6ab340,2024-04-28 01:32:13,news,">They can also elect to be physically castrated. Perrilloux said that Sullivan's plea requires he be physically castrated.
 
-Meaning he was, in effect, coerced into agreeing to it. I find it a bit demented that surgery to remove part of one's own body can be stipulated by the state as necessary for granting a plea bargain - especially given how limited the evidence is for this specific procedure actually reducing the rate of recidivism.",,,FALSE,
-9ea2d3c6,2024-12-02 01:40:43,news,When this came on the tv as “breaking news” I just started cracking up.,,,FALSE,
-a88bf694,2024-08-03 03:03:17,news,"It’s time to more tightly regulate year over year record profits for these corporations. They wallow in stock buybacks, while continuing to raise prices and/or shrink quantities to ensure the the cycle continues. It’s lunacy. The shift in wealth is obvious for everyone to see, yet nothing is done. Record profits deserve record tax levels. Greed is an insidious disease. It’s a mindset that, once established, is almost never reversed. It begs the question, “How much is enough?” Break the monopolies. Doing so creates more competition in the market, forcing prices down. Punish blatant offenders. Capitalism is not sustainable without guardrails. The fox shouldn’t be guarding the henhouse. There should be regulations that level the playing field between those that provide a product or service, and those that consume. There’s a difference between a free market, and one that’s corrupted for unlimited corporate gain. There shouldn’t be hundreds of billionaires in this country while we have two wage earning families that can barely make ends meet. Some of those billionaires will be trillionaires in our kids lifetime at the rate the wealth gap is progressing. Our infrastructure is failing, the homeless situation is out of control. All the while, these greedy entities are consolidating their power and their wealth, contributing very little (comparatively) to the system that has made their situation possible. The tax code needs to be simplified. The loopholes need to be closed. Lobbying needs to be banished. Conflicts of interest within our government need to be investigated, addressed and prosecuted. You shouldn’t be able to play the stock market while serving in the highest levels of government. The government should not be for sale to the highest bidder. We shouldn’t be shaming ourselves to the world’s stage by allowing a convicted felon run for the highest seat in our government. We will not persevere without integrity and accountability. We have long since lost our way. We can talk about these things until the end of time, but nothing will change until these things are seen for what they are. Until we decide that these things are unacceptable, it will only get worse. Much, MUCH worse. I want better for my children, and their children - don’t you?",,,FALSE,
+Meaning he was, in effect, coerced into agreeing to it. I find it a bit demented that surgery to remove part of one's own body can be stipulated by the state as necessary for granting a plea bargain - especially given how limited the evidence is for this specific procedure actually reducing the rate of recidivism.",,,False,
+9ea2d3c6,2024-12-02 01:40:43,news,When this came on the tv as “breaking news” I just started cracking up.,,,False,
+a88bf694,2024-08-03 03:03:17,news,"It’s time to more tightly regulate year over year record profits for these corporations. They wallow in stock buybacks, while continuing to raise prices and/or shrink quantities to ensure the the cycle continues. It’s lunacy. The shift in wealth is obvious for everyone to see, yet nothing is done. Record profits deserve record tax levels. Greed is an insidious disease. It’s a mindset that, once established, is almost never reversed. It begs the question, “How much is enough?” Break the monopolies. Doing so creates more competition in the market, forcing prices down. Punish blatant offenders. Capitalism is not sustainable without guardrails. The fox shouldn’t be guarding the henhouse. There should be regulations that level the playing field between those that provide a product or service, and those that consume. There’s a difference between a free market, and one that’s corrupted for unlimited corporate gain. There shouldn’t be hundreds of billionaires in this country while we have two wage earning families that can barely make ends meet. Some of those billionaires will be trillionaires in our kids lifetime at the rate the wealth gap is progressing. Our infrastructure is failing, the homeless situation is out of control. All the while, these greedy entities are consolidating their power and their wealth, contributing very little (comparatively) to the system that has made their situation possible. The tax code needs to be simplified. The loopholes need to be closed. Lobbying needs to be banished. Conflicts of interest within our government need to be investigated, addressed and prosecuted. You shouldn’t be able to play the stock market while serving in the highest levels of government. The government should not be for sale to the highest bidder. We shouldn’t be shaming ourselves to the world’s stage by allowing a convicted felon run for the highest seat in our government. We will not persevere without integrity and accountability. We have long since lost our way. We can talk about these things until the end of time, but nothing will change until these things are seen for what they are. Until we decide that these things are unacceptable, it will only get worse. Much, MUCH worse. I want better for my children, and their children - don’t you?",,,False,
 "6,92E+19",2024-09-18 02:15:47,news,"What people need to realise is just how important Trump winning is to Russia. Putin’s goal is to abolish NATO or at least remove the US’s support.
 
 Now that Trump is very clearly on a path to lose the propaganda and other actions are going to ramp up. We’re going to see some wild shit.
 
-For example I personally believe there will be a campaign against Musk in order to force Tesla share prices to collapse with the hopes that it will trigger a run.",TSLA,negative,TRUE,
-49e8a6be,2024-11-15 02:00:53,news,Trump will give him a cabinet position and a pardon.,,,FALSE,
+For example I personally believe there will be a campaign against Musk in order to force Tesla share prices to collapse with the hopes that it will trigger a run.",TSLA,negative,True,
+49e8a6be,2024-11-15 02:00:53,news,Trump will give him a cabinet position and a pardon.,,,False,
 e088731f,2024-02-22 01:51:49,news,"All around sad. No matter what your stance is on gender, this sucks.
 
-These perpetrators should have the book thrown at them. 3 against one? Smh",,,FALSE,
+These perpetrators should have the book thrown at them. 3 against one? Smh",,,False,
 228bdcb2,2024-04-11 15:44:05,news,"Oh no, however will the Mom & Pop Beef Jerky market compete with Big Jerky if gun shows go away?
 
-(Gun shows are terrible for so, so many reasons)",,,FALSE,
+(Gun shows are terrible for so, so many reasons)",,,False,
 c6c0b2ea,2024-07-26 15:49:53,news,"I worked in food as a teen.
 
 Workers do not err on the side of being strict with portion size unless a mandate comes down from leadership because a manager's bonus is based on keeping tight inventory.
@@ -105,7 +105,7 @@ We will give you extra whipped cream, meat, soup, et cetera (especially if you a
 
 It used to be I could go to Chipotle and their basic serving of meat was enough for me to spread over three meals.  I would go there and get sides of meat just to take home and prepare other meals myself with.
 
-Now I eat fewer calories and am at a diet deficit with smaller portions and that shit is only enough for 1.5 meals.",CMG,negative,TRUE,
+Now I eat fewer calories and am at a diet deficit with smaller portions and that shit is only enough for 1.5 meals.",CMG,negative,True,
 25467b6f,2024-07-19 09:03:38,news,"God you know the CrowdStrike support team is in absolute hell today....
 
 You know every call goes something along the lines of
@@ -114,45 +114,45 @@ Customer: ""Well, were an ***airline*** it's absolutely critical you get this wo
 
 Tech Support: ""I'm aware ma'am, but I've also got banks, the NYSE, ***and hospitals*** that also need help, I'm doing my best!""
 
-Customer: ""well, just get it done!""","CRWD, ICE",negative,TRUE,
+Customer: ""well, just get it done!""","CRWD, ICE",negative,True,
 0a21ac35,2024-12-05 14:30:07,news,"> No current or former executives of UnitedHealth Group receive regular company-funded personal security service, according to the insurance giant’s two most recent proxy statements. Companies have to report security expenses for directors or corporate officers if the value exceeds $10,000 per year.
 
 > Two of UnitedHealthcare’s peers, Humana and Cigna, both said in their most recent proxy statements that they provide personal security to executives. SEC records, though, did not disclose which executives received this protection or how much was being spent.
 
-UnitedHealthcare is so shitty they even deny their own C-suite security coverage. Lmao","UNH, HUM, CI",very negative,TRUE,
-6ef59d08,2024-03-29 19:34:18,news,"William C. Robinson, a pastor working for Chi Alpha Campus Ministries in Corpus Christi is a child rapist. So not a drag queen? Seems strange.",,,FALSE,
+UnitedHealthcare is so shitty they even deny their own C-suite security coverage. Lmao","UNH, HUM, CI",very negative,True,
+6ef59d08,2024-03-29 19:34:18,news,"William C. Robinson, a pastor working for Chi Alpha Campus Ministries in Corpus Christi is a child rapist. So not a drag queen? Seems strange.",,,False,
 78ef894e,2024-11-12 22:11:43,news,"Autism:
 
 \- Not a factor in being able to join the military and handle classified documents. C'mon dowwn!
 
 Autism:
 
-\- 100% reason for leaking classified documents and must be given light sentence. Actually the military's fault for trusting someone with autism.",,,FALSE,
+\- 100% reason for leaking classified documents and must be given light sentence. Actually the military's fault for trusting someone with autism.",,,False,
 88b9f549,2024-03-17 22:17:15,news,"Not because the stadium wants to make more money, no it's to punish the fans. I mean punish those who caused problems who are fans, and ask other fans at the same time...
 
 Apparently it was meant to be a loss leader, but then people actually started to buy a lot just to throw them away by throwing them somewhere? And also they shot hotdogs into the stand and people went running for the free dogs which is also why they're getting rid of the cheap dogs which people had to pay for and shouldn't really be connected with the free dogs in my opinion.
 
-I mean, it's clearly business motivated, but they have some really poor explanations worked into the article.",,,FALSE,
-f15b4c99,2024-01-30 22:09:10,news,"Man, if my beard grew in that scraggly I just wouldn’t grow one.",,,FALSE,
+I mean, it's clearly business motivated, but they have some really poor explanations worked into the article.",,,False,
+f15b4c99,2024-01-30 22:09:10,news,"Man, if my beard grew in that scraggly I just wouldn’t grow one.",,,False,
 48ecf9b9,2024-09-13 06:50:37,news,"You know what would solve this problem?  Some stock buybacks.
 
-Gosh, I deserve a C-suite compensation package for that brilliant idea.",,,FALSE,
-"4,24E+14",2024-10-25 17:11:14,news,"If a democratic donor or a campaign that was endorsed by Russia, let alone talking directly to Putin was to happen…They would be hanged and torched on the stake by Republicans. Why does this not happen to these cases of republicans/campaigns working with a foreign enemy?",,,FALSE,
-6deb4791,2024-08-20 19:21:31,news,This is the guy who led chipotle through their tiny portions trend… can’t wait for Starbucks to go downhill,"CMG, SBUX",negative,TRUE,
+Gosh, I deserve a C-suite compensation package for that brilliant idea.",,,False,
+"4,24E+14",2024-10-25 17:11:14,news,"If a democratic donor or a campaign that was endorsed by Russia, let alone talking directly to Putin was to happen…They would be hanged and torched on the stake by Republicans. Why does this not happen to these cases of republicans/campaigns working with a foreign enemy?",,,False,
+6deb4791,2024-08-20 19:21:31,news,This is the guy who led chipotle through their tiny portions trend… can’t wait for Starbucks to go downhill,"CMG, SBUX",negative,True,
 633b9455,2024-08-27 00:27:41,news,"> U.S. NLRB prosecutors have determined that a union's claims that Chipotle Mexican Grill illegally refused to give raises to workers at a Michigan restaurant after they became the first and only employees of the fast-casual chain to unionize have merit.
 
 > Chipotle is accused of violating federal labor law by telling employees in Lansing, Michigan, that the company could not give them raises granted other employees because they had unionized, and then illegally withheld the pay hike from them.
 
 > The NLRB in April 2023 reached a separate settlement with Chipotle in which it agreed to pay $240,000 to workers impacted by its decision to close an Augusta, Maine, restaurant because of unionization efforts.
 
-The CEO of Chipotle Brian Niccol is an anti-labor POS, and he's about to become the CEO of Starbucks, probably because they want him to squash any unionization efforts there too. Corporations are scared when workers unionize, because unions stand up for the people.","CMG, SBUX",negative,TRUE,
-ace37f16,2024-03-05 02:01:23,news,This is prob the one time I am on Elon's side. Fuck those C-Class executives you contributed next to nothing for the company (CEO Parag Agrawal served for only 11months). And they are crying for $128m? Clearly they are just trying to bully another rich person for money. Greed is a crazy thing,,,FALSE,
+The CEO of Chipotle Brian Niccol is an anti-labor POS, and he's about to become the CEO of Starbucks, probably because they want him to squash any unionization efforts there too. Corporations are scared when workers unionize, because unions stand up for the people.","CMG, SBUX",very negative,True,
+ace37f16,2024-03-05 02:01:23,news,This is prob the one time I am on Elon's side. Fuck those C-Class executives you contributed next to nothing for the company (CEO Parag Agrawal served for only 11months). And they are crying for $128m? Clearly they are just trying to bully another rich person for money. Greed is a crazy thing,,,False,
 7896247,2024-07-28 19:44:16,news,"Can't she take this all the way to the uh
 
 Oh supreme court,
 
-C'mon Biden's Monday plan to unfuck the  supreme court",,,FALSE,
+C'mon Biden's Monday plan to unfuck the  supreme court",,,False,
 ecbac5f2,2024-05-20 13:18:24,news,">warrants for Netanyahu and top Hamas leaderswarrants for Netanyahu and top Hamas leaders
 
-Cage match. Let them fight.",,,FALSE,
-a6a03f46,2024-10-21 17:06:36,news,Good.  E. Jean can take Trump Tower.  They can have 40 Wall Street.,,,FALSE,
+Cage match. Let them fight.",,,False,
+a6a03f46,2024-10-21 17:06:36,news,Good.  E. Jean can take Trump Tower.  They can have 40 Wall Street.,,,False,

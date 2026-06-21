@@ -1,71 +1,71 @@
 id,datetime,subreddits,comments,label_tickers,label_sentiment,label_is_relevant,notes
-bab21833,2024-05-31 20:13:05,news,Their official portions probably didn’t shrink. The problem is that employees used to not measure accurately and almost always gave everyone extra. Now they’re probably being monitored more closely and forced to give the official portion sizes which gives the appearance of shrinkage. Chipotle is getting technical here to cover their ass.,CMG,negative,TRUE,
-1583397c,2024-07-26 15:49:53,news,"Used to be my favorite place for fast food, now the only thing that could get me to go back to chipotle would be if they both raised portions and significantly lowered prices. I just don’t trust I’m going to get a $20 meal from them, if it was $10 I’d think about trying it again",CMG,negative,TRUE,
-fe7caec8,2024-05-31 20:13:05,news,"My chipotle gives FAT burritos like Mexican restaurant size, it really depends where you go",CMG,positive,TRUE,
-854f6660,2024-02-26 16:14:59,news,"Can't believe people are hailing this dude as some martyr, he clearly wasn't mentally well and figured if hes going to take himself out, might as well make a statement too. Sadly it's not going to change anything but leave his family shattered, it's not like the M.I.C. executives and U.S. politicians are gonna lose sleep over this dude",,,FALSE,
-f271696d,2024-09-10 21:03:54,news,Another day and another school shooting.,,,FALSE,
-19c42ee3,2024-12-05 14:30:07,news,"If your C suite personnel need body guards, it's an indication that you are doing bad things to others.",,,FALSE,
-ee7adb4e,2024-02-21 21:59:42,news,"Great shades of Dr. Seuss! Okay, so, embryos are people, no matter how small? So you can get them soc. sec numbers, claim them as dependents, cover them under your health insurance? Can you make the sperm (or egg) donor pay child support? Do they get a part of their parent's estate upon death? What about making them go to school? And if you decide to dispose of them, or the storage facility has a power outage requiring them to get rid of the embryos, does that constitute murder? What the hell is happening in the U.S.?! How about focussing on feeding, housing, educating and creating jobs for the people that already exist?",,,FALSE,
-f5eb88a7,2024-04-02 02:52:39,news,This makes my blood boil.,,,FALSE,
-39aeaa27,2024-04-28 06:24:34,news,"I wish I could commit mass scale fraud and get to keep a majority of my profits...JK, I dont' want that at all. I want companies to be held to the same standard as people, especially since the highest court in the land ruled they are people. if people aren't allowed to benefit from crime, why the hell are we allowing corporations to do it...do we not see the perverse incentives this creates?",,,FALSE,
+bab21833,2024-05-31 20:13:05,news,Their official portions probably didn’t shrink. The problem is that employees used to not measure accurately and almost always gave everyone extra. Now they’re probably being monitored more closely and forced to give the official portion sizes which gives the appearance of shrinkage. Chipotle is getting technical here to cover their ass.,CMG,negative,True,
+1583397c,2024-07-26 15:49:53,news,"Used to be my favorite place for fast food, now the only thing that could get me to go back to chipotle would be if they both raised portions and significantly lowered prices. I just don’t trust I’m going to get a $20 meal from them, if it was $10 I’d think about trying it again",CMG,negative,True,
+fe7caec8,2024-05-31 20:13:05,news,"My chipotle gives FAT burritos like Mexican restaurant size, it really depends where you go",CMG,positive,True,
+854f6660,2024-02-26 16:14:59,news,"Can't believe people are hailing this dude as some martyr, he clearly wasn't mentally well and figured if hes going to take himself out, might as well make a statement too. Sadly it's not going to change anything but leave his family shattered, it's not like the M.I.C. executives and U.S. politicians are gonna lose sleep over this dude",,,False,
+f271696d,2024-09-10 21:03:54,news,Another day and another school shooting.,,,False,
+19c42ee3,2024-12-05 14:30:07,news,"If your C suite personnel need body guards, it's an indication that you are doing bad things to others.",,,False,
+ee7adb4e,2024-02-21 21:59:42,news,"Great shades of Dr. Seuss! Okay, so, embryos are people, no matter how small? So you can get them soc. sec numbers, claim them as dependents, cover them under your health insurance? Can you make the sperm (or egg) donor pay child support? Do they get a part of their parent's estate upon death? What about making them go to school? And if you decide to dispose of them, or the storage facility has a power outage requiring them to get rid of the embryos, does that constitute murder? What the hell is happening in the U.S.?! How about focussing on feeding, housing, educating and creating jobs for the people that already exist?",,,False,
+f5eb88a7,2024-04-02 02:52:39,news,This makes my blood boil.,,,False,
+39aeaa27,2024-04-28 06:24:34,news,"I wish I could commit mass scale fraud and get to keep a majority of my profits...JK, I dont' want that at all. I want companies to be held to the same standard as people, especially since the highest court in the land ruled they are people. if people aren't allowed to benefit from crime, why the hell are we allowing corporations to do it...do we not see the perverse incentives this creates?",,,False,
 144bd6ac,2024-04-08 14:26:17,news,"He is getting desperate and has all reasons to do so:
 
 Tesla share price is dropping with no end in sight, the loan of 10 billion for the Twitter acquisition (with a crazy interest rate) has to be paid back , SpaceX is being SpaceX and excites probably only the die-hard Elon Fans and nobody else...
 
-Not much left to cheer him up.",TSL,very negative,TRUE,
+Not much left to cheer him up.",TSL,very negative,True,
 f9c83329,2025-01-16 14:59:54,news,"Actually impressive he made it that far. From what we’re taught flight crew are usually encouraged to call in sick if they accidentally over indulged the night prior, that way it won’t trigger an investigation or put you at risk of getting in major trouble like this. Not to mention other crew members are usually encouraged to call someone out if they seem intoxicated.
 
-For the record the regulations on alcohol consumption is that a pilot cannot fly within 8 hours of consuming alcohol or having a BAC of .04 or higher. So they’re very clear about it. This guys gonna likely be fired, charged, have his license revoked and have to attend mandatory substance counseling before he can even consider flying again",,,FALSE,
-254cd082,2024-06-23 20:56:38,news,Come to Mecca to meet Allah...,,,FALSE,
+For the record the regulations on alcohol consumption is that a pilot cannot fly within 8 hours of consuming alcohol or having a BAC of .04 or higher. So they’re very clear about it. This guys gonna likely be fired, charged, have his license revoked and have to attend mandatory substance counseling before he can even consider flying again",,,False,
+254cd082,2024-06-23 20:56:38,news,Come to Mecca to meet Allah...,,,False,
 0a502c46,2024-01-27 20:02:47,news,"And zero effort from states or the federal government to address the underlying causes.
 
 The number of people who own their home has been going down steadily for decades and now we have five major crises in 15 years which have devastated the actual economy - you know, individual wealth, infrastructure, and job security.
 
 But hey, the *stock market* is doing fine, so we're good, right?
 
-As long as we keep defining ""the economy"" as the stock market and keep defining employment to create false numbers, we look great on paper!",,,FALSE,
+As long as we keep defining ""the economy"" as the stock market and keep defining employment to create false numbers, we look great on paper!",,,False,
 564fadf4,2024-12-27 20:00:58,news,"What a clickbait. Alltime high AAPL today in germany. Later a  mircrodrop. 0,35% down right now.
 
-I hope I will get some 50 nvidia at the limit, I set up today.","AAPL,NVDA",neutral,TRUE,
-df3ff170,2024-10-21 19:08:27,news,This is just not new news either.  This was known and understood in the 80's.  We have gone backwards as a country.,,,FALSE,
+I hope I will get some 50 nvidia at the limit, I set up today.","AAPL,NVDA",neutral,True,
+df3ff170,2024-10-21 19:08:27,news,This is just not new news either.  This was known and understood in the 80's.  We have gone backwards as a country.,,,False,
 3bdacebb,2024-06-06 18:54:18,news,"Well,  like they always say
 
-They snooze.  They lose.",,,FALSE,
-4ffbf406,2024-12-13 15:03:44,news,"Dear rich people: Last time disease wiped out half the population of a major civilization in a short period of time, labor became significantly more expensive, entire economies collapsed, and landowners and governments became destitute when no one could afford to pay rents or taxes. If you don't want your stock prices to come tumbling down, you should tell your pet politicians to nip this sort of shit in the bud.",,,FALSE,
+They snooze.  They lose.",,,False,
+4ffbf406,2024-12-13 15:03:44,news,"Dear rich people: Last time disease wiped out half the population of a major civilization in a short period of time, labor became significantly more expensive, entire economies collapsed, and landowners and governments became destitute when no one could afford to pay rents or taxes. If you don't want your stock prices to come tumbling down, you should tell your pet politicians to nip this sort of shit in the bud.",,,False,
 b0b9d5c1,2024-12-02 23:19:22,news,"> Following McCormick’s decision in January to void the plan, Musk lashed out at the court, posting on X, “Never incorporate your company in the state of Delaware.”
 
 The richest man is whining he didn't getting $56 BILLION richer. Absolute scum.
 
 > Musk is more than $43 billion richer since Donald Trump’s election victory last month. Tesla shares have soared 42% in the four weeks since the election on optimism that Musk’s coziness with the incoming president will lead to policies favorable to his companies.
 
-Please tell me more about he's on the side of the normal person, MAGA idiots.",TSL,negative,TRUE,
-506ae00b,2024-08-09 21:47:52,news,I am really happy to hear this.,,,FALSE,
+Please tell me more about he's on the side of the normal person, MAGA idiots.",TSL,very negative,True,
+506ae00b,2024-08-09 21:47:52,news,I am really happy to hear this.,,,False,
 21491145,2024-07-26 15:49:53,news,"Stop eating at Chipotle omg. There are way better local taquerias.
 
-It's like going to Panda Express when there is a plethora of good local, family owned Chinese Restaurants.",CMG,negative,TRUE,
-0f67bb5b,2024-05-31 20:13:05,news,"Dude...they stole my chipotle bowl. I got the order in person,  then kept it on table to pick up online order,  i waited like more than usual there,  2 people came and tried to find my order but couldn't,  I give up and go back to my table... MAGIC!! only drink is there.... took it threw it pissed in the can and walked out",CMG,very negative,TRUE,
+It's like going to Panda Express when there is a plethora of good local, family owned Chinese Restaurants.",CMG,negative,True,
+0f67bb5b,2024-05-31 20:13:05,news,"Dude...they stole my chipotle bowl. I got the order in person,  then kept it on table to pick up online order,  i waited like more than usual there,  2 people came and tried to find my order but couldn't,  I give up and go back to my table... MAGIC!! only drink is there.... took it threw it pissed in the can and walked out",CMG,very negative,True,
 32e46fa3,2025-01-25 03:54:42,news,"Meritocracy my ass.
 
 He's the least qualified & most inappropriate person to hold the Secretary of Defense position in my 40+ years on this planet.  Perhaps the least qualified Defense Secretary in the history of the nation.
 
-What an unfunny joke.",,,FALSE,
+What an unfunny joke.",,,False,
 efd4c9fb,2024-07-20 18:33:20,news,"This will become more and more likely & common as time goes on.
 
-Agile, as a methodology, cannot function in a stripped down form by corporations who continue to gut and layoff technical roles to appease Wall Street. Minimum Viable Product was always a troubling proposition, even by companies not suffering from significant brain drain due to frequent internal reorganizations.",,,FALSE,
-805ed5d6,2024-03-27 14:35:31,news,"So, if Trump wins in November this guy is 100% going to be Secretary of the Treasury or at the very least Secretary of State",,,FALSE,
+Agile, as a methodology, cannot function in a stripped down form by corporations who continue to gut and layoff technical roles to appease Wall Street. Minimum Viable Product was always a troubling proposition, even by companies not suffering from significant brain drain due to frequent internal reorganizations.",,,False,
+805ed5d6,2024-03-27 14:35:31,news,"So, if Trump wins in November this guy is 100% going to be Secretary of the Treasury or at the very least Secretary of State",,,False,
 3ea8d72b,2024-07-26 15:49:53,news,"Last time I went to a Chipotle they had different cups/spoons for the meats and beans that were noticeably way smaller than the ones for the rice and veg.
 
-Never seen that before at the other locations, so we actively avoid that store.",CMG,negative,TRUE,
+Never seen that before at the other locations, so we actively avoid that store.",CMG,negative,True,
 f59ba709,2024-02-08 05:45:38,news,"Cause money people don't understand the fucking reality of McDonald's and fast food. You can't charge sit down prices for your C- burger joint. Quality at McDonald's is poor, prices are astronomical and those inflated prices are creating a false floor. The CEO, assuming they have a plan in place, sees that they cannot attempt to be ""premium"" when their core demo is families. I won't afford $35-$40 for 4 meals from McDonald's. It's not something I will pay. They need to find a way back to $5-$8 and get away from $10-$12.
 
-There are too many specialist food places to contend with. Specialty chicken sandwich shops and burger shops are in that $8 range and offer a wildly better product. Poor quality and inflated prices are going to crater McDonald's if they don't fix at least 1 of those 2 issues. I have no reason or desire to waste my shit calories for the week on McDonald's when Wendy's, steak n shake and Popeyes exists.",MCD,negative,TRUE,
-9d210d19,2024-08-23 02:20:03,news,Man if they keep this up they are going to start throwing each other off roofs cuz damn. They so gay they banning women voices,,,FALSE,
+There are too many specialist food places to contend with. Specialty chicken sandwich shops and burger shops are in that $8 range and offer a wildly better product. Poor quality and inflated prices are going to crater McDonald's if they don't fix at least 1 of those 2 issues. I have no reason or desire to waste my shit calories for the week on McDonald's when Wendy's, steak n shake and Popeyes exists.",MCD,negative,True,
+9d210d19,2024-08-23 02:20:03,news,Man if they keep this up they are going to start throwing each other off roofs cuz damn. They so gay they banning women voices,,,False,
 1dbb0f7d,2024-08-27 15:55:28,news,"Novo's market capitalization of $570 billion (Jesus Christ) is bigger than the Danish economy.  You read that right.  The *entire* Danish economy.  😑
 
 Fuck them.  Either they charge Americans the same as in Europe, or we should give their patents the middle finger and let anyone who wants to manufacture that shit.  Yes, it's a bureaucratic, expensive, barrier to entry nightmare getting access to the American drug market.  The FDA sucks.  But the payoff for those efforts IS THE ACCESS ITSELF.  They recouped those expenses in a matter of weeks.
 
-Sanders is right.  Either they play fair w/ consumers, or we should free market floodgate their ass.  Let India manufacture it.  What they're doing is ridiculous, and lawmakers suck for allowing these pharm companies to run rampant.",NOVO-B,very negative,TRUE,
-6a041cb1,2024-07-02 21:15:01,news,[removed],,,FALSE,
+Sanders is right.  Either they play fair w/ consumers, or we should free market floodgate their ass.  Let India manufacture it.  What they're doing is ridiculous, and lawmakers suck for allowing these pharm companies to run rampant.",NOVO-B,very negative,True,
+6a041cb1,2024-07-02 21:15:01,news,[removed],,,False,
 884d31b1,2024-02-26 18:13:52,news,"I work at one of the MANY Kroger owned companies:
 
 Baker’s
@@ -110,10 +110,10 @@ They had copies throughout the breakroom about the deal and trying to convince e
 
 The attempting brainwashing of the employees about this is very real.
 
-The only grocery stores near me are Albertsons, QFC, Fred Meyer, and Safeway. Walmart is a little futher away. Yeah, I'll really have a lot of choices as both a customer and an employee.",KR,very negative,TRUE,
-2387dd0c,2024-08-15 01:22:26,news,"Instead of concern for the child? Wtf. There's a list of reasons why she could be so tired. Hard home life, working a job to support herself/family, taking a big course load (or extracurriculars), homeless, health issues (especially menstruation in younger girls is hard), etc. Who knows. But the judge messed up, and I hope her parents speak up.",,,FALSE,
-b96a0b53,2024-08-20 19:21:31,news,"Well, he nailed making chipotle inedible with terrible service. I am sure it was tough to accomplish this goal as chipotle was great for many years. I would never go to Starbucks so I am not sure what he can do to ruin it further.","CMG, SBUX",negative,TRUE,
+The only grocery stores near me are Albertsons, QFC, Fred Meyer, and Safeway. Walmart is a little futher away. Yeah, I'll really have a lot of choices as both a customer and an employee.",KR,very negative,True,
+2387dd0c,2024-08-15 01:22:26,news,"Instead of concern for the child? Wtf. There's a list of reasons why she could be so tired. Hard home life, working a job to support herself/family, taking a big course load (or extracurriculars), homeless, health issues (especially menstruation in younger girls is hard), etc. Who knows. But the judge messed up, and I hope her parents speak up.",,,False,
+b96a0b53,2024-08-20 19:21:31,news,"Well, he nailed making chipotle inedible with terrible service. I am sure it was tough to accomplish this goal as chipotle was great for many years. I would never go to Starbucks so I am not sure what he can do to ruin it further.","CMG, SBUX",negative,True,
 168ecb26,2024-10-28 15:30:20,news,"FYI - this lawsuit’s basis is over an unregulated lottery. It has nothing to do with 18 U.S.C. § 597 which prohibits paying for votes. As many lawyers online have repeatedly demonstrated, that is not happening with requests to sign a petition.
 
-What certainly may happen is charges for 52 U.S.C. § 10307(c), which makes it a federal offense to pay for people to register to vote. The petition’s $1M sweepstakes are only available IF you are registered, so again quite large legal grey area there as it’s the classic chicken & egg scenario. I imagine this entire debacle will certainly be added to future law school books or LSAT testing lol",,,FALSE,
-6e094b8d,2024-03-02 16:18:53,news,C ))) location confirmed. Sending supplies,,,FALSE,
+What certainly may happen is charges for 52 U.S.C. § 10307(c), which makes it a federal offense to pay for people to register to vote. The petition’s $1M sweepstakes are only available IF you are registered, so again quite large legal grey area there as it’s the classic chicken & egg scenario. I imagine this entire debacle will certainly be added to future law school books or LSAT testing lol",,,False,
+6e094b8d,2024-03-02 16:18:53,news,C ))) location confirmed. Sending supplies,,,False,
