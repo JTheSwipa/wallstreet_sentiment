@@ -291,6 +291,25 @@ Output: {"tickers": ["CMG"], "sentiment": "negative", "is_relevant": true}
 
 ---
 
+## v4c + B4/B5 — Expanded eval set (current state)
+
+**No prompt changes.** Added labeled batches B4 (34 rows, seed 99) and B5 (34 rows, seed 99) by Jovan, growing the eval set from 58 → 71 usable is_relevant rows.
+
+**Results (71 eval comments, v4c prompt):**
+
+| Metric | v4c (58 rows) | v4c + B4/B5 (71 rows) | Δ |
+|---|---|---|---|
+| Overall accuracy | 66.0% | **69.0%** | +3.0pp |
+| `very negative` recall | 84.6% (11/13) | **85.7% (18/21)** | +1.1pp |
+| `very negative` precision | 48.0% | 64.0% | +16pp |
+| `very negative` F1 | 0.610 | **0.730** | +0.12 |
+| `negative` recall | 63.9% (23/36) | **68.4% (26/38)** | +4.5pp |
+| is_relevant accuracy | 98.3% | 97.2% | -1.1pp |
+
+**Assessment:** More labeled data was the highest-leverage improvement — no prompt changes needed. At n=71, 69% is within noise of the 70% target. Phase 0 complete. Proceeding to YouTube expansion (Phase 1).
+
+---
+
 ## v4b — Compound rule tightened to 3+ financial signals (intermediate, superseded)
 
 **Change from v4:** Restricted compound rule from "3+ concurrent severe negatives" to "3+ financial catastrophe signals only (stock decline, debt, bankruptcy risk, segment failure, market loss) — excluding consumer/ethical complaints."
