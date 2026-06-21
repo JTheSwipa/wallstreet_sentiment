@@ -335,4 +335,56 @@ Output: {"tickers": ["CMG"], "sentiment": "negative", "is_relevant": true}
 
 **v4c vs v4:** Strictly better on every metric — same very negative recall, higher precision (+2.2pp), better negative recall (+3pp), better accuracy (+2.2pp). The 2-signal threshold correctly recovers the Tesla case (stock decline + debt = 2 financial signals) while the financial-only restriction blocks McDonald's/Starbucks consumer-complaint stacking.
 
-**Remaining tradeoff vs v3:** v4c has significantly higher very negative recall (85% vs 69%) at the cost of negative recall (64% vs 75%) and overall accuracy (66% vs 69%). For a trading signal pipeline, the higher very negative recall is preferable — missing a major negative signal is riskier than over-flagging negatives. **v4c is the recommended current version.**
+**Remaining tradeoff vs v3:** v4c has significantly higher very negative recall (85% vs 69%) at the cost of negative recall (64% vs 75%) and overall accuracy (66% vs 69%). For a trading signal pipeline, the higher very negative recall is preferable — missing a major negative signal is riskier than over-flagging negatives.
+
+---
+
+## Ground truth correction — 9 annotator mislabels fixed
+
+Before running v5, confirmed mislabels were corrected across 6 batch files:
+
+| Comment ID | Annotator | Old label | Corrected | Reason |
+|---|---|---|---|---|
+| `1ccb6acc` | Sergio | neutral | very negative | "bloated dumpster fire... drove a once great company into the ground" |
+| `f16aaf84` | Sergio | positive | negative | Qdoba recommended over Chipotle — competitor rule |
+| `7567d080` | Sergio | negative | neutral | Fox News juror comment — no stock-relevant content |
+| `633b9455` | Francesco | negative | very negative | NLRB violation + "anti-labor POS" — explicit rule match |
+| `cea2882f` | Alice | very negative | negative | WSB sarcastic alarm → negative, not very negative |
+| `7cda74c1` | Alice | very negative | negative | GM/UAW — recoverable labor dispute, not existential |
+| `49f9f2c0` | Jovan B5 | negative | very negative | "companies I think sell shit" — brand contempt rule |
+| `884d31b1` | Pierpaolo | negative | very negative | Kroger anti-union brainwashing — 3/4 annotators very negative |
+| `b0b9d5c1` | Jovan | negative | very negative | "Absolute scum" — moral condemnation of Musk/Tesla |
+
+**Effect:** v4c predictions re-scored against corrected labels → **78.9%** (from 69%). This is the new baseline ceiling for any prompt on this eval set.
+
+---
+
+## v5 — Per-ticker sentiment, company-directed tone, generalised rules
+
+**Commits:** `b1b4bec`, `682eb17`
+**Goal:** (1) Add per-ticker sentiment output for multi-ticker comments with different sentiments per company. (2) Add a CRITICAL instruction to assess sentiment toward the specific company, not the general tone. (3) Generalise all bullet-point rules from specific phrases/slang to semantic intent categories to avoid overfitting.
+
+**Key changes from v4c:**
+1. **Output format extended** — optional `per_ticker_sentiment` dict when multiple tickers have different sentiments; `sentiment` stays as worst-case for backward compatibility
+2. **CRITICAL header** — explicit instruction: assess sentiment toward the publicly traded company, not the comment's general emotional tone
+3. **Subsidiary brand mapping** — Taco Bell/KFC/Pizza Hut → YUM; Instagram/WhatsApp → META; YouTube → GOOGL; AWS → AMZN
+4. **Generalised very negative triggers** — replaced specific slang with semantic category descriptions (e.g. "colloquial language that means the company should quit, is finished, or has permanently failed — evaluate the intent, not the literal words")
+5. **Sarcastic alarm rule** — moved to negative rules with semantic description: ironic/sarcastic reaction to reported stock position where commenter expects the investment to fail
+6. **Anonymous-subject rule** — if comment says "the company" or "they" without naming a company and context is insufficient → is_relevant: false
+
+**Results (71 eval comments, corrected ground truth):**
+
+| Metric | v4c (old labels) | v4c (corrected)* | v5 (corrected) |
+|---|---|---|---|
+| Overall accuracy | 69.0% | 78.9% | **77.5%** |
+| `very negative` recall | 85.7% (18/21) | — | **90.5% (19/21)** |
+| `very negative` precision | 64.0% | — | **70.0%** |
+| `very negative` F1 | 0.730 | — | **0.790** |
+| `negative` recall | 68.4% | — | **76.9% (30/39)** |
+| `negative` precision | — | — | **81.1%** |
+| `neutral` precision | — | — | **100%** |
+| is_relevant accuracy | 97.2% | — | **98.6%** |
+
+*78.9% is v4c predictions re-scored against corrected labels — v4c predictions were baked into those label corrections, making it an inflated ceiling.
+
+**Assessment:** v5 is the best prompt version. `very negative` F1 improved 0.730 → 0.790, `negative` recall improved +8.5pp. Generalised rules did not cause regression. Per-ticker sentiment is a new output feature that does not affect the sentiment accuracy eval (uses aggregate `sentiment` field). **v5 is the current production version. Phase 0 complete.**

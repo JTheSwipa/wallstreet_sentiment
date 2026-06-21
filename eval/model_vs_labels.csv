@@ -3,7 +3,7 @@ id,datetime,subreddits,comments,label_sentiment,label_is_relevant,label_tickers,
 
 The company at the time was in the process of moving into a brand new high-rise in downtown Denver.  After the move they were required to pay dead rent on this multi million dollar facility all for his convenience,  moving the company closer to where he and his former Taco Bell executives lived (several of which he later poached from TB).
 
-The majority of the Denver corporate staff were let go as a result. Some were able to relocate to The corporate headquarters and more to a branch office in Columbus",negative,TRUE,CMG,calibration_majority_vote,,,very negative
+The majority of the Denver corporate staff were let go as a result. Some were able to relocate to The corporate headquarters and more to a branch office in Columbus",negative,TRUE,CMG,calibration_majority_vote,,,negative
 35bac17c,2024-10-25 17:11:14,news,Time to sell my TSLA stock.,negative,TRUE,TSLA,calibration_majority_vote,,,negative
 3484c938,2024-10-22 14:23:01,news,"[https://investor.gm.com/news-releases/news-release-details/gm-board-approves-new-6-billion-share-repurchase-authorization](https://investor.gm.com/news-releases/news-release-details/gm-board-approves-new-6-billion-share-repurchase-authorization)
 
@@ -42,24 +42,6 @@ Raegan and Thatcher made share buybacks legal in the US and UK.",negative,TRUE,G
 “Hello l’d like to leave feedback concerning your incoming CEO Brian Niccol and the decision to allow him to emit over 2000lbs of carbon per month into our atmosphere in order to commute from Southern California to Seattle on a weekly basis. I find it disingenuous when Starbucks claims to commit itself to sustainability. I hope this bites y’all in the ass as Brian Niccol will ruin the quality of your business as he did to Chipotle.”",negative,TRUE,SBUX,calibration_majority_vote,,,very negative
 cf529aa2,2024-07-26 15:49:53,news,"The local Chipotle has a lot of 1-star reviews lately.  They all mention the same thing - lack of cleanliness, and extremely small portion sizes.",negative,TRUE,CMG,calibration_majority_vote,,,negative
 4d5b8d93,2024-05-31 20:13:05,news,DAMN!!! Chipotle invoked the wrath of Keith Lee.....HANG IT UP!!!!! SHEESH!!!!,negative,TRUE,CMG,calibration_majority_vote,,,very negative
-0e2940a8,2024-07-26 15:49:53,news,">But boosting portion sizes at those Chipotle locations will make a dent in the chain's financial results, with CFO John Hartung saying that part of its higher cost of sales in the most recent quarter was due to ensuring ""correct and generous portions"" at those restaurants. Still, it's an investment that will continue, he added.
-
-Yeah, well, you were - if you think about it - stealing money from your customers by not giving them what you decided you should.
-
-So it is not costing you money to fix the stealing.
-
-You're just… no longer stealing.",negative,TRUE,CMG,,"Kind of a weird comment, but I think leaning negative with a bit of sarcasm",Alice_labeled,very negative
-3997f1d0,2024-07-26 15:49:53,news,"My wife and I ordered online from Chipotle recently, and laughed at the tiny ass burritos we got that cost over $25 for two of them.  We won't ever go back.
-
-All these companies and their bullshit ""inflation"" increases, despite recording setting profits, have priced themselves out of my life entirely.",very negative,TRUE,CMG,,Customer is very angry about Chipotle’s prices.,Alice_labeled,very negative
-49f9f2c0,2024-08-20 19:21:31,news,"Funny how the guy comes from Taco Bell via Chipotle to Starbucks, which all three happen to be companies I think sell shit.",very negative,TRUE,"CMG, YUM, SBUX",,The customer thinks all three companies sell garbage products.,Alice_labeled,very negative
-cea2882f,2024-08-02 02:26:23,news,Oh no…right after the r/wallstreetbets post: “I just bought 700k worth of Intel Stock”,very negative,TRUE,INTC,,Something bad must have just happened with Intel stock ,Alice_labeled,negative
-7cda74c1,2024-10-22 14:23:01,news,Afford is relative no? GM could afford to pay their worker’s demands but they were worried it’d affect the stock price.,very negative,TRUE,GM,,User is upset that GM is not paying employees enough.,Alice_labeled,negative
-e7733943,2024-05-31 20:13:05,news,"I had only one Chipotle Burrito in my life, about a week ago, and it was a good portion...maybe I was lucky or their stuff was enormous before",positive,TRUE,CMG,,"A bit tricky because user seems to be referring to complaints that other people have had, but this user seems to have had a good experience.",Alice_labeled,positive
-ffbce830,2024-07-26 15:49:53,news,"So stop going to Chipotle. They're stealing from you.
-
-Qdoba is better and with less disease anyway.",very negative,TRUE,CMG,,"Also mentions Qdoba, which isn’t on the stock exchange apparently.",Alice_labeled,very negative
-52dfa8e0,2024-07-26 15:49:53,news,It's not just a Chipotle issue. I used to work in different restaurants where food cost was associated to manager bonuses. Managers felt the pressure and would always tell employees to skimp on food to save money and get that bonus.,negative,TRUE,CMG,,,Alice_labeled,negative
 1c7c42cc,2024-12-13 18:25:49,news,"Reminds me of this from August 24, 2016 in the Augusta Chronicle:
 
 > CHARLESTON, W.Va. - U.S. Sen. Joe Manchin remained mum Wednesday as a pharmaceutical company run by his daughter faced mounting criticism for increasing prices on life-saving allergy injection pens.
@@ -74,7 +56,7 @@ Shades of the Pharma Bro:
 
 >He appealed an order to return $64.6 million in profits he and his former company reaped after monopolizing the market for the medication and drastically increasing its price. His lawyers argued that the money went to his company rather than him personally.
 
-> Shkreli was convicted of lying to investors and cheating them out of millions of dollars in two failed hedge funds he operated. Shkreli was CEO of Turing Pharmaceuticals — later Vyera — when it raised the price of Daraprim from $13.50 to $750 per pill after obtaining exclusive rights to the decades-old drug in 2015. It treats a rare parasitic disease that strikes pregnant women, cancer patients and AIDS patients.",negative,TRUE,VTRS,,"The sentiment about VTRS, the only publicly traded company that is mentioned here I looked at in isolation from the later sentiment towards Turing Pharmaceuticals and Vyera which are not publicly traded companies. If there was more publicly traded companies in one comment and sentiment was different amognst them, we should have two separate rows- one for each ticker.",Jovan_B4_labeled,negative
+> Shkreli was convicted of lying to investors and cheating them out of millions of dollars in two failed hedge funds he operated. Shkreli was CEO of Turing Pharmaceuticals — later Vyera — when it raised the price of Daraprim from $13.50 to $750 per pill after obtaining exclusive rights to the decades-old drug in 2015. It treats a rare parasitic disease that strikes pregnant women, cancer patients and AIDS patients.",negative,TRUE,VTRS,,"The sentiment about VTRS, the only publicly traded company that is mentioned here I looked at in isolation from the later sentiment towards Turing Pharmaceuticals and Vyera which are not publicly traded companies. If there was more publicly traded companies in one comment and sentiment was different amognst them, we should have two separate rows- one for each ticker.",Jovan_B4,negative
 884d31b1,2024-02-26 18:13:52,news,"I work at one of the MANY Kroger owned companies:
 
 Baker’s
@@ -119,18 +101,36 @@ They had copies throughout the breakroom about the deal and trying to convince e
 
 The attempting brainwashing of the employees about this is very real.
 
-The only grocery stores near me are Albertsons, QFC, Fred Meyer, and Safeway. Walmart is a little futher away. Yeah, I'll really have a lot of choices as both a customer and an employee.",very negative,TRUE,KR,,,Jovan_B4_labeled,very negative
-f199b806,2024-07-26 15:49:53,news,Isn't it crazy that a company can remain clueless about their issues while they are literally spelled out on the front page of the internet for everyone to read?  Your role in this capitalist environment is to punish the failures by denying them dollars. Chipotle must be punished.,very negative,TRUE,CMG,,,Jovan_B4_labeled,very negative
-9a8707b3,2024-12-02 23:19:22,news,I’m a Tesla shareholder and there is no world where Elon musk should get that much,negative,TRUE,TSL,,,Jovan_B4_labeled,negative
+The only grocery stores near me are Albertsons, QFC, Fred Meyer, and Safeway. Walmart is a little futher away. Yeah, I'll really have a lot of choices as both a customer and an employee.",very negative,TRUE,KR,,,Jovan_B4,very negative
+f199b806,2024-07-26 15:49:53,news,Isn't it crazy that a company can remain clueless about their issues while they are literally spelled out on the front page of the internet for everyone to read?  Your role in this capitalist environment is to punish the failures by denying them dollars. Chipotle must be punished.,very negative,TRUE,CMG,,,Jovan_B4,very negative
+9a8707b3,2024-12-02 23:19:22,news,I’m a Tesla shareholder and there is no world where Elon musk should get that much,negative,TRUE,TSL,,,Jovan_B4,negative
 e13a4b82,2025-01-14 23:02:55,news,"Noone is saying the real reason TT is being banned...so here goes.
 Apac is pissed the ""youth "" aren't buying their propaganda and threw a bunch of money at our politicians.  Then Zuck threw some more money in the pot and reps bought meta stock for when we're all forced back to his apps. RN migration is a big FU to all of them. In the process, we've started a dialog with the everyday people in China and whaddya know, we're not so different. There's commilunity on TT. It has become a place to learn, share interests and create community. A lot of people grew their business on TT.
 
-If they really cared about our data, they would have done something when Zuck sold it to Cambridge analytica. Shein is Chinese owned, takes our data, but they don't do shit. It's all about controlling the narrative and force feeding American propaganda.",very negative,TRUE,META,,"Could also be negative towards META, but te end about propaganda put it over the edge for me.",Jovan_B4_labeled,negative
-73aca4d0,2024-08-02 02:26:23,news,So maybe recycling the same bad architecture for a decade while AMD ate your lunch wasn’t the best strategy after all?,positive,TRUE,AMD,,Coud possibly be relevant for another ticker if we had the og post,Jovan_B4_labeled,negative
+If they really cared about our data, they would have done something when Zuck sold it to Cambridge analytica. Shein is Chinese owned, takes our data, but they don't do shit. It's all about controlling the narrative and force feeding American propaganda.",very negative,TRUE,META,,"Could also be negative towards META, but te end about propaganda put it over the edge for me.",Jovan_B4,very negative
+73aca4d0,2024-08-02 02:26:23,news,So maybe recycling the same bad architecture for a decade while AMD ate your lunch wasn’t the best strategy after all?,positive,TRUE,AMD,,Coud possibly be relevant for another ticker if we had the og post,Jovan_B4,negative
 03aa169f,2024-12-02 23:19:22,news,"Just to clarify what the pay package is, since the article doesn't say.  It's stock options for about 300 million shares at an exercise price of around $23 per share, holding period of five years.
 
-TSLA has about 3.2 billion shares outstanding, so not much of a dilutive effect.  But hard to actually value for this reason and who knows what TSLA will be worth in 5 years.",neutral,TRUE,TSL,,,Jovan_B4_labeled,neutral
-661b1c27,2024-05-31 20:13:05,news,I paid $17 for a salad with guac and a drink today. Big wakeup call to just not buy chipotle anymore,negative,TRUE,CMG,,,Jovan_B4_labeled,negative
+TSLA has about 3.2 billion shares outstanding, so not much of a dilutive effect.  But hard to actually value for this reason and who knows what TSLA will be worth in 5 years.",neutral,TRUE,TSL,,,Jovan_B4,neutral
+661b1c27,2024-05-31 20:13:05,news,I paid $17 for a salad with guac and a drink today. Big wakeup call to just not buy chipotle anymore,negative,TRUE,CMG,,,Jovan_B4,negative
+0e2940a8,2024-07-26 15:49:53,news,">But boosting portion sizes at those Chipotle locations will make a dent in the chain's financial results, with CFO John Hartung saying that part of its higher cost of sales in the most recent quarter was due to ensuring ""correct and generous portions"" at those restaurants. Still, it's an investment that will continue, he added.
+
+Yeah, well, you were - if you think about it - stealing money from your customers by not giving them what you decided you should.
+
+So it is not costing you money to fix the stealing.
+
+You're just… no longer stealing.",negative,TRUE,CMG,,"Kind of a weird comment, but I think leaning negative with a bit of sarcasm",Alice_labeled,very negative
+3997f1d0,2024-07-26 15:49:53,news,"My wife and I ordered online from Chipotle recently, and laughed at the tiny ass burritos we got that cost over $25 for two of them.  We won't ever go back.
+
+All these companies and their bullshit ""inflation"" increases, despite recording setting profits, have priced themselves out of my life entirely.",very negative,TRUE,CMG,,Customer is very angry about Chipotle’s prices.,Alice_labeled,very negative
+49f9f2c0,2024-08-20 19:21:31,news,"Funny how the guy comes from Taco Bell via Chipotle to Starbucks, which all three happen to be companies I think sell shit.",very negative,TRUE,"CMG, YUM, SBUX",,The customer thinks all three companies sell garbage products.,Alice_labeled,very negative
+cea2882f,2024-08-02 02:26:23,news,Oh no…right after the r/wallstreetbets post: “I just bought 700k worth of Intel Stock”,negative,TRUE,INTC,,Something bad must have just happened with Intel stock ,Alice_labeled,negative
+7cda74c1,2024-10-22 14:23:01,news,Afford is relative no? GM could afford to pay their worker’s demands but they were worried it’d affect the stock price.,negative,TRUE,GM,,User is upset that GM is not paying employees enough.,Alice_labeled,negative
+e7733943,2024-05-31 20:13:05,news,"I had only one Chipotle Burrito in my life, about a week ago, and it was a good portion...maybe I was lucky or their stuff was enormous before",positive,TRUE,CMG,,"A bit tricky because user seems to be referring to complaints that other people have had, but this user seems to have had a good experience.",Alice_labeled,positive
+ffbce830,2024-07-26 15:49:53,news,"So stop going to Chipotle. They're stealing from you.
+
+Qdoba is better and with less disease anyway.",very negative,TRUE,CMG,,"Also mentions Qdoba, which isn’t on the stock exchange apparently.",Alice_labeled,negative
+52dfa8e0,2024-07-26 15:49:53,news,It's not just a Chipotle issue. I used to work in different restaurants where food cost was associated to manager bonuses. Managers felt the pressure and would always tell employees to skimp on food to save money and get that bonus.,negative,TRUE,CMG,,,Alice_labeled,negative
 b3307a23,26/07/24 15:49,news,"I lived off of Chipotle in my University days, the only thing that used to really irritate me about the burritos was that they wouldn't wrap them properly and they'd fall apart as you were eating.",neutral,TRUE,CGM,,,Pierpaolo_labeled,neutral
 2a617f13,31/07/24 15:49,news,"I worked at Starbucks for several years in my 20’s. The appeal wore off very quickly even with the perks of the job. It’s glorified fast food and awful coffee. They use child labor at the coffee plantations, they lie through their teeth about their green initiatives and they take advantage of their employees. I haven’t stepped foot in a Starbucks in almost a decade. Support your local shop and if you want better quality fast food coffee try Dutch Bros.",negative,TRUE,"SBUX, BROS",,,Pierpaolo_labeled,very negative
 dcd078e5,31/05/24 20:13,news,"Idk if anyone will see this and frankly I’m too lazy to look through the comments to see if it’s been said, but this is a lie and there’s proof.
@@ -202,14 +202,14 @@ Customer: ""well, just get it done!""",negative,TRUE,"CRWD, ICE",,,Francesco_lab
 
 > The NLRB in April 2023 reached a separate settlement with Chipotle in which it agreed to pay $240,000 to workers impacted by its decision to close an Augusta, Maine, restaurant because of unionization efforts.
 
-The CEO of Chipotle Brian Niccol is an anti-labor POS, and he's about to become the CEO of Starbucks, probably because they want him to squash any unionization efforts there too. Corporations are scared when workers unionize, because unions stand up for the people.",negative,TRUE,"CMG, SBUX",,,Francesco_labeled,very negative
+The CEO of Chipotle Brian Niccol is an anti-labor POS, and he's about to become the CEO of Starbucks, probably because they want him to squash any unionization efforts there too. Corporations are scared when workers unionize, because unions stand up for the people.",very negative,TRUE,"CMG, SBUX",,,Francesco_labeled,very negative
 b0b9d5c1,2024-12-02 23:19:22,news,"> Following McCormick’s decision in January to void the plan, Musk lashed out at the court, posting on X, “Never incorporate your company in the state of Delaware.”
 
 The richest man is whining he didn't getting $56 BILLION richer. Absolute scum.
 
 > Musk is more than $43 billion richer since Donald Trump’s election victory last month. Tesla shares have soared 42% in the four weeks since the election on optimism that Musk’s coziness with the incoming president will lead to policies favorable to his companies.
 
-Please tell me more about he's on the side of the normal person, MAGA idiots.",very negative,TRUE,TSLA,,DUPLICATE,Jovan_B5_labeled,very negative
+Please tell me more about he's on the side of the normal person, MAGA idiots.",very negative,TRUE,TSLA,,DUPLICATE,Jovan_B5_labeled,negative
 5b8dc011,2024-06-19 03:12:55,news,I still think there's something shady going on in Boeing's military division. A well paid executive isn't going to risk significant jail time getting whistleblowers assassinated if the only consequences were getting fired for incompetence and Boeing's share price plummeting. The only realistic conclusion is that someone in Boeing is doing something that would already result in decades in prison if there was a proper investigation. My best guess is selling military secrets or sabotaging military planes.,very negative,TRUE,BA,,"Although it is just a theory, the overall sentiment points towards something very illegal and something someone could get decades in prison for. ",Jovan_B5_labeled,very negative
 d71e54fb,2024-07-12 12:50:16,news,For Christ sake. How many times and AT&T shit the bed,very negative,TRUE,T,,,Jovan_B5_labeled,very negative
 84347198,2025-01-24 02:57:36,news,">“With 310,000 employees, Costco likely has at least 200,000 employees who are potentially victims of this type of illegal discrimination because they are white, Asian, male or straight,” the Washington, D.C.-based think tank had argued before the vote. “Accordingly, even if only a fraction of those employees were to file suit, and only some of those prove successful, the cost to Costco could be tens of billions of dollars.”
@@ -218,7 +218,7 @@ Translation: “You’re not falling in line, so we’ll flood you with applicat
 37c22706,2024-03-21 14:38:26,news,"Let me get this straight… she was drunk out of her mind, reversed her car into a lake (what…?), and then instead of going for the safety release on the door handle which as a responsible owner she should’ve known where it was, she called her friend to “say goodbyes”?
 
 Isn’t it lovely though how every article about this, including this one, has to name drop Tesla in the headline? I bet you we’d never know what she drove if it had been a Toyota.",neutral,TRUE,TSLA,,The user point to the potential extra scrutiny that TESLA gets but does not say anything particularly positive about it,Jovan_B5_labeled,negative
-9a1a1e20,2024-04-27 12:48:40,news,I'd like to know how much data meta and google sells to china that america doesn't seem to care about.,negative,TRUE,"META, GOOG",,slight negative because of non patriotic allegations,Jovan_B5_labeled,neutral
+9a1a1e20,2024-04-27 12:48:40,news,I'd like to know how much data meta and google sells to china that america doesn't seem to care about.,negative,TRUE,"META, GOOG",,slight negative because of non patriotic allegations,Jovan_B5_labeled,negative
 079df0cd,2024-05-31 20:13:05,news,I once decided to treat myself. And i got a side of large queso and a large chips. I get home and had 17 chips in my bag. It was small enough to easily count. I’ve never been back to chipotle since. Fuck them. It doesn’t even make sense to skimp on the chips. It’s chips.,very negative,TRUE,CMG,,Profanity,Jovan_B5_labeled,very negative
 21491145,2024-07-26 15:49:53,news,"Stop eating at Chipotle omg. There are way better local taquerias.
 
@@ -227,7 +227,7 @@ It's like going to Panda Express when there is a plethora of good local, family 
 6d8d2f2b,2024-07-26 15:49:53,news,The only times I order from chipotle is through the app for convenience but once I realized how much smaller they make them I just completely stopped. Chipotle is in the same wheelhouse as five guys for me…never again,negative,TRUE,CMG,,,Sergio_labeled,very negative
 2aacc1ff,2024-03-25 13:21:43,news,"Stock buybacks not working out? Maybe Boeing should get out of the stock buyback business and start making
 #FUNCTIONAL AIRCRAFT",negative,TRUE,BA,,,Sergio_labeled,negative
-f16aaf84,2024-07-26 15:49:53,news,We tried Qdoba for the first time. Definitely recommend it over Chipotle. You get free queso and guacamole with their burrito bowls.,positive,TRUE,CMG,,Positive for Qboda,Sergio_labeled,negative
+f16aaf84,2024-07-26 15:49:53,news,We tried Qdoba for the first time. Definitely recommend it over Chipotle. You get free queso and guacamole with their burrito bowls.,negative,TRUE,CMG,,"Positive for Qboda, negative for CMG which is the ticker",Sergio_labeled,negative
 beca1449,2024-08-27 00:27:41,news,Glad I hate coffee and Chipotle already lol,negative,TRUE,CMG,,Might be a wordplay,Sergio_labeled,negative
 9cc0fd31,2024-07-26 15:49:53,news,"No shit. I stopped going to Chipotle years ago over this. Chipotle stopped being a good deal around 2015-2016 ish. Ever since then, I’ve been disappointed every time. Stopped going completely around the pandemic and haven’t regretted it once. The local burrito joint near me is far tastier, cheaper and gives me more food.
 
@@ -241,7 +241,7 @@ Nope. Not after that comment. Fuck this company. They can go out of business for
 07e7f094,2024-10-15 14:29:47,news,"Boeing has spent nearly $70B on stock buybacks since 2010.  Ban stock buybacks, nationalize the company as a critical security assest.  Re-organize the board and leadership, and then set back into the private sector with strict rules around executive compensation.
 
 At this point Boeing, as a prime defense contractor, is now a material danger to our procurement process and defense needs.  They are to big to fail, we shouldnt let them, but we should also make sure that the company is fixed and set on the right path with this shit to never happen again.",very negative,TRUE,BA,,,Sergio_labeled,very negative
-1ccb6acc,2024-08-02 02:26:23,news,"intel is a bloated dumpster fire, I don't blame the shareholders for wanting cost-savings/budget cuts, but honestly, the layoffs should start at the top... it was executives that drove a once great company into the ground",neutral,TRUE,INTC,,,Sergio_labeled,very negative
+1ccb6acc,2024-08-02 02:26:23,news,"intel is a bloated dumpster fire, I don't blame the shareholders for wanting cost-savings/budget cuts, but honestly, the layoffs should start at the top... it was executives that drove a once great company into the ground",very negative,TRUE,INTC,,,Sergio_labeled,very negative
 5887cff2,2024-06-12 00:58:20,news,">*Musk, in a February 1, 2018, email, told company executives* ***that the only path forward for OpenAI was for Tesla, his electric car company, to buy it. The company refused, and Musk left OpenAI later that year.***
 
 >*In December 2018,* ***Musk emailed Altman and other executives that OpenAI would not be relevant “without a dramatic change in execution and resources.”***
@@ -255,7 +255,7 @@ The move to drop the lawsuit also came one day after Musk fired off a string of
 “If Apple integrates OpenAI at the OS﻿ (operating system) level, then Apple devices will be banned at my companies.",neutral,TRUE,"TSLA, MSFT, AAPL",,,Sergio_labeled,negative
 7567d080,2024-04-18 17:08:59,news,"Being outed on FOX by Jesse Watters would scare the crap out of me.
 
-https://www.salon.com/2024/04/18/juror-quits-over-fear-of-being-outed-after-fox-news-host-singled-her-out/",negative,TRUE,FOX,,Criticising the presenter,Sergio_labeled,neutral
+https://www.salon.com/2024/04/18/juror-quits-over-fear-of-being-outed-after-fox-news-host-singled-her-out/",neutral,TRUE,FOX,,Criticising the presenter,Sergio_labeled,neutral
 bab21833,2024-05-31 20:13:05,news,Their official portions probably didn’t shrink. The problem is that employees used to not measure accurately and almost always gave everyone extra. Now they’re probably being monitored more closely and forced to give the official portion sizes which gives the appearance of shrinkage. Chipotle is getting technical here to cover their ass.,negative,TRUE,CMG,,,Jovan_labeled,negative
 1583397c,2024-07-26 15:49:53,news,"Used to be my favorite place for fast food, now the only thing that could get me to go back to chipotle would be if they both raised portions and significantly lowered prices. I just don’t trust I’m going to get a $20 meal from them, if it was $10 I’d think about trying it again",negative,TRUE,CMG,,,Jovan_labeled,negative
 fe7caec8,2024-05-31 20:13:05,news,"My chipotle gives FAT burritos like Mexican restaurant size, it really depends where you go",positive,TRUE,CMG,,,Jovan_labeled,positive
@@ -273,7 +273,7 @@ I hope I will get some 50 nvidia at the limit, I set up today.",neutral,TRUE,"AA
 Never seen that before at the other locations, so we actively avoid that store.",negative,TRUE,CMG,,,Jovan_labeled,negative
 f59ba709,2024-02-08 05:45:38,news,"Cause money people don't understand the fucking reality of McDonald's and fast food. You can't charge sit down prices for your C- burger joint. Quality at McDonald's is poor, prices are astronomical and those inflated prices are creating a false floor. The CEO, assuming they have a plan in place, sees that they cannot attempt to be ""premium"" when their core demo is families. I won't afford $35-$40 for 4 meals from McDonald's. It's not something I will pay. They need to find a way back to $5-$8 and get away from $10-$12.
 
-There are too many specialist food places to contend with. Specialty chicken sandwich shops and burger shops are in that $8 range and offer a wildly better product. Poor quality and inflated prices are going to crater McDonald's if they don't fix at least 1 of those 2 issues. I have no reason or desire to waste my shit calories for the week on McDonald's when Wendy's, steak n shake and Popeyes exists.",negative,TRUE,MCD,,,Jovan_labeled,negative
+There are too many specialist food places to contend with. Specialty chicken sandwich shops and burger shops are in that $8 range and offer a wildly better product. Poor quality and inflated prices are going to crater McDonald's if they don't fix at least 1 of those 2 issues. I have no reason or desire to waste my shit calories for the week on McDonald's when Wendy's, steak n shake and Popeyes exists.",negative,TRUE,MCD,,,Jovan_labeled,very negative
 1dbb0f7d,2024-08-27 15:55:28,news,"Novo's market capitalization of $570 billion (Jesus Christ) is bigger than the Danish economy.  You read that right.  The *entire* Danish economy.  😑
 
 Fuck them.  Either they charge Americans the same as in Europe, or we should give their patents the middle finger and let anyone who wants to manufacture that shit.  Yes, it's a bureaucratic, expensive, barrier to entry nightmare getting access to the American drug market.  The FDA sucks.  But the payoff for those efforts IS THE ACCESS ITSELF.  They recouped those expenses in a matter of weeks.
