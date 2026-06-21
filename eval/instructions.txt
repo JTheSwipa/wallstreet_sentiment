@@ -11,11 +11,8 @@ This alignment step is the most important part — do not skip it.
 STEP 2 — Individual batches
 ---------------------------
 After calibration discussion, each person opens their own batch:
-    Jovan: batch_Jovan.csv
-Alice: batch_Alice.csv
-Sergio: batch_Sergio.csv
-Pierpaolo: batch_Pierpaolo.csv
-Francesco: batch_Francesco.csv
+    Jovan_B4: batch_Jovan_B4.csv
+Jovan_B5: batch_Jovan_B5.csv
 
 COLUMN GUIDE
 ------------
