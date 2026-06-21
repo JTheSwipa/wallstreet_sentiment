@@ -8,3 +8,4 @@ Leonardo_LLM_connections.txt
 .~lock.*#
 anaconda_projects/
 eval/review_edge_cases.csv
+output/
