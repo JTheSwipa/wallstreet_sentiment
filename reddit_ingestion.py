@@ -144,12 +144,13 @@ def parse_comments(
                 link_id = c.get("link_id", "")
                 post_id = link_id.replace("t3_", "") if link_id.startswith("t3_") else ""
 
-                # Build enriched comment text
+                # Build enriched comment text (newlines replaced to keep CSV single-line)
                 post_context = submissions.get(post_id, "")
                 if post_context:
-                    enriched = f"[Post: {post_context}]\n{body}"
+                    enriched = f"[Post: {post_context}] {body}"
                 else:
                     enriched = body
+                enriched = enriched.replace("\n", " ").replace("\r", " ")
 
                 dt = datetime.fromtimestamp(created, tz=timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
 
@@ -206,7 +207,8 @@ def main():
     df = df.sort_values("datetime").reset_index(drop=True)
 
     # Save full output (with extra cols for debugging)
-    df.to_csv(args.output, index=False)
+    import csv
+    df.to_csv(args.output, index=False, quoting=csv.QUOTE_ALL)
 
     # Stats
     with_ctx = df["has_context"].sum()

@@ -65,7 +65,7 @@ def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     print(f"Loading {args.input}...")
-    df = pd.read_csv(args.input)
+    df = pd.read_csv(args.input, engine="python", on_bad_lines="skip")
     if "id" not in df.columns:
         df["id"] = df["comments"].apply(stable_hash)
     if args.limit:
