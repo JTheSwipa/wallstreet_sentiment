@@ -71,15 +71,15 @@ Rate sentiment based on how much this would shift an investor's view of the SPEC
 "very negative" — severe reputational or existential damage. Use this for ANY of:
   - Formal violations: fraud, NLRB/SEC violations, food safety crisis, union-busting, executive misconduct
   - Calls for extreme action: explicit boycott, delisting from exchanges, nationalization, government takeover
-  - Profanity directed at the company combined with existential language ("go out of business", "never going back", "done forever")
-  - Colloquial existential dismissal: "hang it up", "it's a wrap", "they're done", "finished" directed at a company
-  - Explicit theft or fraud accusation against customers ("they're stealing from you", "stole my order", "lying to customers")
-  - Permanent customer departure combined with moral condemnation ("corporate greed", "scam", "corrupt")
-  - Explicit product contempt applied to a brand ("sell shit", "absolute garbage", "trash product") even when framed as personal opinion
+  - Profanity or strong condemnation directed at the company combined with language expressing the company has no future or the user has permanently severed the relationship
+  - Social media or colloquial language that means the company should quit, is finished, or has permanently failed — evaluate the intent behind the expression, not the literal words
+  - Accusation that the company is committing financial fraud or theft against customers
+  - Permanent customer departure combined with moral condemnation of the company's character or ethics
+  - Language that dismisses the company's entire product or service as worthless — strong contempt for the brand itself, even framed as personal opinion
   - Multiple stacked financial catastrophe signals: two or more of the following co-occurring about the same company: sustained stock price decline, major debt burden or cash flow crisis, imminent bankruptcy or insolvency risk, complete failure of a key business segment, loss of a major market. Consumer experience complaints (price, quality, service), ethical criticisms (labor practices, environmental claims), and executive behavior criticisms do NOT qualify as financial catastrophe signals even when stacked — those remain negative
 
-"negative" — real but recoverable complaints: sustained price gouging, product quality failures, employee mistreatment, competitor clearly recommended over this stock, user reframes positive corporate news as predatory ("stealing", "greed") without explicit departure, political or ethical accusation naming a specific company (data privacy violations, propaganda, safety negligence)
-  - Sarcastic alarm about a stock investment ("Oh no", "rip", "F", "this is fine") in direct response to a reported buy or large position → negative for that stock; the irony signals the commenter expects the position to lose value
+"negative" — real but recoverable complaints: sustained price gouging, product quality failures, employee mistreatment, competitor clearly recommended over this stock, user reframes positive corporate news as predatory without explicit departure, political or ethical accusation naming a specific company (data privacy violations, propaganda, safety negligence, labor exploitation)
+  - Ironic or sarcastic reaction to a reported stock purchase or large position, where the tone signals the commenter expects the investment to fail → negative for that stock
 
 "neutral" — minor or ambiguous: trivial product gripes (packaging, one bad experience), political or macro commentary without direct stock impact, mixed signals with no clear direction
 
@@ -93,7 +93,7 @@ Rate sentiment based on how much this would shift an investor's view of the SPEC
 - Employee posts about forced anti-union training or corporate brainwashing → very negative
 - NLRB violations combined with angry or cursing language toward executives → very negative
 - User recommends a non-traded competitor over a specific public stock → negative for that public stock
-- "I stopped going" or "never going back" alone → negative; combined with profanity, "stealing", or moral condemnation → very negative
+- A user stating they have stopped or will stop patronizing a company → negative; if combined with profanity, moral condemnation, or language implying the company has no future → very negative
 - When a comment quotes a news article and then adds editorial text, label the sentiment of the user's editorial — not the article
 - If multiple tickers have different sentiments, include per_ticker_sentiment with each ticker's individual sentiment
 - Output JSON only — no explanation, no markdown, no extra text
@@ -106,8 +106,8 @@ Output: {"tickers": ["CMG"], "sentiment": "very negative", "is_relevant": true}
 Comment: "Boeing has spent nearly $70B on stock buybacks since 2010. Ban stock buybacks, nationalize the company as a critical security asset."
 Output: {"tickers": ["BA"], "sentiment": "very negative", "is_relevant": true}
 
-Comment: "DAMN!!! Chipotle invoked the wrath of Keith Lee.....HANG IT UP!!!!! SHEESH!!!!"
-Output: {"tickers": ["CMG"], "sentiment": "very negative", "is_relevant": true}
+Comment: "Amazon warehouse workers are collapsing on the floor and management just tells them to keep going. This company needs to be shut down."
+Output: {"tickers": ["AMZN"], "sentiment": "very negative", "is_relevant": true}
 
 Comment: "I'd like to know how much data Meta and Google sell to China that America doesn't seem to care about."
 Output: {"tickers": ["META", "GOOGL"], "sentiment": "negative", "is_relevant": true}
