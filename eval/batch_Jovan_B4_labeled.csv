@@ -1,0 +1,108 @@
+id,datetime,subreddits,comments,label_tickers,label_sentiment,label_is_relevant,notes
+2bfd63ff,2024-07-19 09:03:38,news,"\*Me...Sees people talking about crowdstrike issues, Checks tradingview to see how the stocks doing, Down 18%/$63.50ish) in pre-market\*
+
+Yep this is gonna be a fun ticker to watch today",,,FALSE,ticker not named but it probably refers to a  post. There is a lot of context lost if we don’t have the original post as context.
+1c7c42cc,2024-12-13 18:25:49,news,"Reminds me of this from August 24, 2016 in the Augusta Chronicle:
+
+> CHARLESTON, W.Va. - U.S. Sen. Joe Manchin remained mum Wednesday as a pharmaceutical company run by his daughter faced mounting criticism for increasing prices on life-saving allergy injection pens.
+
+>The Democratic West Vir­ginia senator's daughter, Heather Bresch, is CEO of Mylan, the manufacturer of EpiPens. A two-dose package, costing around $94 nine years ago, rose more than 600 percent to an average cost of $608 in May, according to the Elsevier Clinical So­lu­tions' Gold Standard Drug Data­base.
+
+> Manchin spokesman Jon­a­than Kott said Wednes­day that the senator had no comment right now. His silence contrasted with a growing number of leaders crying foul on the ballooning prices, including fellow senators.
+
+Shades of the Pharma Bro:
+
+> WASHINGTON (AP) — The Supreme Court on Monday [October 7, 2024] rejected an appeal from Martin Shkreli, who was once dubbed “Pharma Bro” after jacking up the price of a lifesaving drug.
+
+>He appealed an order to return $64.6 million in profits he and his former company reaped after monopolizing the market for the medication and drastically increasing its price. His lawyers argued that the money went to his company rather than him personally.
+
+> Shkreli was convicted of lying to investors and cheating them out of millions of dollars in two failed hedge funds he operated. Shkreli was CEO of Turing Pharmaceuticals — later Vyera — when it raised the price of Daraprim from $13.50 to $750 per pill after obtaining exclusive rights to the decades-old drug in 2015. It treats a rare parasitic disease that strikes pregnant women, cancer patients and AIDS patients.",VTRS,negative,TRUE,"The sentiment about VTRS, the only publicly traded company that is mentioned here I looked at in isolation from the later sentiment towards Turing Pharmaceuticals and Vyera which are not publicly traded companies. If there was more publicly traded companies in one comment and sentiment was different amognst them, we should have two separate rows- one for each ticker."
+c26377aa,2025-01-03 22:16:38,news,"When I was 22 I got arrested for running through the streets naked, and although it was determined to be a result of a bipolar psychotic break, I still had to go to court, and I still had to go to probation which lasted for six months visiting with a cop how come he doesn’t even get probation?",,,FALSE,
+8010386a,2024-02-09 12:58:57,news,It's disturbing how it seems more and more illiterate people lately are getting into positions of power,,,FALSE,
+c582c180,2024-06-18 21:22:52,news,"> On June 18, 2021, Aldrich's maternal grandparents revealed their plans to relocate to Florida. Angered at the development, Aldrich complained about losing access to the material stored in the basement which was intended for ""conduct[ing] a mass shooting and bombing"". Aldrich held the grandparents hostage, and threatened to murder them.[62] Eventually, Aldrich let them go, shifted to Voepel's house, and holed up there.[62] During an hour-long standoff with Colorado SWAT, an armed Aldrich live-streamed from inside and threatened to blow up the house. Neighboring homes had to be evacuated.[63][64] Upon surrendering, a tub filled with explosive-grade material — including ammonium nitrate and tannerite — was recovered alongside handguns, ballistic vests, and gas masks; Aldrich was jailed and charged with multiple counts of kidnapping and felony menacing.[62][65] Aldrich entered a not guilty plea and was released on bail a fortnight later.[62] The case made negligible progress, with Voepel and the grandparents refusing to accept any subpoena (under technical grounds) to avoid testifying against Aldrich.[65] In July 2022, the case was dismissed, and records were sealed a month later.[62][65]
+
+Wow... Just wow........",,,FALSE,
+2f06349e,2025-01-25 00:04:59,news,So  how much is a ticket cost on a C-17 for 80 people ? They make charter  planes you know. What a waste of a country!,,,FALSE,
+396825c0,2024-02-21 20:05:43,news,"But guys -- I'm told that guns don't kill people, people kill people.  Has anyone investigated the 2-year-old's possible motives?",,,FALSE,
+95481735,2024-08-29 19:33:05,news,"I work as a teacher, so I basically get a call instantly if I don’t show up. I’m probably getting discovered within a day if anything happens to me. Unless I die on a Friday after school.",,,FALSE,
+c5d36d12,2024-05-14 14:20:32,news,"C'mon, everyone shocked faces.",,,FALSE,
+884d31b1,2024-02-26 18:13:52,news,"I work at one of the MANY Kroger owned companies:
+
+Baker’s
+
+City Market
+
+Dillons
+
+Food 4 Less
+
+Foods Co
+
+Fred Meyer
+
+Fry’s
+
+Gerbes
+
+Jay C Food Store
+
+King Soopers
+
+Kroger
+
+Mariano’s
+
+Metro Market
+
+Pay-Less Super Markets
+
+Pick’n Save
+
+QFC
+
+Ralphs
+
+Ruler
+
+Smith’s Food and Drug
+
+They had copies throughout the breakroom about the deal and trying to convince employees it would be good for lower prices/higher wages/better benefits. Literally no one is buying it. They also force us to take pop quizzes on these phone-like devices everyday where we're force to read and accept what the CEO is saying about the deal like how we all are forced to hit accept on terms and service agreements. Of course no one is actually reading them either. We just scroll through it fast and hit accept.
+
+The attempting brainwashing of the employees about this is very real.
+
+The only grocery stores near me are Albertsons, QFC, Fred Meyer, and Safeway. Walmart is a little futher away. Yeah, I'll really have a lot of choices as both a customer and an employee.",KR,very negative,TRUE,
+889bfa64,2024-10-01 15:31:15,news,"Admissions:  'I think we can overlook this legacy's, ummm, sorry, I mean *student's* C-minus average.  I mean, he *was* the third alternate on the high-school's barbershop quartet, and he did volunteer to bartend at a large Wine Tasting event at the local country club this summer.  Isn't that *exactly* the kind of selfless, talented, and altruistic student we're looking for here at Berkley?'",,,FALSE,Uni of Berkley is not publically traded
+aa7cd97a,2024-09-25 02:06:29,news,Fucking take everything from that cunt.,,,FALSE,
+f4877200,2025-01-07 19:06:46,news,"Can we start calling him ""too little, too late joe"" now? I know Im taking away from his huge W right now, and im sorry for that, but...where has this joe been the last 4 years? C'mon, man!",,,FALSE,
+c5b3f8f0,2024-04-15 15:04:57,news,"Stock is down, just dilute the shares and wonder why the stock is down even more.",,,FALSE,ticker not named but it probably refers to a  post. There is a lot of context lost if we don’t have the original post as context.
+f199b806,2024-07-26 15:49:53,news,Isn't it crazy that a company can remain clueless about their issues while they are literally spelled out on the front page of the internet for everyone to read?  Your role in this capitalist environment is to punish the failures by denying them dollars. Chipotle must be punished.,CMG,very negative,TRUE,
+513e892a,2024-09-06 17:04:52,news,"After the last few decades of seeing corporations price gouging, price fixing via algorithm, pushing civil war, stock market manipulation by massive hedge funds, and telling us that everything we do to improve our situation is ""too utopian"" fuck these people.
+
+Tax the rich or axe the rich at this point.
+
+D12 said it best https://www.youtube.com/watch?v=LesJAjQf0-g",,,FALSE,
+8f563f6f,2025-01-23 20:08:41,news,"One down... now, I guess we're into, ""99 bottles o' beer on the wall, 99 bottles o' beer...""!",,,FALSE,
+9a8707b3,2024-12-02 23:19:22,news,I’m a Tesla shareholder and there is no world where Elon musk should get that much,TSL,negative,TRUE,
+5c4c6cdb,2024-08-20 23:27:43,news,It can really be the craziest shit,,,FALSE,
+e13a4b82,2025-01-14 23:02:55,news,"Noone is saying the real reason TT is being banned...so here goes.
+Apac is pissed the ""youth "" aren't buying their propaganda and threw a bunch of money at our politicians.  Then Zuck threw some more money in the pot and reps bought meta stock for when we're all forced back to his apps. RN migration is a big FU to all of them. In the process, we've started a dialog with the everyday people in China and whaddya know, we're not so different. There's commilunity on TT. It has become a place to learn, share interests and create community. A lot of people grew their business on TT.
+
+If they really cared about our data, they would have done something when Zuck sold it to Cambridge analytica. Shein is Chinese owned, takes our data, but they don't do shit. It's all about controlling the narrative and force feeding American propaganda.",META,very negative,TRUE,"Could also be negative towards META, but te end about propaganda put it over the edge for me."
+7d7e0905,2024-02-13 23:40:18,news,"My question is, if Christians, Jews and Muslims believe God is omnipotent, why do they feel the need act on God's behalf?",,,FALSE,
+fab51dff,2024-03-14 18:50:59,news,"Police going to investigate themselves and find no wrongdoing, as usual. Time for him to take his paid vacation! Thanks police unions.",,,FALSE,Coud be relevan if we had the og post
+3b3a2291,2024-06-12 00:58:20,news,I’m so fucking sick of this guy.,,,FALSE,Coud be relevan if we had the og post
+73aca4d0,2024-08-02 02:26:23,news,So maybe recycling the same bad architecture for a decade while AMD ate your lunch wasn’t the best strategy after all?,AMD,positive,TRUE,Coud possibly be relevant for another ticker if we had the og post
+f50c43fd,2025-01-09 18:52:20,news,"Add a 1 and four zeros in front of that and maybe you're on to something. Also, shareholders should ALSO be fined as well, that's the risk you take in the stock market chumps.",,,FALSE,Coud be relevan if we had the og post
+f38e8e97,2024-10-12 13:26:30,news,So the kids just kept playing after the child’s throat was slashed? Or is it just a shitty headline?,,,FALSE,
+2af08a01,2024-09-08 03:04:47,news,"Do these shooters ever think of the consequences they will face afterwards? That 15 year old Michigan kid, Crumbley got life without parole. I mean , damn man, that is hell on earth, so wtf? What’s the motivation?",,,FALSE,
+03aa169f,2024-12-02 23:19:22,news,"Just to clarify what the pay package is, since the article doesn't say.  It's stock options for about 300 million shares at an exercise price of around $23 per share, holding period of five years.
+
+TSLA has about 3.2 billion shares outstanding, so not much of a dilutive effect.  But hard to actually value for this reason and who knows what TSLA will be worth in 5 years.",TSL,neutral,TRUE,
+ff10e473,2024-04-05 20:48:20,news,Trump finally got arrested?? TG,,,FALSE,
+ad47c9bb,2024-04-24 19:25:43,news,"In Europe, you get up to 600 euros for flights delayed over 4 hours.",,,FALSE,
+03e16f08,2024-03-22 01:25:42,news,"I'm a white guy who grew up in small-town MS. We were all terrified of the local cops because it was well-known they were the worst kind of rednecks. Mean, stupid and drunk on power.",,,FALSE,
+561d250b,2024-02-10 02:39:38,news,Why the quotations? He is an antisemite he said it clear as day,,,FALSE,
+ff951b7d,2024-11-19 19:24:34,news,"This exact same logic will start being used to avoid sentencing for all politicians...then all public officials...them all law enforcement agents ...then all CEOs and C-suite executives...then all bankers ...then all middle management...
+
+Eventually the only people held accountable for crimes will very literally be the working class.",,,FALSE,
+661b1c27,2024-05-31 20:13:05,news,I paid $17 for a salad with guac and a drink today. Big wakeup call to just not buy chipotle anymore,CMG,negative,TRUE,

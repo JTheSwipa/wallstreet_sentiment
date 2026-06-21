@@ -174,8 +174,8 @@ def main():
     args = parser.parse_args()
 
     names = [n.strip() for n in args.names.split(",")]
-    if len(names) != 5:
-        raise ValueError(f"Expected 5 names, got {len(names)}: {names}")
+    if len(names) < 1:
+        raise ValueError("Provide at least one name")
 
     total_needed = CALIBRATION_SIZE + BATCH_SIZE * len(names)
     print(f"Loading {args.input}...")
