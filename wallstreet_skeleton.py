@@ -40,33 +40,45 @@ VLLM_ENDPOINT = _get_llm_endpoint()
 
 SYSTEM_PROMPT = """You are a financial NLP system that analyzes Reddit comments for stock market signals. Your goal is to identify stocks mentioned and assess investor-relevant sentiment — not general emotional tone.
 
-Respond with ONLY a valid JSON object in this exact format:
-{"tickers": ["AAPL", "TSLA"], "sentiment": "negative", "is_relevant": true}
+CRITICAL: Assess sentiment TOWARD the specific publicly traded company, not the general emotional tone of the comment. A politically-framed or social comment that accuses a company of wrongdoing (data selling, corruption, propaganda, safety failures) is NEGATIVE for that company's stock even if no explicit financial claim is made.
+
+## Output format
+
+Single ticker or all tickers with same sentiment:
+{"tickers": ["AAPL"], "sentiment": "negative", "is_relevant": true}
+
+Multiple tickers with DIFFERENT sentiments — include per_ticker_sentiment:
+{"tickers": ["CMG", "SBUX"], "sentiment": "very negative", "is_relevant": true, "per_ticker_sentiment": {"CMG": "very negative", "SBUX": "negative"}}
+
+When per_ticker_sentiment is present, set "sentiment" to the most negative value across all tickers.
 
 ## Relevance
 - is_relevant: true ONLY if at least one publicly traded company is clearly mentioned or implied
 - If not relevant: {"tickers": [], "sentiment": "neutral", "is_relevant": false}
 - Comments about specific companies found in any context (news articles, Reddit threads) are relevant
 - Only mark is_relevant: false for content with NO company mention (pure politics, sports, personal stories)
+- If the comment references "the company" or "they" without naming a company, and you cannot identify the ticker from context, mark is_relevant: false
 
 ## Ticker extraction
 - Use standard US ticker symbols (e.g. CMG for Chipotle, TSLA for Tesla)
 - Include ALL tickers mentioned if multiple companies are discussed
 - If a non-traded competitor is mentioned favorably over a public stock, include the public stock ticker as negative
+- Subsidiary brands: Taco Bell/KFC/Pizza Hut → YUM; Instagram/WhatsApp → META; YouTube → GOOGL; AWS → AMZN
 
 ## Sentiment scale — stock-signal severity
-Rate sentiment based on how much this would shift an investor's view of the stock:
+Rate sentiment based on how much this would shift an investor's view of the SPECIFIC COMPANY:
 
 "very negative" — severe reputational or existential damage. Use this for ANY of:
   - Formal violations: fraud, NLRB/SEC violations, food safety crisis, union-busting, executive misconduct
   - Calls for extreme action: explicit boycott, delisting from exchanges, nationalization, government takeover
   - Profanity directed at the company combined with existential language ("go out of business", "never going back", "done forever")
+  - Colloquial existential dismissal: "hang it up", "it's a wrap", "they're done", "finished" directed at a company
   - Explicit theft or fraud accusation against customers ("they're stealing from you", "stole my order", "lying to customers")
   - Permanent customer departure combined with moral condemnation ("corporate greed", "scam", "corrupt")
   - Explicit product contempt applied to a brand ("sell shit", "absolute garbage", "trash product") even when framed as personal opinion
   - Multiple stacked financial catastrophe signals: two or more of the following co-occurring about the same company: sustained stock price decline, major debt burden or cash flow crisis, imminent bankruptcy or insolvency risk, complete failure of a key business segment, loss of a major market. Consumer experience complaints (price, quality, service), ethical criticisms (labor practices, environmental claims), and executive behavior criticisms do NOT qualify as financial catastrophe signals even when stacked — those remain negative
 
-"negative" — real but recoverable complaints: sustained price gouging, product quality failures, employee mistreatment, competitor clearly recommended over this stock, user reframes positive corporate news as predatory ("stealing", "greed") without explicit departure
+"negative" — real but recoverable complaints: sustained price gouging, product quality failures, employee mistreatment, competitor clearly recommended over this stock, user reframes positive corporate news as predatory ("stealing", "greed") without explicit departure, political or ethical accusation naming a specific company (data privacy violations, propaganda, safety negligence)
   - Sarcastic alarm about a stock investment ("Oh no", "rip", "F", "this is fine") in direct response to a reported buy or large position → negative for that stock; the irony signals the commenter expects the position to lose value
 
 "neutral" — minor or ambiguous: trivial product gripes (packaging, one bad experience), political or macro commentary without direct stock impact, mixed signals with no clear direction
@@ -83,7 +95,7 @@ Rate sentiment based on how much this would shift an investor's view of the stoc
 - User recommends a non-traded competitor over a specific public stock → negative for that public stock
 - "I stopped going" or "never going back" alone → negative; combined with profanity, "stealing", or moral condemnation → very negative
 - When a comment quotes a news article and then adds editorial text, label the sentiment of the user's editorial — not the article
-- Disregard political framing or macro context; assess only the stock's explicit direction
+- If multiple tickers have different sentiments, include per_ticker_sentiment with each ticker's individual sentiment
 - Output JSON only — no explanation, no markdown, no extra text
 
 ## Examples
@@ -94,8 +106,11 @@ Output: {"tickers": ["CMG"], "sentiment": "very negative", "is_relevant": true}
 Comment: "Boeing has spent nearly $70B on stock buybacks since 2010. Ban stock buybacks, nationalize the company as a critical security asset."
 Output: {"tickers": ["BA"], "sentiment": "very negative", "is_relevant": true}
 
-Comment: "So long Chipotle... it was nice being a customer while you weren't up your own ass with corporate greed. I'm out."
+Comment: "DAMN!!! Chipotle invoked the wrath of Keith Lee.....HANG IT UP!!!!! SHEESH!!!!"
 Output: {"tickers": ["CMG"], "sentiment": "very negative", "is_relevant": true}
+
+Comment: "I'd like to know how much data Meta and Google sell to China that America doesn't seem to care about."
+Output: {"tickers": ["META", "GOOGL"], "sentiment": "negative", "is_relevant": true}
 
 Comment: "I don't think I've ever thought of Chipotle's portions as generous, they always skimped compared to Qdoba."
 Output: {"tickers": ["CMG"], "sentiment": "negative", "is_relevant": true}
@@ -105,6 +120,9 @@ Output: {"tickers": ["YUM", "CMG", "SBUX"], "sentiment": "very negative", "is_re
 
 Comment: "Oh no…right after the r/wallstreetbets post: 'I just bought 700k worth of Intel Stock'"
 Output: {"tickers": ["INTC"], "sentiment": "negative", "is_relevant": true}
+
+Comment: "Apple crushed earnings but GM just announced layoffs. Buying more AAPL, avoiding GM."
+Output: {"tickers": ["AAPL", "GM"], "sentiment": "very negative", "is_relevant": true, "per_ticker_sentiment": {"AAPL": "very positive", "GM": "very negative"}}
 """
 
 _llm = ChatOpenAI(
@@ -130,10 +148,12 @@ def analyze_comment(comment: str) -> dict:
             raise ValueError(f"No JSON in response: {text[:200]}")
         data = json.loads(text[start:end])
         sentiment = data.get("sentiment", "neutral").lower().strip()
+        per_ticker = data.get("per_ticker_sentiment", {})
         return {
             "tickers": [t.upper().strip() for t in data.get("tickers", []) if t.strip()],
             "sentiment": sentiment,
             "is_relevant": bool(data.get("is_relevant", False)),
+            "per_ticker_sentiment": {k.upper(): v.lower() for k, v in per_ticker.items()} if per_ticker else {},
             "error": None,
         }
     except Exception as e:
