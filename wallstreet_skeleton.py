@@ -36,7 +36,23 @@ def _get_llm_endpoint(port: int = 8000) -> str:
     return fallback
 
 
-VLLM_ENDPOINT = _get_llm_endpoint()
+_cached_endpoint: dict = {}
+
+
+def _get_llm_client() -> ChatOpenAI:
+    endpoint = _get_llm_endpoint()
+    if _cached_endpoint.get("url") != endpoint:
+        _cached_endpoint["url"] = endpoint
+        _cached_endpoint["client"] = ChatOpenAI(
+            base_url=endpoint,
+            api_key=API_KEY,
+            model=MODEL_NAME,
+            temperature=0,
+            max_retries=3,
+            timeout=90,
+        )
+    return _cached_endpoint["client"]
+
 
 SYSTEM_PROMPT = """You are a financial NLP system that analyzes Reddit comments for stock market signals. Your goal is to identify stocks mentioned and assess investor-relevant sentiment — not general emotional tone.
 
@@ -125,19 +141,9 @@ Comment: "Apple crushed earnings but GM just announced layoffs. Buying more AAPL
 Output: {"tickers": ["AAPL", "GM"], "sentiment": "very negative", "is_relevant": true, "per_ticker_sentiment": {"AAPL": "very positive", "GM": "very negative"}}
 """
 
-_llm = ChatOpenAI(
-    base_url=VLLM_ENDPOINT,
-    api_key=API_KEY,
-    model=MODEL_NAME,
-    temperature=0,
-    max_retries=3,
-    timeout=90,
-)
-
-
 def analyze_comment(comment: str) -> dict:
     try:
-        response = _llm.invoke([
+        response = _get_llm_client().invoke([
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": str(comment)[:2000]},
         ])
@@ -157,4 +163,4 @@ def analyze_comment(comment: str) -> dict:
             "error": None,
         }
     except Exception as e:
-        return {"tickers": [], "sentiment": "neutral", "is_relevant": False, "error": str(e)}
+        return {"tickers": [], "sentiment": "neutral", "is_relevant": False, "per_ticker_sentiment": {}, "error": str(e)}

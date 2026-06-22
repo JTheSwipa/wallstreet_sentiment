@@ -1,42 +1,53 @@
 #!/bin/bash
 #SBATCH --job-name=wsb_inference
-#SBATCH --time=06:00:00
+#SBATCH --time=08:00:00
 #SBATCH --account=tra26_bbs
-#SBATCH --partition=lrd_all_serial
+#SBATCH --partition=boost_usr_prod
+#SBATCH --qos=normal
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node=1
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=16
 #SBATCH --error=wsb_inference-%j.err
 #SBATCH --output=wsb_inference-%j.out
 
-# Inference job — runs run_inference.py on a CPU node.
+# Inference job — runs run_inference.py on a compute node.
 # The LLM server (vLLM) must already be running via LLM_start.job.
-# This job is SSH-independent: it keeps running if you disconnect.
+# SSH-independent: keeps running if you disconnect.
 #
 # Usage:
-#   sbatch config/inference.job                          # full run
-#   sbatch config/inference.job --export=RESUME=1        # resume from checkpoint
+#   sbatch config/inference.job                                        # wsb_2026.csv, fresh
+#   sbatch --export=ALL,RESUME=1 config/inference.job                  # wsb_2026.csv, resume
+#   sbatch --export=ALL,INPUT=data/jun.csv config/inference.job        # custom file, fresh
+#   sbatch --export=ALL,INPUT=data/may.csv,RESUME=1 config/inference.job  # custom file, resume
 #
-# Monitor progress:
+# Run multiple datasets in parallel:
+#   sbatch --export=ALL,INPUT=data/wsb_jun.csv config/inference.job
+#   sbatch --export=ALL,INPUT=data/wsb_may.csv config/inference.job
+#   sbatch --export=ALL,INPUT=data/wsb_apr.csv config/inference.job
+#
+# Monitor:
+#   squeue --me
 #   tail -f wsb_inference-<JOBID>.out
+#   wc -l output/<stem>_checkpoint.csv
 
-INPUT_FILE="data/wsb_2026.csv"
+INPUT_FILE="${INPUT:-data/wsb_2026.csv}"
 RESUME_FLAG=""
 
-# Pass RESUME=1 via --export to resume from checkpoint
 if [ "${RESUME:-0}" = "1" ]; then
     RESUME_FLAG="--resume"
-    echo "[INFO] Resuming from checkpoint"
+    echo "[INFO] Mode: resume from checkpoint"
 else
-    echo "[INFO] Starting fresh run"
+    echo "[INFO] Mode: fresh run"
 fi
 
-echo "[INFO] Job started: $(date)"
-echo "[INFO] Node: $(hostname)"
-echo "[INFO] Input: $INPUT_FILE"
+echo "[INFO] Job started:  $(date)"
+echo "[INFO] Node:         $(hostname)"
+echo "[INFO] Input file:   $INPUT_FILE"
 
 source .venv/bin/activate
 
 python run_inference.py --input "$INPUT_FILE" $RESUME_FLAG
 
-echo "[INFO] Job finished: $(date)"
+EXIT_CODE=$?
+echo "[INFO] Job finished: $(date) (exit code $EXIT_CODE)"
+exit $EXIT_CODE

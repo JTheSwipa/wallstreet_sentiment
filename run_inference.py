@@ -25,8 +25,8 @@ from wallstreet_skeleton import analyze_comment
 
 DEFAULT_INPUT = "reddit_comments.csv"
 OUTPUT_DIR = "output"
-WORKERS = 32
-CHECKPOINT_EVERY = 500
+WORKERS = 128
+CHECKPOINT_EVERY = 250
 
 
 def stable_hash(text: str) -> str:
