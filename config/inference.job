@@ -46,29 +46,38 @@ echo "[INFO] Input file:   $INPUT_FILE"
 
 source .venv/bin/activate
 
-# Wait for vLLM to be ready before starting inference
+# Wait for vLLM to be ready before starting inference.
+# Polls newest LLM .out file for node IP, then polls /health until HTTP 200.
+# Single loop of 130 attempts (~2h total); VLLM_READY flag is the exit gate.
 echo "[INFO] Waiting for LLM endpoint to appear..."
+VLLM_READY=0
 VLLM_IP=""
-for i in $(seq 1 90); do
-    VLLM_IP=$(grep -h "Starting head node" llm_launcher_small-*.out 2>/dev/null | tail -1 | grep -oP '(?<=at )\d+\.\d+\.\d+\.\d+' || true)
-    if [ -n "$VLLM_IP" ]; then
-        echo "[INFO] Found LLM node at $VLLM_IP, waiting for /health..."
-        for j in $(seq 1 40); do
-            STATUS=$(curl -s -o /dev/null -w "%{http_code}" "http://$VLLM_IP:8000/health" 2>/dev/null || echo "000")
-            if [ "$STATUS" = "200" ]; then
-                echo "[INFO] vLLM ready at http://$VLLM_IP:8000 after ~$((j)) min"
-                break 2
-            fi
-            echo "[INFO] vLLM not ready yet (HTTP $STATUS), attempt $j/40, sleeping 60s..."
-            sleep 60
-        done
+
+for i in $(seq 1 130); do
+    # Only read the NEWEST .out file — old job files contain stale IPs
+    NEWEST_OUT=$(ls -t llm_launcher_small-*.out 2>/dev/null | head -1)
+    if [ -n "$NEWEST_OUT" ]; then
+        # awk instead of grep -oP: portable across gawk/mawk/nawk (no Perl regex needed)
+        # Finds the word after "at" on the "Starting head node" line, strips trailing dot
+        VLLM_IP=$(awk '/Starting head node/ { for(i=1;i<=NF;i++) if($i=="at") { gsub(/[^0-9.]/,"",$(i+1)); print $(i+1); exit } }' "$NEWEST_OUT" 2>/dev/null | tail -1)
     fi
-    echo "[INFO] No LLM output file yet, attempt $i/90, sleeping 60s..."
+
+    if [ -n "$VLLM_IP" ]; then
+        STATUS=$(curl -s -o /dev/null -w "%{http_code}" "http://$VLLM_IP:8000/health" 2>/dev/null || echo "000")
+        if [ "$STATUS" = "200" ]; then
+            echo "[INFO] vLLM ready at http://$VLLM_IP:8000 (attempt $i)"
+            VLLM_READY=1
+            break
+        fi
+        echo "[INFO] vLLM at $VLLM_IP not ready yet (HTTP $STATUS), attempt $i/130, sleeping 60s..."
+    else
+        echo "[INFO] No LLM output file yet, attempt $i/130, sleeping 60s..."
+    fi
     sleep 60
 done
 
-if [ -z "$VLLM_IP" ]; then
-    echo "[ERROR] vLLM never became ready after 90 min, aborting."
+if [ "$VLLM_READY" != "1" ]; then
+    echo "[ERROR] vLLM never became ready after ~130 min, aborting."
     exit 1
 fi
 

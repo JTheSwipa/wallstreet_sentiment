@@ -78,9 +78,12 @@ def main():
     checkpoint = checkpoint_file if args.resume and os.path.exists(checkpoint_file) else None
     if checkpoint:
         existing = pd.read_csv(checkpoint)
-        done_ids = set(existing["id"].tolist())
-        existing_rows = existing.to_dict("records")
-        print(f"  Resuming — {len(done_ids):,} already done, {len(df) - len(done_ids):,} remaining")
+        # Only skip rows that completed without error — errored rows get retried
+        success = existing[existing["error"].isna() | (existing["error"] == "")]
+        done_ids = set(success["id"].tolist())
+        existing_rows = success.to_dict("records")
+        error_count = len(existing) - len(success)
+        print(f"  Resuming — {len(done_ids):,} done, {error_count:,} errors will retry, {len(df) - len(done_ids):,} remaining")
 
     todo = df[~df["id"].isin(done_ids)].to_dict("records")
     results = list(existing_rows)
