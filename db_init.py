@@ -166,6 +166,7 @@ def load_raw_csv(conn, path, source="arctic_shift"):
     })
     comments_df["source"] = source
     comments_df["ingested_at"] = pd.Timestamp.now(tz="UTC")
+    comments_df = comments_df.drop_duplicates(subset=["id"])
 
     existing_ids = set(conn.execute("SELECT id FROM comments").fetchdf()["id"].tolist())
     new_comments = comments_df[~comments_df["id"].isin(existing_ids)]
