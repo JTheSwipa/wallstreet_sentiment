@@ -53,7 +53,7 @@ echo "[INFO] Waiting for LLM endpoint to appear..."
 VLLM_READY=0
 VLLM_IP=""
 
-for i in $(seq 1 130); do
+for i in $(seq 1 480); do
     # Only read the NEWEST .out file — old job files contain stale IPs
     NEWEST_OUT=$(ls -t llm_launcher_small-*.out 2>/dev/null | head -1)
     if [ -n "$NEWEST_OUT" ]; then
