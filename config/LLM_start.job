@@ -11,7 +11,7 @@
 #SBATCH --gres=gpu:4
 #SBATCH --error llm_launcher_small-%j.err
 #SBATCH --output llm_launcher_small-%j.out
-##SBATCH --reservation=s_tra_bbs4
+#SBATCH --reservation=s_tra_bbs4
 
 #################################################################
 ### Script to launch a containerized version of RAY and vllm. ###
