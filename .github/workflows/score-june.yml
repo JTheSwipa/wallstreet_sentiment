@@ -1,0 +1,126 @@
+name: Score June WSB backlog
+
+# Cron-chained scoring of data release 'june-scoring-data' against the Mistral
+# API. Every 6h a runner resumes from the latest checkpoint artifact, works
+# ~5.5h, saves a new checkpoint, and exits. When run_inference.py finishes the
+# whole file it uploads the result to the release and disables this workflow.
+# Scripts are checked out from the pivot/trader-sentiment-mvp branch.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 */6 * * *"
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: june-score
+  cancel-in-progress: false
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      VLLM_ENDPOINT: https://api.mistral.ai/v1
+      VLLM_MODEL: mistral-small-2506
+      VLLM_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+      LLM_RPS: "4.8"
+      TQDM_MININTERVAL: "60"
+    steps:
+      - name: Stop if already done
+        id: check
+        run: |
+          n=$(gh api "repos/$REPO/actions/artifacts?name=june-done&per_page=1" --jq '.total_count')
+          if [ "$n" != "0" ]; then
+            echo "Backlog already fully scored — disabling schedule."
+            echo "done=true" >> "$GITHUB_OUTPUT"
+            gh workflow disable score-june.yml -R "$REPO" || true
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.check.outputs.done != 'true'
+        with:
+          ref: pivot/trader-sentiment-mvp
+
+      - uses: actions/setup-python@v5
+        if: steps.check.outputs.done != 'true'
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        if: steps.check.outputs.done != 'true'
+        run: pip install --quiet pandas tqdm langchain-openai
+
+      - name: Fetch backlog + latest checkpoint
+        if: steps.check.outputs.done != 'true'
+        run: |
+          mkdir -p data output
+          gh release download june-scoring-data -p 'wsb_june_backlog.csv' -D data -R "$REPO"
+          aid=$(gh api "repos/$REPO/actions/artifacts?name=june-checkpoint&per_page=100" \
+                --jq '[.artifacts[] | select(.expired==false)] | sort_by(.created_at) | last | .id // empty')
+          if [ -n "$aid" ]; then
+            echo "Resuming from checkpoint artifact $aid"
+            gh api "repos/$REPO/actions/artifacts/$aid/zip" > cp.zip
+            unzip -o cp.zip -d output/
+          else
+            echo "No checkpoint artifact — trying release seed (laptop progress)"
+            gh release download june-scoring-data -p 'checkpoint-seed.csv' -O output/wsb_june_backlog_checkpoint.csv -R "$REPO" || true
+          fi
+          ls -la output/ || true
+
+      - name: Score for up to 5.5 hours
+        if: steps.check.outputs.done != 'true'
+        run: |
+          set +e
+          timeout 330m python run_inference.py --input data/wsb_june_backlog.csv --workers 16 --resume
+          code=$?
+          set -e
+          if [ "$code" -eq 124 ]; then
+            echo "Time slice finished — next scheduled run resumes from checkpoint."
+          elif [ "$code" -ne 0 ]; then
+            echo "run_inference.py failed with exit code $code"
+            exit "$code"
+          fi
+
+      - name: Publish result if complete
+        if: steps.check.outputs.done != 'true'
+        run: |
+          if [ -f output/wsb_june_backlog_sentiment.csv ]; then
+            echo "COMPLETE — uploading final result to release"
+            gzip -k output/wsb_june_backlog_sentiment.csv
+            gh release upload june-scoring-data output/wsb_june_backlog_sentiment.csv.gz --clobber -R "$REPO"
+            echo done > june-done.txt
+            gh workflow disable score-june.yml -R "$REPO" || true
+          fi
+
+      - name: Upload done marker
+        if: steps.check.outputs.done != 'true' && hashFiles('june-done.txt') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: june-done
+          path: june-done.txt
+          retention-days: 90
+
+      - name: Upload checkpoint artifact
+        if: always() && steps.check.outputs.done != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: june-checkpoint
+          path: output/wsb_june_backlog_checkpoint.csv
+          retention-days: 3
+          if-no-files-found: ignore
+
+      - name: Delete superseded checkpoint artifacts (storage quota)
+        if: always() && steps.check.outputs.done != 'true'
+        run: |
+          gh api "repos/$REPO/actions/artifacts?name=june-checkpoint&per_page=100" \
+            --jq '[.artifacts[] | select(.expired==false)] | sort_by(.created_at) | .[:-1] | .[].id' |
+          while read -r old; do
+            [ -n "$old" ] && gh api -X DELETE "repos/$REPO/actions/artifacts/$old" && echo "deleted artifact $old"
+          done
+          true
