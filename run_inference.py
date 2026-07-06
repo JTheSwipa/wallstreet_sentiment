@@ -21,20 +21,19 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import pandas as pd
 from tqdm import tqdm
 
-from wallstreet_skeleton import analyze_comment
+from wallstreet_skeleton import analyze_comment, analyze_comments_batch
 
 DEFAULT_INPUT = "reddit_comments.csv"
 OUTPUT_DIR = "output"
 WORKERS = 128
-CHECKPOINT_EVERY = 250
+CHECKPOINT_EVERY = 2000
 
 
 def stable_hash(text: str) -> str:
     return hashlib.md5(text.encode()).hexdigest()[:8]
 
 
-def process_row(row: dict) -> dict:
-    result = analyze_comment(row["comments"])
+def result_to_row(row: dict, result: dict) -> dict:
     return {
         "id": row["id"],
         "datetime": row["datetime"],
@@ -49,6 +48,15 @@ def process_row(row: dict) -> dict:
     }
 
 
+def process_row(row: dict) -> list:
+    return [result_to_row(row, analyze_comment(row["comments"]))]
+
+
+def process_batch(rows: list) -> list:
+    results = analyze_comments_batch([r["comments"] for r in rows])
+    return [result_to_row(row, res) for row, res in zip(rows, results)]
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", default=DEFAULT_INPUT,
@@ -56,6 +64,8 @@ def main():
     parser.add_argument("--limit", type=int, default=None, help="Process only N rows (for testing)")
     parser.add_argument("--resume", action="store_true", help="Resume from checkpoint")
     parser.add_argument("--workers", type=int, default=WORKERS)
+    parser.add_argument("--batch", type=int, default=1,
+                        help="Comments per request (1 = original single-comment mode)")
     args = parser.parse_args()
 
     input_stem = os.path.splitext(os.path.basename(args.input))[0]
@@ -88,21 +98,29 @@ def main():
     todo = df[~df["id"].isin(done_ids)].to_dict("records")
     results = list(existing_rows)
 
-    with ThreadPoolExecutor(max_workers=args.workers) as executor:
-        futures = {executor.submit(process_row, row): row for row in todo}
-        for i, future in enumerate(tqdm(as_completed(futures), total=len(todo), desc="Inference")):
-            try:
-                results.append(future.result())
-            except Exception as e:
-                row = futures[future]
-                results.append({
-                    "id": row["id"], "datetime": row["datetime"],
-                    "subreddits": row["subreddits"], "submission_id": row.get("submission_id", ""),
-                    "comment": row["comments"][:500], "tickers": "", "sentiment": "neutral",
-                    "is_relevant": False, "per_ticker_sentiment": "", "error": str(e),
-                })
+    if args.batch > 1:
+        units = [todo[i:i + args.batch] for i in range(0, len(todo), args.batch)]
+        work = lambda unit: process_batch(unit)
+    else:
+        units = [[row] for row in todo]
+        work = lambda unit: process_row(unit[0])
 
-            if (i + 1) % CHECKPOINT_EVERY == 0:
+    with ThreadPoolExecutor(max_workers=args.workers) as executor:
+        futures = {executor.submit(work, unit): unit for unit in units}
+        for i, future in enumerate(tqdm(as_completed(futures), total=len(units),
+                                        desc="Inference", unit="req")):
+            try:
+                results.extend(future.result())
+            except Exception as e:
+                for row in futures[future]:
+                    results.append({
+                        "id": row["id"], "datetime": row["datetime"],
+                        "subreddits": row["subreddits"], "submission_id": row.get("submission_id", ""),
+                        "comment": row["comments"][:500], "tickers": "", "sentiment": "neutral",
+                        "is_relevant": False, "per_ticker_sentiment": "", "error": str(e),
+                    })
+
+            if (i + 1) % max(1, CHECKPOINT_EVERY // args.batch) == 0:
                 pd.DataFrame(results).to_csv(checkpoint_file, index=False)
 
     out = pd.DataFrame(results)

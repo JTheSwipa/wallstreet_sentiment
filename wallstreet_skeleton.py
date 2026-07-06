@@ -2,10 +2,43 @@ import glob
 import json
 import os
 import re
+import threading
+import time
 from langchain_openai import ChatOpenAI
 
 MODEL_NAME = os.environ.get("VLLM_MODEL", "mistralai/Mistral-Small-3.2-24B-Instruct-2506")
 API_KEY = os.environ.get("VLLM_API_KEY", "password")
+
+# Global request pacing for rate-limited endpoints (e.g. Mistral free tier).
+# LLM_RPS=1 spaces requests 1s apart across all worker threads; 0 = no throttle.
+_rate_lock = threading.Lock()
+_next_slot = [0.0]
+
+
+def _throttle():
+    rps = float(os.environ.get("LLM_RPS", "0") or 0)
+    if rps <= 0:
+        return
+    with _rate_lock:
+        now = time.monotonic()
+        slot = max(_next_slot[0], now)
+        _next_slot[0] = slot + 1.0 / rps
+    time.sleep(max(0.0, slot - now))
+
+
+def _invoke_with_backoff(messages, max_attempts: int = 6):
+    """Invoke the LLM, backing off on rate-limit/capacity errors instead of failing."""
+    for attempt in range(max_attempts):
+        _throttle()
+        try:
+            return _get_llm_client().invoke(messages)
+        except Exception as e:
+            msg = str(e).lower()
+            retryable = "429" in msg or "rate limit" in msg or "capacity" in msg or "too many requests" in msg
+            if retryable and attempt < max_attempts - 1:
+                time.sleep(min(60, 2 * 2 ** attempt))
+                continue
+            raise
 
 
 def _get_llm_endpoint(port: int = 8000) -> str:
@@ -143,7 +176,7 @@ Output: {"tickers": ["AAPL", "GM"], "sentiment": "very negative", "is_relevant":
 
 def analyze_comment(comment: str) -> dict:
     try:
-        response = _get_llm_client().invoke([
+        response = _invoke_with_backoff([
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": str(comment)[:2000]},
         ])
@@ -164,3 +197,58 @@ def analyze_comment(comment: str) -> dict:
         }
     except Exception as e:
         return {"tickers": [], "sentiment": "neutral", "is_relevant": False, "per_ticker_sentiment": {}, "error": str(e)}
+
+
+BATCH_SUFFIX = """
+
+## Batch mode
+You will receive MULTIPLE comments in one message, each prefixed with an index marker like <<<0>>>, <<<1>>>, ...
+Analyze each comment INDEPENDENTLY, exactly as if it were the only comment — one comment's content must never influence another's labels.
+Output a single JSON array with one object per comment, in index order. Each object uses the exact format specified above, plus an added "i" field with the comment's index number.
+Example: [{"i": 0, "tickers": ["AAPL"], "sentiment": "negative", "is_relevant": true}, {"i": 1, "tickers": [], "sentiment": "neutral", "is_relevant": false}]
+Output the JSON array only — no explanation, no markdown."""
+
+
+def _parse_result_obj(data: dict) -> dict:
+    sentiment = str(data.get("sentiment", "neutral")).lower().strip()
+    per_ticker = data.get("per_ticker_sentiment", {}) or {}
+    return {
+        "tickers": [t.upper().strip() for t in data.get("tickers", []) if str(t).strip()],
+        "sentiment": sentiment,
+        "is_relevant": bool(data.get("is_relevant", False)),
+        "per_ticker_sentiment": {k.upper(): str(v).lower() for k, v in per_ticker.items()} if per_ticker else {},
+        "error": None,
+    }
+
+
+def analyze_comments_batch(comments: list) -> list:
+    """Score a batch of comments in one request. Returns one result dict per
+    comment, aligned by position. Comments the model skips or garbles come back
+    with error set, so resume logic retries them."""
+    err_row = lambda e: {"tickers": [], "sentiment": "neutral", "is_relevant": False,
+                         "per_ticker_sentiment": {}, "error": str(e)}
+    try:
+        user_msg = "\n\n".join(
+            f"<<<{i}>>>\n{str(c)[:2000]}" for i, c in enumerate(comments)
+        )
+        response = _invoke_with_backoff([
+            {"role": "system", "content": SYSTEM_PROMPT + BATCH_SUFFIX},
+            {"role": "user", "content": user_msg},
+        ])
+        text = response.content.strip()
+        start = text.find("[")
+        end = text.rfind("]") + 1
+        if start == -1 or end == 0:
+            raise ValueError(f"No JSON array in response: {text[:200]}")
+        arr = json.loads(text[start:end])
+        by_index = {}
+        for obj in arr:
+            if isinstance(obj, dict) and isinstance(obj.get("i"), int):
+                by_index[obj["i"]] = obj
+        return [
+            _parse_result_obj(by_index[i]) if i in by_index
+            else err_row(f"index {i} missing from batch response")
+            for i in range(len(comments))
+        ]
+    except Exception as e:
+        return [err_row(e) for _ in comments]
