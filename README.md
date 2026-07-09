@@ -2,7 +2,7 @@
 
 **Course:** Big Data Lab, BBS / CINECA Leonardo  
 **Team:** Jovan, Alice, Sergio, Pierpaolo, Francesco  
-**Repo:** `https://gitlab.hpc.cineca.it/jjezdic0/big_data_lab`
+**Repo:** `https://gitlab.hpc.cineca.it/<cineca_user>/big_data_lab`
 
 ---
 
@@ -158,12 +158,12 @@ python run_inference.py --input data/wsb_2026.csv --resume   # resume after inte
 
 **Step 3 — SSH tunnels** (open on your laptop to access LLM + Jupyter)
 ```bash
-ssh -L 8000:<llm_ip>:8000 jjezdic0@login02-ext.leonardo.cineca.it -N
+ssh -L 8000:<llm_ip>:8000 <cineca_user>@login02-ext.leonardo.cineca.it -N
 ```
 
 **Step 4 — Download output + load into DuckDB** (run locally)
 ```bash
-scp jjezdic0@login02-ext.leonardo.cineca.it:.../output/wsb_2026_sentiment.csv output/
+scp <cineca_user>@login02-ext.leonardo.cineca.it:.../output/wsb_2026_sentiment.csv output/
 
 python db_init.py --load-inference output/wsb_2026_sentiment.csv --source arctic_shift
 python db_init.py --status
@@ -172,7 +172,7 @@ python db_init.py --status
 ### Upload data to Leonardo
 
 ```bash
-scp data/wsb_2026.csv jjezdic0@login02-ext.leonardo.cineca.it:/leonardo/home/userexternal/jjezdic0/jjezdic0/project/big_data_lab/data/wsb_2026.csv
+scp data/wsb_2026.csv <cineca_user>@login02-ext.leonardo.cineca.it:/leonardo/home/userexternal/<cineca_user>/<cineca_user>/project/big_data_lab/data/wsb_2026.csv
 ```
 
 ---
@@ -180,7 +180,7 @@ scp data/wsb_2026.csv jjezdic0@login02-ext.leonardo.cineca.it:/leonardo/home/use
 ## Running Locally
 
 ```bash
-git clone https://gitlab.hpc.cineca.it/jjezdic0/big_data_lab.git
+git clone https://gitlab.hpc.cineca.it/<cineca_user>/big_data_lab.git
 cd big_data_lab
 pip install pandas scikit-learn jupyter matplotlib seaborn duckdb yfinance
 
