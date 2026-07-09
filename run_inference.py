@@ -16,6 +16,7 @@ import argparse
 import hashlib
 import json
 import os
+import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import pandas as pd
@@ -27,6 +28,10 @@ DEFAULT_INPUT = "reddit_comments.csv"
 OUTPUT_DIR = "output"
 WORKERS = 128
 CHECKPOINT_EVERY = 2000
+# A dead API key (e.g. quota exhaustion → 401) fails fast without retry, so a
+# run can churn through every remaining row producing only error rows and still
+# exit "complete". Abort instead once this many requests in a row all fail.
+MAX_CONSECUTIVE_ERRORS = 30
 
 
 def stable_hash(text: str) -> str:
@@ -66,6 +71,8 @@ def main():
     parser.add_argument("--workers", type=int, default=WORKERS)
     parser.add_argument("--batch", type=int, default=1,
                         help="Comments per request (1 = original single-comment mode)")
+    parser.add_argument("--max-consecutive-errors", type=int, default=MAX_CONSECUTIVE_ERRORS,
+                        help="Abort after this many fully-failed requests in a row (0 = never abort)")
     args = parser.parse_args()
 
     input_stem = os.path.splitext(os.path.basename(args.input))[0]
@@ -105,20 +112,36 @@ def main():
         units = [[row] for row in todo]
         work = lambda unit: process_row(unit[0])
 
+    consecutive_errors = 0
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
         futures = {executor.submit(work, unit): unit for unit in units}
         for i, future in enumerate(tqdm(as_completed(futures), total=len(units),
                                         desc="Inference", unit="req")):
             try:
-                results.extend(future.result())
+                unit_rows = future.result()
             except Exception as e:
-                for row in futures[future]:
-                    results.append({
-                        "id": row["id"], "datetime": row["datetime"],
-                        "subreddits": row["subreddits"], "submission_id": row.get("submission_id", ""),
-                        "comment": row["comments"][:500], "tickers": "", "sentiment": "neutral",
-                        "is_relevant": False, "per_ticker_sentiment": "", "error": str(e),
-                    })
+                unit_rows = [{
+                    "id": row["id"], "datetime": row["datetime"],
+                    "subreddits": row["subreddits"], "submission_id": row.get("submission_id", ""),
+                    "comment": row["comments"][:500], "tickers": "", "sentiment": "neutral",
+                    "is_relevant": False, "per_ticker_sentiment": "", "error": str(e),
+                } for row in futures[future]]
+            results.extend(unit_rows)
+
+            if all(r["error"] for r in unit_rows):
+                consecutive_errors += 1
+            else:
+                consecutive_errors = 0
+            if args.max_consecutive_errors and consecutive_errors >= args.max_consecutive_errors:
+                pd.DataFrame(results).to_csv(checkpoint_file, index=False)
+                executor.shutdown(wait=False, cancel_futures=True)
+                last_error = unit_rows[-1]["error"]
+                sys.exit(
+                    f"\nABORT: {consecutive_errors} consecutive requests failed "
+                    f"(last error: {last_error[:200]}).\n"
+                    f"Endpoint or API key is likely dead — not writing final output.\n"
+                    f"Checkpoint saved: {checkpoint_file} — fix the key/endpoint and rerun with --resume."
+                )
 
             if (i + 1) % max(1, CHECKPOINT_EVERY // args.batch) == 0:
                 pd.DataFrame(results).to_csv(checkpoint_file, index=False)
@@ -131,7 +154,7 @@ def main():
     relevant = out[out["is_relevant"] == True]
     print(f"\nDone. {len(out):,} comments processed.")
     print(f"  Relevant: {len(relevant):,} ({len(relevant)/len(out)*100:.1f}%)")
-    print(f"  Errors:   {(out['error'] != '').sum():,}")
+    print(f"  Errors:   {(out['error'].fillna('') != '').sum():,}")
     print(f"\nSentiment distribution (relevant only):")
     print(relevant["sentiment"].value_counts().to_string())
     print(f"\nSaved: {output_file}")
