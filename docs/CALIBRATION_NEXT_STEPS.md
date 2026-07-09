@@ -21,7 +21,7 @@
 ## Version Control Setup
 
 **Your code repo is live at:**  
-`https://gitlab.hpc.cineca.it/jjezdic0/big_data_lab`
+`https://gitlab.hpc.cineca.it/<cineca_user>/big_data_lab`
 
 This is your personal repo on the CINECA GitLab — the same infrastructure as Leonardo, so it's accessible from both your local machine and the cluster.
 
@@ -46,13 +46,13 @@ git pull
 
 **To clone on Leonardo** (once you log in):
 ```bash
-git clone https://gitlab.hpc.cineca.it/jjezdic0/big_data_lab.git
+git clone https://gitlab.hpc.cineca.it/<cineca_user>/big_data_lab.git
 cd big_data_lab
 ```
 You'll need your GitLab Personal Access Token as the password.
 
 **To add teammates** so they can push too:  
-Go to `https://gitlab.hpc.cineca.it/jjezdic0/big_data_lab` → Settings → Members → add their CINECA usernames with "Developer" or "Maintainer" role.
+Go to `https://gitlab.hpc.cineca.it/<cineca_user>/big_data_lab` → Settings → Members → add their CINECA usernames with "Developer" or "Maintainer" role.
 
 ---
 
